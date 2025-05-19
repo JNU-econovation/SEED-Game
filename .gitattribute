@@ -1,0 +1,16 @@
+* text=auto
+
+# Unity 에셋들 (강제 LF 줄바꿈)
+*.unity         eol=lf
+*.prefab        eol=lf
+*.asset         eol=lf
+*.mat           eol=lf
+*.anim          eol=lf
+*.controller    eol=lf
+*.overrideController eol=lf
+
+# 코드 등 텍스트 파일
+*.cs            text
+*.shader        text
+*.json          text
+*.meta          text
