@@ -1226,6 +1226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9134031689796890627}
+  - {fileID: 7210356612179857014}
   m_Father: {fileID: 9078923366227191328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147574977388439635
@@ -3608,6 +3609,7 @@ MonoBehaviour:
   rollDistance: 5
   rollDuration: 1
   rollSpeed: 8
+  cameraTransform: {fileID: 0}
   isRolling: 0
 --- !u!136 &4887943306606626359
 CapsuleCollider:
@@ -4591,6 +4593,37 @@ Transform:
   - {fileID: 1945612629962985003}
   - {fileID: 4660979832624507142}
   - {fileID: 7436534194560683575}
+  m_Father: {fileID: 7113502469316044368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6720085714442811028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7210356612179857014}
+  m_Layer: 0
+  m_Name: CameraFollowTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7210356612179857014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720085714442811028}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.07, z: 0.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 7113502469316044368}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6721396000962960466
