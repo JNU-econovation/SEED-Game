@@ -31,11 +31,22 @@ public class PlayerMovement : MonoBehaviour
     private float rollTimer = 0f;
     private Vector3 rollDirection;
 
+    //콜라이더 설정
+    private CapsuleCollider capsule;
+    private float originalHeight;
+    private Vector3 originalCenter;
+    [SerializeField] float rollHeight = 0.5f; // 구를 때의 높이
+    [SerializeField] Vector3 rollCenter = new Vector3(0f, 0.25f, 0f); // 구를 때의 중심
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         attackScript = GetComponent<PlayerAttack>();
+
+        capsule = GetComponent<CapsuleCollider>();
+        originalHeight = capsule.height;
+        originalCenter = capsule.center;
     }
 
     void Update()
@@ -133,27 +144,23 @@ public class PlayerMovement : MonoBehaviour
             isRolling = true;
             rollTimer = rollDuration;
 
-            // [변경] 방향에 따라 다른 구르기 애니메이션 트리거
+            // 콜라이더 작게 만들기
+            capsule.height = rollHeight;
+            capsule.center = rollCenter;
+
+            // 애니메이션 트리거
             float leftDot = Vector3.Dot(inputDir, -transform.right);
             float rightDot = Vector3.Dot(inputDir, transform.right);
             float backDot = Vector3.Dot(inputDir, -transform.forward);
 
             if (leftDot > 0.7f)
-            {
                 animator.SetTrigger("RollLeft");
-            }
             else if (rightDot > 0.7f)
-            {
                 animator.SetTrigger("RollRight");
-            }
             else if (backDot > 0.7f)
-            {
                 animator.SetTrigger("RollBackward");
-            }
             else
-            {
                 animator.SetTrigger("RollForward");
-            }
         }
     }
 
@@ -179,9 +186,14 @@ public class PlayerMovement : MonoBehaviour
             if (rollTimer <= 0f)
             {
                 isRolling = false;
+
+                capsule.height = originalHeight;
+                capsule.center = originalCenter;
+
                 rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 return;
             }
+
 
             float rollSpeed = rollDistance / rollDuration;
             Vector3 rollVelocity = rollDirection * rollSpeed;

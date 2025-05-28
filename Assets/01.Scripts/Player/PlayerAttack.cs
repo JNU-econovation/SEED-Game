@@ -27,7 +27,12 @@ public class PlayerAttack : MonoBehaviour
             animator.SetTrigger("Attack");
             isAttacking = true;
             attackTimer = attackCooldown;
+
+            EnableAttackHitbox(); // 공격 시작 시 활성화
+
+            Invoke(nameof(DisableAttackHitbox), 0.5f); // 공격 후 0.5초 뒤에 비활성화
         }
+
 
         // 공격 시간 경과 체크
         if (isAttacking)
@@ -49,5 +54,4 @@ public class PlayerAttack : MonoBehaviour
     {
         attackCollider.SetActive(false);
     }
-
 }
