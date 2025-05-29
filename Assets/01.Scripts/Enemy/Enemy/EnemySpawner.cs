@@ -5,8 +5,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private BoxCollider spawnArea;
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private int maxEnemies = 5;
+    [SerializeField] private float spawnRate = 5f;
     
-    private int maxEnemies = 5;
     private int currentEnemies = 0;
     
     void Start()
@@ -23,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
                 Debug.Log("몬스터 스폰 됨");
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(spawnRate);
         }
     }
 
