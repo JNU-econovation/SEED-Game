@@ -6,7 +6,6 @@ public class EnemyInfos : ScriptableObject
 {
     public string name;
     public float maxHealth;
-    public float speed;
     public float detectionRange;
     public bool isBoss;
     public AttackInfos attackInfo;
