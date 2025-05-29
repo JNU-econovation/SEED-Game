@@ -12,15 +12,19 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Move(Vector3 targetPosition)
     {
-        
+        if (agent.enabled)
+        {
+            agent.SetDestination(targetPosition);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Stop()
     {
-        
+        if (agent.enabled)
+        {
+            agent.ResetPath();
+        }
     }
 }
