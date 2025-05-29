@@ -57,20 +57,12 @@ public class EnemyAI : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
+            case EnemyState.Attack:
+            case EnemyState.Hit:
+            case EnemyState.Dead:
                 movement.Stop();
                 break;
             case EnemyState.Chase:
-                movement.Move(player.position);
-                Debug.Log("chase로 변경됨");
-                break;
-            case EnemyState.Attack:
-                movement.Stop();
-                break;
-            case EnemyState.Hit:
-                movement.Stop();
-                break;
-            case EnemyState.Dead:
-                movement.Stop();
                 break;
         }
     }
