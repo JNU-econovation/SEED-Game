@@ -39,8 +39,19 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab);
+        Instantiate(enemyPrefab, randomPosition(), Quaternion.identity);
         currentEnemies++;
+    }
+
+    private Vector3 randomPosition()
+    {
+        // extents = size / 2
+        float startX = transform.position.x - spawnArea.bounds.extents.x;
+        float startZ = transform.position.z - spawnArea.bounds.extents.z;
+        Vector3 spawnPosition = new Vector3(Random.Range(startX, startX + spawnArea.bounds.size.x),
+            spawnArea.center.y, Random.Range(startZ, startZ + spawnArea.bounds.size.z));
+        
+        return spawnPosition;
     }
 
     void tmp(Enemy deadEnemy)
