@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isRolling = false;
     private float rollTimer = 0f;
     private Vector3 rollDirection;
+    private Vector3 cachedInputDir = Vector3.zero;
 
     //콜라이더 설정
     private CapsuleCollider capsule;
@@ -133,35 +134,46 @@ public class PlayerMovement : MonoBehaviour
             jumpTimer = jumpCooldown;
         }
 
+        cachedInputDir = Vector3.zero;
+        if (Input.GetKey(KeyCode.W)) cachedInputDir += transform.forward;
+        if (Input.GetKey(KeyCode.S)) cachedInputDir -= transform.forward;
+        if (Input.GetKey(KeyCode.A)) cachedInputDir -= transform.right;
+        if (Input.GetKey(KeyCode.D)) cachedInputDir += transform.right;
+        cachedInputDir.Normalize();
+
         // 구르기
         if (!isRolling && Input.GetKeyDown(KeyCode.LeftControl) && isGrounded && !attackScript.isAttacking)
         {
-            Vector3 inputDir = moveDir;
-            if (inputDir == Vector3.zero)
-                inputDir = transform.forward;
+            if (cachedInputDir == Vector3.zero)
+                cachedInputDir = transform.forward;
 
-            rollDirection = inputDir;
-            isRolling = true;
-            rollTimer = rollDuration;
-
-            // 콜라이더 작게 만들기
-            capsule.height = rollHeight;
-            capsule.center = rollCenter;
-
-            // 애니메이션 트리거
-            float leftDot = Vector3.Dot(inputDir, -transform.right);
-            float rightDot = Vector3.Dot(inputDir, transform.right);
-            float backDot = Vector3.Dot(inputDir, -transform.forward);
-
-            if (leftDot > 0.7f)
-                animator.SetTrigger("RollLeft");
-            else if (rightDot > 0.7f)
-                animator.SetTrigger("RollRight");
-            else if (backDot > 0.7f)
-                animator.SetTrigger("RollBackward");
-            else
-                animator.SetTrigger("RollForward");
+            StartRoll(cachedInputDir);
         }
+    }
+
+    void StartRoll(Vector3 inputDir)
+    {
+        rollDirection = inputDir.normalized;
+        isRolling = true;
+        rollTimer = rollDuration;
+
+        // 콜라이더 작게 만들기
+        capsule.height = rollHeight;
+        capsule.center = rollCenter;
+
+        // 애니메이션 트리거
+        float leftDot = Vector3.Dot(inputDir, -transform.right);
+        float rightDot = Vector3.Dot(inputDir, transform.right);
+        float backDot = Vector3.Dot(inputDir, -transform.forward);
+
+        if (leftDot > 0.7f)
+            animator.SetTrigger("RollLeft");
+        else if (rightDot > 0.7f)
+            animator.SetTrigger("RollRight");
+        else if (backDot > 0.7f)
+            animator.SetTrigger("RollBackward");
+        else
+            animator.SetTrigger("RollForward");
     }
 
     void FixedUpdate()
@@ -172,14 +184,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
-        else
-        {
-            velocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
-        }
-
-        rb.linearVelocity = velocity;
-
-        if (isRolling)
+        else if (isRolling)
         {
             rollTimer -= Time.fixedDeltaTime;
 
@@ -194,11 +199,16 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
 
-
             float rollSpeed = rollDistance / rollDuration;
             Vector3 rollVelocity = rollDirection * rollSpeed;
             rb.linearVelocity = new Vector3(rollVelocity.x, rb.linearVelocity.y, rollVelocity.z);
             return;
         }
+        else
+        {
+            moveDirection = cachedInputDir * walkSpeed;
+            rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
+        }
     }
+
 }
