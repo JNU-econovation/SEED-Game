@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth_Rect : MonoBehaviour
+public class EnemyHealthUI: MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
@@ -27,11 +27,6 @@ public class EnemyHealth_Rect : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            TakeDamage(20f);
-        }
-
         if (currentHealth < maxHealth)
         {
             timeSinceLastHit += Time.deltaTime;
@@ -45,8 +40,10 @@ public class EnemyHealth_Rect : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
+        Debug.Log("ÇÇ°ÝµÊ: " + damage);
+
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
 
