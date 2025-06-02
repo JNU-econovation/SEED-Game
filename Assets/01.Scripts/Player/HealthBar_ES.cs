@@ -18,12 +18,6 @@ public class HealthBar_ES : MonoBehaviour
 
     void Update()
     {
-        // 스페이스바 누르면 데미지 10
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10f);
-        }
-
         // 좌클릭 누르면 체력 회복 5
         if (Input.GetMouseButtonDown(0))  // 0: 왼쪽 클릭
         {
@@ -31,7 +25,7 @@ public class HealthBar_ES : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);

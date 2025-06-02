@@ -232,11 +232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 2.736
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -244,11 +244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -256,10 +256,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 515471733011550504, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607499987148880288, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 895233791870159762, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
@@ -1116,6 +1120,10 @@ PrefabInstance:
     - target: {fileID: 4522664779331387560, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887943306606626359, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5313609101142802810, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
       propertyPath: groundCheck
