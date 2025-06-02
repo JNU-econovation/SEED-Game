@@ -30,12 +30,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Enemy.OnEnemyDied += tmp;
+        Enemy.onEnemyDied += tmp;
     }
 
     private void OnDisable()
     {
-        Enemy.OnEnemyDied -= tmp;
+        Enemy.onEnemyDied -= tmp;
     }
 
     private void SpawnEnemy()
