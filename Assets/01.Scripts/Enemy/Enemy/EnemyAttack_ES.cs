@@ -9,11 +9,10 @@ public class EnemyAttack_ES : MonoBehaviour
         playerHealth = FindObjectOfType<HealthBar_ES>();  // 씬 내 HealthBar_ES 컴포넌트 찾아서 저장
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("플레이어 감지! 데미지 줌");
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(10f);
