@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class HealthBar_ES : MonoBehaviour
 {
+    // ë­ê°€ ë¬¸ì œì•¼.
     [SerializeField] RectTransform HealthBarfillRect;
     [SerializeField] float maxHealth = 100f;
     private float currentHealth;
@@ -18,11 +19,7 @@ public class HealthBar_ES : MonoBehaviour
 
     void Update()
     {
-        // ÁÂÅ¬¸¯ ´©¸£¸é Ã¼·Â È¸º¹ 5
-        if (Input.GetMouseButtonDown(0))  // 0: ¿ŞÂÊ Å¬¸¯
-        {
-            Heal(5f);
-        }
+
     }
 
     public void TakeDamage(float damage)
