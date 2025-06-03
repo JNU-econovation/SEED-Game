@@ -33,7 +33,7 @@ public class EnemyAttack_ES : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isInvincible)
         {
-            // 충돌이 시작되면 2초 대기 시작
+            // 충돌이 시작되면 1초 대기 시작
             if (!isWaitingForDamage)
             {
                 isWaitingForDamage = true;
@@ -47,10 +47,10 @@ public class EnemyAttack_ES : MonoBehaviour
     {
         if (other.CompareTag("Player") && isWaitingForDamage && !isInvincible)
         {
-            // 충돌 후 2초가 지나면 데미지 주기
-            if (Time.time - istriggerTime >= 2f)
+            // 충돌 후 1초가 지나면 데미지 주기
+            if (Time.time - istriggerTime >= 1f)
             {
-                // 2초 동안 충돌이 계속되면 데미지 주기
+                // 1초 동안 충돌이 계속되면 데미지 주기
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(10f);
@@ -65,8 +65,8 @@ public class EnemyAttack_ES : MonoBehaviour
         // 무적 상태가 끝난 후 충돌이 계속되면 다시 데미지 처리
         if (isInvincible == false && isWaitingForDamage == false)
         {
-            // 충돌 상태에서 무적이 끝난 후 2초가 지나면 다시 데미지 주기
-            if (Time.time - istriggerTime >= 2f)
+            // 충돌 상태에서 무적이 끝난 후 1초가 지나면 다시 데미지 주기
+            if (Time.time - istriggerTime >= 1f)
             {
                 if (playerHealth != null)
                 {
