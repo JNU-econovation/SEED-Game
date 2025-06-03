@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 607499987148880288, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 895233791870159762, guid: b3a3128e59ab14effb32d3e681e48ed2, type: 3}
       propertyPath: m_Name
@@ -1117,13 +1117,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 480828579749945304, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4522664779331387560, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887943306606626359, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5313609101142802810, guid: beed0d1646195fa4dbb79e83b3fabd8b, type: 3}
       propertyPath: groundCheck

@@ -42,8 +42,6 @@ public class EnemyHealthUI: MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("ÇÇ°ÝµÊ: " + damage);
-
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
 
