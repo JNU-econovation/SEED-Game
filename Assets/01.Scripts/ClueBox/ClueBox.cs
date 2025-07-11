@@ -3,5 +3,15 @@ using UnityEngine;
 
 public class ClueBox : MonoBehaviour
 {
-    public HashSet<ClueInfos> clueInfos = new HashSet<ClueInfos>();
+    private HashSet<ClueInfos> clueInfos = new HashSet<ClueInfos>();
+
+    public IEnumerable<ClueInfos> GetClueInfos()
+    {
+        return clueInfos;
+    }
+    
+    public void AddClue(ClueInfos clue)
+    {
+        clueInfos.Add(clue);
+    }
 }
