@@ -8,7 +8,7 @@ public class ClueListPanel : MonoBehaviour
     [SerializeField] private GameObject cluListButtonPrefab;
     
     
-    public void UpdateClueList()
+    private void OnEnable()
     {
         HashSet<ClueInfos> childClueInfosSet = new HashSet<ClueInfos>();
         foreach (Transform child in content)

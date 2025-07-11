@@ -1,19 +1,36 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClueListButton : MonoBehaviour
 {
     public ClueInfos clueInfos { get; private set; }
 
-    private TextMeshPro clueName;
-    private Sprite clueImage;
+    private TextMeshProUGUI clueName;
+    private Image clueImage;
 
+    private void Awake()
+    {
+        foreach (Transform child in transform)
+        {
+            if (clueName == null)
+            {
+                clueName = child.GetComponent<TextMeshProUGUI>();
+            }
+
+            if (clueImage == null)
+            {
+                clueImage = child.GetComponent<Image>();
+            }
+        }
+    }
+
+    
     public void Init(ClueInfos clueInfos)
     {
-        this.clueInfos = clueInfos;
-        
+        this.clueInfos = clueInfos;     
         clueName.text = clueInfos.name;
-        clueImage = clueInfos.clueImage;
+        clueImage.sprite = clueInfos.clueImage;
     }
 
 }
