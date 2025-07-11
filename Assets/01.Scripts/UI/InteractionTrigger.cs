@@ -58,8 +58,8 @@ public class InteractionTrigger : MonoBehaviour
     {
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
-        yield return new WaitForSeconds(totalDisplayTime);
         MoveToClueBox();
+        yield return new WaitForSeconds(totalDisplayTime);
         Destroy(gameObject);
     }
 
