@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InteractionTrigger : MonoBehaviour
 {
+    [SerializeField] private GameObject clueBox;
+    
     public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
     public TextManager TextManager;
     public KeyCode interactionKey = KeyCode.F;

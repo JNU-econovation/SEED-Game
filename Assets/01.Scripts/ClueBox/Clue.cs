@@ -12,9 +12,13 @@ public class Clue : MonoBehaviour
     [Header("위아래 움직임 설정")]
     [SerializeField] private float bounceSpeed = 5f;
     [SerializeField] private float bounceHeight = 0.05f;
+
+    [Header("단서 설명")]
+    [SerializeField] private string clueDescription;
     
     private Vector3 startPos;
     
+    public string ClueDescription => clueDescription;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
