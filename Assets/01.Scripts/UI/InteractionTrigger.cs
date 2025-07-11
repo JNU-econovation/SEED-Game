@@ -40,7 +40,7 @@ public class InteractionTrigger : MonoBehaviour
             // 다른 상호작용은 없어지면 안됨
             if (tag == "Clue" && !isClicked)
             {
-                StartCoroutine(DestroyAfterTime());
+                StartCoroutine(GetClue());
             }
         }
     }
@@ -54,14 +54,21 @@ public class InteractionTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator DestroyAfterTime()
+    private IEnumerator GetClue()
     {
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
         yield return new WaitForSeconds(totalDisplayTime);
+        MoveToClueBox();
         Destroy(gameObject);
     }
 
+    private void MoveToClueBox()
+    {
+        Clue clue = GetComponent<Clue>();
+        clueBox.GetComponent<ClueBox>().clueInfos.Add(clue.clueInfos);
+    }
+    
     private void DisableInteraction()
     {
         GetComponent<Renderer>().enabled = false;
