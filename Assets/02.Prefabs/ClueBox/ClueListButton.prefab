@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 8990162043703617535}
   - component: {fileID: 2553811673130741744}
   - component: {fileID: 5176252019006386771}
+  - component: {fileID: 2415456040863314841}
   m_Layer: 5
   m_Name: ClueListButton
   m_TagString: Untagged
@@ -197,6 +198,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2415456040863314841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106918761581226224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38773d00f65014dec806db78b6d151c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7503969404513262897
 GameObject:
   m_ObjectHideFlags: 0
