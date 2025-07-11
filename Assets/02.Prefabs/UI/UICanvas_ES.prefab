@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ca50d93edaa449eaab287cd79c8b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueBox: {fileID: 4195268381077943856, guid: 9d58bc6ca350a45ef8b9a405d2359da4, type: 3}
+  clueBox: {fileID: 0}
   content: {fileID: 8508744972925181081}
   clueListButtonPrefab: {fileID: 4106918761581226224, guid: 70c9148eef4f7f44980b3b16ede3aede, type: 3}
 --- !u!1001 &4421415607786968635
