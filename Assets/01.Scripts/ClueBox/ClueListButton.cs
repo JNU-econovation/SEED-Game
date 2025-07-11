@@ -8,20 +8,12 @@ public class ClueListButton : MonoBehaviour
     private TextMeshPro clueName;
     private Sprite clueImage;
 
-    private void OnEnable()
-    {
-        clueName.text = clueInfos.name;
-        clueImage = clueInfos.clueImage;
-    }
-
-    public void UpdateClue()
-    {
-        
-    }
-
     public void Init(ClueInfos clueInfos)
     {
         this.clueInfos = clueInfos;
+        
+        clueName.text = clueInfos.name;
+        clueImage = clueInfos.clueImage;
     }
 
 }
