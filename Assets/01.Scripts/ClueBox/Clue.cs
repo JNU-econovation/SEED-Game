@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(InteractionTrigger))]
 public class Clue : MonoBehaviour
 {
-    [SerializeField] private GameObject clueImage;  
-    
     [Header("회전 속도")]
     [SerializeField] private float rotateSpeed = 20f;
     
@@ -13,12 +11,11 @@ public class Clue : MonoBehaviour
     [SerializeField] private float bounceSpeed = 5f;
     [SerializeField] private float bounceHeight = 0.05f;
 
-    [Header("단서 설명")]
-    [SerializeField] private string clueDescription;
+    [Header("단서 정보")]
+    public ClueInfos clueInfos;
     
     private Vector3 startPos;
     
-    public string ClueDescription => clueDescription;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
