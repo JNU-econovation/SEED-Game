@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ClueListButton : MonoBehaviour
 {
-    [SerializeField] private ClueDescriptionPanel clueDescriptionPanel;
+    private ClueDescriptionPanel clueDescriptionPanel;
 
     public ClueInfos clueInfos { get; private set; }
 
@@ -27,9 +27,11 @@ public class ClueListButton : MonoBehaviour
         }
     }
     
-    public void Init(ClueInfos clueInfos)
+    public void Init(ClueInfos clueInfos, ClueDescriptionPanel clueDescriptionPanel)
     {
-        this.clueInfos = clueInfos;     
+        this.clueInfos = clueInfos;
+        this.clueDescriptionPanel = clueDescriptionPanel;
+        
         clueName.text = clueInfos.name;
         clueImage.sprite = clueInfos.clueImage;
     }

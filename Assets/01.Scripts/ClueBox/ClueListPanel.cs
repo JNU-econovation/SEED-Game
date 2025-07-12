@@ -6,7 +6,7 @@ public class ClueListPanel : MonoBehaviour
     [SerializeField] private ClueBox clueBox;
     [SerializeField] private Transform content;
     [SerializeField] private GameObject clueListButtonPrefab;
-    
+    [SerializeField] private ClueDescriptionPanel clueDescriptionPanel;
     
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class ClueListPanel : MonoBehaviour
             if (!childClueInfosSet.Contains(clueInfos))
             {
                 GameObject clueListButton = Instantiate(clueListButtonPrefab, content);
-                clueListButton.GetComponent<ClueListButton>().Init(clueInfos);
+                clueListButton.GetComponent<ClueListButton>().Init(clueInfos, clueDescriptionPanel);
             }
         }
     }
