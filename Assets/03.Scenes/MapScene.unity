@@ -204214,7 +204214,7 @@ PrefabInstance:
     - target: {fileID: 1769733901, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 782261173}
+      objectReference: {fileID: 0}
     - target: {fileID: 7036766287611309663, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
