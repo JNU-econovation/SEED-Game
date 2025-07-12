@@ -4,11 +4,13 @@ using UnityEngine.UI;
 
 public class ClueListButton : MonoBehaviour
 {
+    [SerializeField] private ClueDescriptionPanel clueDescriptionPanel;
+
     public ClueInfos clueInfos { get; private set; }
 
     private TextMeshProUGUI clueName;
     private Image clueImage;
-
+    
     private void Awake()
     {
         foreach (Transform child in transform)
@@ -24,7 +26,6 @@ public class ClueListButton : MonoBehaviour
             }
         }
     }
-
     
     public void Init(ClueInfos clueInfos)
     {
@@ -32,5 +33,9 @@ public class ClueListButton : MonoBehaviour
         clueName.text = clueInfos.name;
         clueImage.sprite = clueInfos.clueImage;
     }
-
+    
+    public void OnClick()
+    {
+        clueDescriptionPanel.ShowCLueInfos(clueInfos);
+    }
 }
