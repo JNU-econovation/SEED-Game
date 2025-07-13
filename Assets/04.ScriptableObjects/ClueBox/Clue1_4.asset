@@ -16,3 +16,4 @@ MonoBehaviour:
   description: "\uB2E8\uC11C1 \uC870\uAC01\uC785\uB2C8\uB2E4."
   clueImage: {fileID: -3989417037294542392, guid: dc095ce8d2086f541bd26c7e3a71ef12, type: 3}
   clueIndex: 4
+  completeClue: {fileID: 11400000, guid: 7c96dc9a96cf14444b927c117a023618, type: 2}
