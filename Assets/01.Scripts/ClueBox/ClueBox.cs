@@ -14,4 +14,9 @@ public class ClueBox : MonoBehaviour
     {
         clueInfosSet.Add(clue);
     }
+
+    public void RemoveClue(ClueInfos clue)
+    {
+        clueInfosSet.Remove(clue);   
+    }
 }
