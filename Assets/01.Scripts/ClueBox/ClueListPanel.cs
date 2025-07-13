@@ -10,10 +10,16 @@ public class ClueListPanel : MonoBehaviour
     
     private void OnEnable()
     {
+        UpdateClueList();
+    }
+
+    public void UpdateClueList()
+    {
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);       
         }
+
         foreach (ClueInfos clueInfos in clueBox.GetClueInfos())
         {
             GameObject clueListButton = Instantiate(clueListButtonPrefab, content);
