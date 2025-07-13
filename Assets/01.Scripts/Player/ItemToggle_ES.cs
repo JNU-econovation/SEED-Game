@@ -22,17 +22,16 @@ public class ItemToggle_ES: MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            // 스프라이트 전환
+            Sprite temp = ItemToggleBar1.sprite;
+            ItemToggleBar1.sprite = ItemToggleBar2.sprite;
+            ItemToggleBar2.sprite = temp;
             ChangeWeapon();
         }
     }
 
     public void ChangeWeapon()
     {
-        // 스프라이트 전환
-        Sprite temp = ItemToggleBar1.sprite;
-        ItemToggleBar1.sprite = ItemToggleBar2.sprite;
-        ItemToggleBar2.sprite = temp;
-
         // 상태 업데이트
         UpdateState();
     }
