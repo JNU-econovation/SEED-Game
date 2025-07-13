@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InteractionTrigger : MonoBehaviour
 {
+    [SerializeField] private GameObject clueBox;
+    
     public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
     public TextManager TextManager;
     public KeyCode interactionKey = KeyCode.F;
@@ -38,7 +40,7 @@ public class InteractionTrigger : MonoBehaviour
             // 다른 상호작용은 없어지면 안됨
             if (tag == "Clue" && !isClicked)
             {
-                StartCoroutine(DestroyAfterTime());
+                StartCoroutine(GetClue());
             }
         }
     }
@@ -52,14 +54,21 @@ public class InteractionTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator DestroyAfterTime()
+    private IEnumerator GetClue()
     {
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
+        MoveToClueBox();
         yield return new WaitForSeconds(totalDisplayTime);
         Destroy(gameObject);
     }
 
+    private void MoveToClueBox()
+    {
+        Clue clue = GetComponent<Clue>();
+        clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
+    }
+    
     private void DisableInteraction()
     {
         GetComponent<Renderer>().enabled = false;
