@@ -12,6 +12,12 @@ public class ClueBox : MonoBehaviour
     
     public void AddClue(ClueInfos clue)
     {
+        // 단서 완성품이 있을 때 단서조각 안 먹어지게
+        if (clue.completeClue != null)
+        {
+            if (clueInfosSet.Contains(clue.completeClue))
+                return;
+        }
         clueInfosSet.Add(clue);
     }
 
