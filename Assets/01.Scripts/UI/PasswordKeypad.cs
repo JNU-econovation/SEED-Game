@@ -12,6 +12,8 @@ public class PasswordKeypad : MonoBehaviour
     public float statusDisplayDuration = 2f;
     private string currentInput = "";
     [SerializeField] private string correctPassword = "";
+    public PasswordTrigger passwordTrigger;
+
 
     public void AppendNumber(string number)
     {
@@ -39,7 +41,9 @@ public class PasswordKeypad : MonoBehaviour
 
             keypadPanel.SetActive(false);
             Time.timeScale = 1f;
-            // 여기서 문 열기 등 액션
+
+            if (passwordTrigger != null)
+                passwordTrigger.Unlock();
         }
         else
         {

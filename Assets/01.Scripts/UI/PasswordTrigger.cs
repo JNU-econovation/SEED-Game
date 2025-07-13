@@ -6,30 +6,30 @@ public class PasswordTrigger : MonoBehaviour
     public GameObject passwordPanel; // 키패드 UI
     public GameObject interactionUI;     // "F 키를 눌러 상호작용하세요" 텍스트
     private bool isPlayerNear = false;
+    private bool isUnlocked = false;
 
     void Update()
     {
-        if (isPlayerNear)
+        if (isPlayerNear && !isUnlocked)
         {
-
             if (Input.GetKeyDown(KeyCode.F))
             {
-                passwordPanel.SetActive(true); // 키패드 열기
-                Time.timeScale = 0f; // (선택사항) 게임 일시정지
+                passwordPanel.SetActive(true);
+                Time.timeScale = 0f;
             }
         }
-        else
+        else if (!isPlayerNear)
         {
-            interactionUI.SetActive(false); // 멀어지면 메시지 끄기
+            interactionUI.SetActive(false);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isUnlocked)
         {
             isPlayerNear = true;
-            interactionUI.SetActive(true); // 👉 여기 추가!
+            interactionUI.SetActive(true);
         }
     }
 
@@ -40,5 +40,11 @@ public class PasswordTrigger : MonoBehaviour
             isPlayerNear = false;
             interactionUI.SetActive(false);
         }
+    }
+
+    public void Unlock()
+    {
+        isUnlocked = true;
+        interactionUI.SetActive(false);
     }
 }
