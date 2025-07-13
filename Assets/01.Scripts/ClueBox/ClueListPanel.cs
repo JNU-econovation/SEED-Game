@@ -8,6 +8,8 @@ public class ClueListPanel : MonoBehaviour
     [SerializeField] private GameObject clueListButtonPrefab;
     [SerializeField] private ClueDescriptionPanel clueDescriptionPanel;
     
+    public ClueBox ClueBox => clueBox;
+    
     private void OnEnable()
     {
         UpdateClueList();
