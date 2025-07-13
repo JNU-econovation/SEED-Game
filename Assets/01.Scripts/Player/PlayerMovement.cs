@@ -97,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
         float inputX = Vector3.Dot(moveDir, transform.right);
         float inputZ = Vector3.Dot(moveDir, transform.forward);
 
-        animator.SetFloat("MoveX", inputX, 0.05f, Time.deltaTime);
-        animator.SetFloat("MoveZ", inputZ, 0.05f, Time.deltaTime);
+        animator.SetFloat("MoveX", inputX, 0.01f, Time.deltaTime);
+        animator.SetFloat("MoveZ", inputZ, 0.01f, Time.deltaTime);
 
         float currentSpeed = walkSpeed;
         bool isRunning = Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift);
