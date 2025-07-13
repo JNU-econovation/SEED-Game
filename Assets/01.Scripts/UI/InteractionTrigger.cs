@@ -8,10 +8,17 @@ public class InteractionTrigger : MonoBehaviour
     public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
     public TextManager TextManager;
     public KeyCode interactionKey = KeyCode.F;
-    
+
+    private WeaponTrigger weaponTrigger;
     private bool isPlayerInRange = false;
     private bool isClicked = false;
-    
+
+
+    private void Awake()
+    {
+        weaponTrigger = GetComponent<WeaponTrigger>();
+    }
+
     void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
@@ -41,6 +48,11 @@ public class InteractionTrigger : MonoBehaviour
             if (tag == "Clue" && !isClicked)
             {
                 StartCoroutine(GetClue());
+            }
+
+            if (tag == "PlayerWeapon")
+            {
+                weaponTrigger.ChangeWeapon();
             }
         }
     }

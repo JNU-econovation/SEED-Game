@@ -8,22 +8,24 @@ public class ClueListPanel : MonoBehaviour
     [SerializeField] private GameObject clueListButtonPrefab;
     [SerializeField] private ClueDescriptionPanel clueDescriptionPanel;
     
+    public ClueBox ClueBox => clueBox;
+    
     private void OnEnable()
     {
-        HashSet<ClueInfos> childClueInfosSet = new HashSet<ClueInfos>();
+        UpdateClueList();
+    }
+
+    public void UpdateClueList()
+    {
         foreach (Transform child in content)
         {
-            ClueListButton clueListButton = child.GetComponent<ClueListButton>();
-            childClueInfosSet.Add(clueListButton.clueInfos);
+            Destroy(child.gameObject);       
         }
-        
+
         foreach (ClueInfos clueInfos in clueBox.GetClueInfos())
         {
-            if (!childClueInfosSet.Contains(clueInfos))
-            {
-                GameObject clueListButton = Instantiate(clueListButtonPrefab, content);
-                clueListButton.GetComponent<ClueListButton>().Init(clueInfos, clueDescriptionPanel);
-            }
+            GameObject clueListButton = Instantiate(clueListButtonPrefab, content);
+            clueListButton.GetComponent<ClueListButton>().Init(clueInfos, clueDescriptionPanel);
         }
     }
 }

@@ -26,10 +26,14 @@ public class ItemToggle_ES: MonoBehaviour
             Sprite temp = ItemToggleBar1.sprite;
             ItemToggleBar1.sprite = ItemToggleBar2.sprite;
             ItemToggleBar2.sprite = temp;
-
-            // 상태 업데이트
-            UpdateState();
+            ChangeWeapon();
         }
+    }
+
+    public void ChangeWeapon()
+    {
+        // 상태 업데이트
+        UpdateState();
     }
 
     void UpdateState()
