@@ -6,9 +6,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
     [SerializeField] private HealthBar_ES playerHealthUI;
-    
+
     private PlayerStun stun;
-    
+
     private void Awake()
     {
         stun = GetComponent<PlayerStun>();
@@ -24,14 +24,22 @@ public class PlayerHealth : MonoBehaviour
         float damage = weapon.Damage;
         TakeDamage(damage);
     }
-    
+
     public void TakeDamage(float damage)
     {
         Debug.Log("플레이어 피격 데미지: " + damage);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        AudioManager.Instance.PlayPlayerHit();
+
         stun.ApplyStun(3f);
         playerHealthUI.SetHealth(currentHealth);
+
+        if (currentHealth <= 0f)
+        {
+            Die();
+        }
     }
 
     private void Heal(float amount)
@@ -39,13 +47,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
     }
-    
     void Start()
     {
         playerHealthUI.Init(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
