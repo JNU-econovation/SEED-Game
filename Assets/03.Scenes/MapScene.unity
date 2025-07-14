@@ -9843,6 +9843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passwordPanel: {fileID: 1392527415}
   interactionUI: {fileID: 564989482}
+  firstFloorOfficeDoor: {fileID: 2063344834}
+  Player2: {fileID: 782261173}
 --- !u!65 &109821957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205021,6 +205023,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
   m_PrefabInstance: {fileID: 1381951835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2063344834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1188093265419913699, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
+  m_PrefabInstance: {fileID: 1303669819}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2063344835 stripped
 Transform:
