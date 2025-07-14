@@ -67,6 +67,7 @@ public class AudioManager : MonoBehaviour
             clip = defaultBGM;
 
         bgmSource.clip = clip;
+        bgmSource.volume = bgmVolume;
         bgmSource.Play();
     }
 
@@ -148,7 +149,7 @@ public class AudioManager : MonoBehaviour
         PlaySFX(clueCombineSound);
     }
 
-    // 👾 보스 스킬
+    // 👑 보스 스킬
     public void PlayBossSkill1()
     {
         PlaySFX(bossSkill1Sound);
@@ -158,9 +159,9 @@ public class AudioManager : MonoBehaviour
     {
         PlaySFX(bossSkill2Sound);
     }
+
     void Start()
     {
         PlayBGM();
     }
-
 }
