@@ -59,7 +59,7 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isThrown && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[1])
         {
             ThrowWeapon();
-            StartCoroutine(ThrowAttack(5f, 0.5f)); // 거리, 총 시간
+            StartCoroutine(ThrowAttack(5f, 1f)); // 거리, 총 시간
         }
 
         if (Input.GetMouseButtonDown(0) && !isSmashing && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[2])
@@ -87,9 +87,11 @@ public class PlayerAttack_MK : MonoBehaviour
     IEnumerator Attack()
     {
         EnableAttackHitbox();
-        // 만약 애니메이션이 
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(0.1f);
         DisableAttackHitbox();
+        // 만약 애니메이션이 
+        yield return new WaitForSeconds(attackCooldown - 0.1f);
+        isAttacking = false;
     }
 
     #endregion
@@ -288,7 +290,6 @@ public class PlayerAttack_MK : MonoBehaviour
     private void DisableAttackHitbox()
     {
         weaponComponent.Hitbox.enabled = false;
-        isAttacking = false;
         isThrown = false;
     }
 
