@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("플레이어 피격 데미지: " + damage);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-        stun.ApplyStun(3f);
+        stun.ApplyStun(.5f);
         playerHealthUI.SetHealth(currentHealth);
     }
 
