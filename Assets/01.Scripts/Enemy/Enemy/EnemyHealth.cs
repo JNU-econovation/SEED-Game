@@ -8,7 +8,6 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth { get; set; }
     private bool isDead { get; set; } = false;
     private EnemyStun stun;
-    private AudioSource audioSource;
     private EnemyAI enemyAI;
     public event Action onDeath;
     private bool puzzleTriggered = false;
@@ -18,7 +17,6 @@ public class EnemyHealth : MonoBehaviour
     {
         infos = GetComponent<Enemy>().enemyInfos;
         stun = GetComponent<EnemyStun>();
-        audioSource = GetComponent<AudioSource>();
         enemyAI = GetComponent<EnemyAI>();
         puzzleManager = GetComponent<BossPuzzleManager>();
     }
@@ -37,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
         float attackDamage = weapon.Damage;
         Debug.Log("attackDamage: " + attackDamage);
         TakeDamage(attackDamage);
-        //Todo EnemyHealth, EnemyHealthUI와 통합 필요
+
         EnemyHealthUI enemyHealthUI = GetComponentInChildren<EnemyHealthUI>();
         enemyHealthUI.TakeDamage(attackDamage);
     }
@@ -46,8 +44,9 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
         stun.ApplyStun(1f);
-        // 피격 효과음 재생
-        audioSource.PlayOneShot(infos.hitSound);
+
+        // ✅ AudioManager로 피격 사운드 재생
+        AudioManager.Instance.PlayMonsterHit();
 
         // 퍼즐 조건
         if (!puzzleTriggered && currentHealth <= maxHealth * 0.2f)
@@ -66,7 +65,6 @@ public class EnemyHealth : MonoBehaviour
     {
         onDeath?.Invoke();
         isDead = true;
-        // Todo enemyAI가 onDeath 구독하게 바꾸기
         enemyAI.Die();
     }
 
@@ -79,5 +77,4 @@ public class EnemyHealth : MonoBehaviour
     {
         return currentHealth;
     }
-    
 }

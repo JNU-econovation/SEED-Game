@@ -8,23 +8,27 @@ public class EnemyAttack : MonoBehaviour
     private ParticleSystem attackEffect;
     private Animator animator;
     private Weapon weaponComponent;
-    private AudioSource audioSource;
-    private AudioClip attackSound;
-    
+
+    [SerializeField] private int attackSoundIndex = 0; // AudioManager에서 몬스터/보스 공격 사운드 index 지정
+
     private void Awake()
     {
         weaponComponent = weapon.GetComponent<Weapon>();
+
+        // ✅ Enemy 본체에서 Animator 가져오기
         animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning("Animator가 Enemy 오브젝트에 없습니다!");
+        }
+
         attackEffect = GetComponentInChildren<ParticleSystem>();
-        audioSource = GetComponent<AudioSource>();
-        attackSound = GetComponent<Enemy>().enemyInfos.attackInfo.attackSound;
     }
 
-    // animator로 공격중인지 판단, 그 시간동안 hitbox를 키자
     private void Update()
     {
-        // 애니메이션 Attack이 재생 중이면
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        // ✅ Animator가 없으면 검사하지 않도록 방어
+        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             EnableAttackHitbox();
             return;
@@ -44,12 +48,15 @@ public class EnemyAttack : MonoBehaviour
 
     public void AttackEffect()
     {
-        attackEffect.Play();
-        
+        if (attackEffect != null)
+        {
+            attackEffect.Play();
+        }
     }
 
     public void AttackSound()
     {
-        audioSource.PlayOneShot(attackSound);
+        // ✅ AudioManager로 공격 사운드 재생
+        AudioManager.Instance.PlayMonsterAttack(attackSoundIndex);
     }
 }

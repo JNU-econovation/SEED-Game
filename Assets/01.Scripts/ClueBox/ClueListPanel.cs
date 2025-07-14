@@ -12,14 +12,20 @@ public class ClueListPanel : MonoBehaviour
     
     private void OnEnable()
     {
+        AudioManager.Instance.PlayUIOpen();
         UpdateClueList();
     }
+    private void OnDisable()
+    {
+        AudioManager.Instance.PlayClueBoxClose();
+    }
+
 
     public void UpdateClueList()
     {
         foreach (Transform child in content)
         {
-            Destroy(child.gameObject);       
+            Destroy(child.gameObject);
         }
 
         foreach (ClueInfos clueInfos in clueBox.GetClueInfos())

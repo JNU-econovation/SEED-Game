@@ -28,7 +28,7 @@ public class ClueBox : MonoBehaviour
     
     public void MergeClue()
     {
-        Dictionary<ClueInfos, List<ClueInfos>> clueDict = new ();
+        Dictionary<ClueInfos, List<ClueInfos>> clueDict = new();
         foreach (ClueInfos clue in clueInfosSet)
         {
             // 완성 단서면 합칠 필요 없음
@@ -40,6 +40,8 @@ public class ClueBox : MonoBehaviour
             clueDict[clue.completeClue].Add(clue);
         }
 
+        bool isMerged = false; 
+
         foreach (var (completeClueInfos, pieces) in clueDict)
         {
             if (pieces.Count == 4)
@@ -49,7 +51,16 @@ public class ClueBox : MonoBehaviour
                     RemoveClue(p);
                 }
                 AddClue(completeClueInfos);
+
+                isMerged = true; 
             }
         }
+
+        // 합쳐졌을 때만 소리 재생
+        if (isMerged)
+        {
+            AudioManager.Instance.PlayClueCombine();
+        }
     }
+
 }

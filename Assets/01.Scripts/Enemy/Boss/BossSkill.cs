@@ -33,7 +33,7 @@ public class BossSkill : MonoBehaviour
 
         // 🔥 Skill1 오브젝트 생성
         Vector3 spawnPos = transform.position + transform.forward * 5f;
-        spawnPos.y = -8f;
+        spawnPos.y = -7.7f;
 
         GameObject obj = Instantiate(skill1Prefab, spawnPos, skill1Prefab.transform.rotation);
         BossSkill1 skill = obj.GetComponent<BossSkill1>();
