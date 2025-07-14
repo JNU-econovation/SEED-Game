@@ -40,7 +40,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, randomPosition(), Quaternion.identity);
+        GameObject enemyObj = Instantiate(enemyPrefab, randomPosition(), Quaternion.identity);
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.spawner = this;
         currentEnemies++;
     }
 
@@ -57,7 +59,9 @@ public class EnemySpawner : MonoBehaviour
 
     void tmp(Enemy deadEnemy)
     {
-        Debug.Log("Enemy is dead");
-        currentEnemies--;
+        if (deadEnemy.spawner == this)
+        {
+            currentEnemies--;
+        }
     }
 }
