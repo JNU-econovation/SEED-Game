@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public EnemyAI EnemyAi {get; private set; }
     public EnemyHealth EnemyHealth {get; private set; }
     // public EnemyAttack EnemyAttack {get; private set; }
+    public EnemySpawner spawner { get; set; }
     
     private void Awake()
     {

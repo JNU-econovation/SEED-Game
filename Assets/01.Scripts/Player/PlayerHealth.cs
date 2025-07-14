@@ -30,10 +30,9 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("플레이어 피격 데미지: " + damage);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
+        stun.ApplyStun(.5f);
         AudioManager.Instance.PlayPlayerHit();
 
-        stun.ApplyStun(3f);
         playerHealthUI.SetHealth(currentHealth);
 
         if (currentHealth <= 0f)

@@ -59,10 +59,8 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isThrown && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[1])
         {
             ThrowWeapon();
-
             AudioManager.Instance.PlayPlayerAttack(1);
-
-            StartCoroutine(ThrowAttack(5f, 0.5f));
+            StartCoroutine(ThrowAttack(5f, 1f));
         }
 
         // 노트북 공격
@@ -101,8 +99,11 @@ public class PlayerAttack_MK : MonoBehaviour
     IEnumerator Attack()
     {
         EnableAttackHitbox();
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(0.1f);
         DisableAttackHitbox();
+        // 만약 애니메이션이 
+        yield return new WaitForSeconds(attackCooldown - 0.1f);
+        isAttacking = false;
     }
 
     #endregion
@@ -284,7 +285,6 @@ public class PlayerAttack_MK : MonoBehaviour
     private void DisableAttackHitbox()
     {
         weaponComponent.Hitbox.enabled = false;
-        isAttacking = false;
         isThrown = false;
     }
 

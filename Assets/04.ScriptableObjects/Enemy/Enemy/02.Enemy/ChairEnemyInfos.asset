@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ChairEnemyInfos
   m_EditorClassIdentifier: 
   name: Chair
-  maxHealth: 100
-  detectionRange: 10
+  maxHealth: 75
+  detectionRange: 5
   isBoss: 0
   attackInfo: {fileID: 11400000, guid: d1a031b11a6c741bab3578f93c110848, type: 2}
   hitEffect: {fileID: 0}

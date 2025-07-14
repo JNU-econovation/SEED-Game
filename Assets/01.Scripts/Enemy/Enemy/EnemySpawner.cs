@@ -40,24 +40,28 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, randomPosition(), Quaternion.identity);
+        GameObject enemyObj = Instantiate(enemyPrefab, randomPosition(), Quaternion.identity);
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.spawner = this;
         currentEnemies++;
     }
 
     private Vector3 randomPosition()
     {
-        // extents = size / 2
-        float startX = transform.position.x - spawnArea.bounds.extents.x;
-        float startZ = transform.position.z - spawnArea.bounds.extents.z;
-        Vector3 spawnPosition = new Vector3(Random.Range(startX, startX + spawnArea.bounds.size.x),
-            spawnArea.center.y, Random.Range(startZ, startZ + spawnArea.bounds.size.z));
-        
-        return spawnPosition;
+        Bounds bounds = spawnArea.bounds;
+
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float y = bounds.center.y;
+        float z = Random.Range(bounds.min.z, bounds.max.z);
+
+        return new Vector3(x, y, z);
     }
 
     void tmp(Enemy deadEnemy)
     {
-        Debug.Log("Enemy is dead");
-        currentEnemies--;
+        if (deadEnemy.spawner == this)
+        {
+            currentEnemies--;
+        }
     }
 }
