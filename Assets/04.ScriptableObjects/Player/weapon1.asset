@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff882bc3f72e54c7b90ce9d3c82f9456, type: 3}
   m_Name: weapon1
   m_EditorClassIdentifier: 
-  damage: 80
+  damage: 25
   attackSpeed: 1
   attackRange: 1
   attackSound: {fileID: 0}
