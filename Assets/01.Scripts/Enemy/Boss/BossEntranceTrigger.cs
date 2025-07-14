@@ -12,15 +12,12 @@ public class BossEntranceTrigger : MonoBehaviour
     private PlayerMovement playerMovement;
 
     private bool hasTriggered = false;
-    private GameObject playerCam;
 
     private void Start()
     {
-        // 예: 플레이어 오브젝트에서 PlayerMovement 컴포넌트를 찾아서 저장
         if (playerObject != null)
             playerMovement = playerObject.GetComponent<PlayerMovement>();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,21 +25,26 @@ public class BossEntranceTrigger : MonoBehaviour
         {
             hasTriggered = true;
 
+            // ✅ 보스 활성화 및 애니메이션
             bossObject.SetActive(true);
             bossAnimator.SetTrigger("Enter");
             entranceSound.Play();
 
-            // UI 끄기
+            // ✅ BGM 전환
+            AudioManager.Instance.ChangeToBossBGM();
+
+            // ✅ UI 끄기
             if (playerUI != null)
                 playerUI.SetActive(false);
 
-            // 플레이어 움직임 끄기
+            // ✅ 플레이어 움직임 끄기
             if (playerMovement != null)
                 playerMovement.enabled = false;
 
-            // 카메라 전환
+            // ✅ 보스 연출용 카메라 활성화
             bossCam.SetActive(true);
 
+            // ✅ 일정 시간 후 컨트롤 복구
             StartCoroutine(ReturnControlAfterDelay(3.0f));
         }
     }
