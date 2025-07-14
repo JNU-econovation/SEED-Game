@@ -13,6 +13,7 @@ public class InteractionTrigger : MonoBehaviour
     private bool isPlayerInRange = false;
     private bool isClicked = false;
 
+    private string message;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class InteractionTrigger : MonoBehaviour
         {
             isClicked = true;
             interactionUI.SetActive(false);
-            TextManager.ShowClueMessage();
+            TextManager.ShowClueMessage(message);
         }
     }
 
@@ -35,6 +36,17 @@ public class InteractionTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
             interactionUI.SetActive(true);
+        }
+
+        
+
+        if (gameObject.CompareTag("Weapon"))
+        {
+            message = "무기를 획득했다!";
+        }
+        else
+        {
+            message = "단서를 획득했다!";
         }
     }
 

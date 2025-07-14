@@ -8,6 +8,7 @@ TagManager:
   - EnemyWeapon
   - PlayerWeapon
   - Clue
+  - Weapon
   layers:
   - Default
   - TransparentFX
