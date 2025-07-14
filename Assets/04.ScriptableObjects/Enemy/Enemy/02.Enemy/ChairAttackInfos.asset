@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff882bc3f72e54c7b90ce9d3c82f9456, type: 3}
   m_Name: ChairAttackInfos
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 8
   attackSpeed: 1
   attackRange: 1
-  attackEffect: {fileID: 0}
   attackSound: {fileID: 0}
+  attackModel: {fileID: 0}
