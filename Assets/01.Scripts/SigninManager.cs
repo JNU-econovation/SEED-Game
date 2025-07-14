@@ -10,7 +10,7 @@ public class SigninManager : MonoBehaviour
 
     public GameObject SigninPanel;
     public GameObject ComputerBGPanel;
-    private string correctPassword = "encv";
+    private string correctPassword = "ecnv";
 
     [SerializeField] private CloseComputer CloseComputer;
 
