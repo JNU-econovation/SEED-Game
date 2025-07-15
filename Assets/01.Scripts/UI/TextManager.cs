@@ -9,16 +9,16 @@ public class TextManager : MonoBehaviour
     public float displayTime = 2f;
     public float fadeDuration = 1f;
 
-    public void ShowClueMessage()
+    public void ShowClueMessage(string message)
     {
         StopAllCoroutines();
-        StartCoroutine(FadeClueMessage());
+        StartCoroutine(FadeClueMessage(message));
     }
 
-    IEnumerator FadeClueMessage()
+    IEnumerator FadeClueMessage(string message)
     {
         messageObject.SetActive(true);        // 🔸 메시지 전체 켜기
-        messageText.text = "단서를 획득했다!";
+        messageText.text = message;
         messageText.alpha = 1f;
 
         yield return new WaitForSeconds(displayTime);

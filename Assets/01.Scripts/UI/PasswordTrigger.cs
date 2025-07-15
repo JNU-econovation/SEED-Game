@@ -1,3 +1,4 @@
+using SojaExiles;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,13 @@ public class PasswordTrigger : MonoBehaviour
     public GameObject interactionUI;     // "F 키를 눌러 상호작용하세요" 텍스트
     private bool isPlayerNear = false;
     private bool isUnlocked = false;
+    public GameObject firstFloorOfficeDoor;
+    public Transform Player2;
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -46,5 +54,7 @@ public class PasswordTrigger : MonoBehaviour
     {
         isUnlocked = true;
         interactionUI.SetActive(false);
+        opencloseDoor opencloseDoor = firstFloorOfficeDoor.GetComponent<opencloseDoor>();
+        opencloseDoor.Player = Player2;
     }
 }

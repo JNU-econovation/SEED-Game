@@ -8,6 +8,10 @@ TagManager:
   - EnemyWeapon
   - PlayerWeapon
   - Clue
+  - Weapon
+  - ComputerPuzzle
+  - ClubDoor
+  - CardKeyUse
   layers:
   - Default
   - TransparentFX
