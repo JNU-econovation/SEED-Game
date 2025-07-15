@@ -9,6 +9,7 @@ TagManager:
   - PlayerWeapon
   - Clue
   - Weapon
+  - ComputerPuzzle
   layers:
   - Default
   - TransparentFX

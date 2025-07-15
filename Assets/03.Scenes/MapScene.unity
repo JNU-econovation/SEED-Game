@@ -8184,6 +8184,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4825763632709048, guid: edf16aa46c0e0f24f8df62f74474f268, type: 3}
   m_PrefabInstance: {fileID: 1172242995}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &92390040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8200331883596171410, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+  m_PrefabInstance: {fileID: 275319344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &92444923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4825763632709048, guid: edf16aa46c0e0f24f8df62f74474f268, type: 3}
@@ -23700,6 +23705,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922469374407738, guid: a42b76a8ae68dad4fb4fea3eda1ed3d9, type: 3}
   m_PrefabInstance: {fileID: 1183914461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &275319344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5521057516513872725, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_Name
+      value: ComputerUICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554746273219732129, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200331883596171410, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3ca500a2a8fcb544a955baf65af0934, type: 3}
 --- !u!4 &275446300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4614347105096556, guid: 4b4f09798bc92114e8a7b2feb68396fa, type: 3}
@@ -31636,6 +31742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!1001 &352837497
@@ -124462,6 +124569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!1001 &1212563532
@@ -125931,6 +126039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!65 &1226906373
@@ -167775,6 +167884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!4 &1668979792 stripped
@@ -184707,6 +184817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!1001 &1852054297
@@ -191248,6 +191359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 1845032082}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!65 &1934558048
@@ -193759,6 +193871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!65 &1960427023
@@ -201247,6 +201360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Computer Monitor (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3663512944127883779, guid: e957031badb353f44884ce0bb321c2a2, type: 3}
+      propertyPath: m_TagString
+      value: ComputerPuzzle
+      objectReference: {fileID: 0}
     - target: {fileID: 4151396573587824825, guid: e957031badb353f44884ce0bb321c2a2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.18694623
@@ -203267,6 +203384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueBox: {fileID: 0}
   interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 92390040}
   TextManager: {fileID: 1546900104}
   interactionKey: 102
 --- !u!4 &2040300938 stripped
@@ -212410,3 +212528,4 @@ SceneRoots:
   - {fileID: 177812932}
   - {fileID: 1097013048}
   - {fileID: 1950769835}
+  - {fileID: 275319344}

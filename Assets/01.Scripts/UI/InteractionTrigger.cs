@@ -6,6 +6,7 @@ public class InteractionTrigger : MonoBehaviour
     [SerializeField] private GameObject clueBox;
     
     public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
+    public GameObject ComputerPanel;
     public TextManager TextManager;
     public KeyCode interactionKey = KeyCode.F;
 
@@ -27,6 +28,11 @@ public class InteractionTrigger : MonoBehaviour
             isClicked = true;
             interactionUI.SetActive(false);
             TextManager.ShowClueMessage(message);
+
+            if (gameObject.CompareTag("ComputerPuzzle"))
+            {
+                interactionUI.SetActive(true);
+            }
         }
     }
 
@@ -36,17 +42,6 @@ public class InteractionTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
             interactionUI.SetActive(true);
-        }
-
-        
-
-        if (gameObject.CompareTag("Weapon"))
-        {
-            message = "무기를 획득했다!";
-        }
-        else
-        {
-            message = "단서를 획득했다!";
         }
     }
 
@@ -65,6 +60,23 @@ public class InteractionTrigger : MonoBehaviour
             if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
+            }
+        }
+
+        if (Input.GetKeyDown(interactionKey))
+        {
+            if (gameObject.CompareTag("Weapon"))
+            {
+                message = "무기를 획득했다!";
+            }
+            else if (gameObject.CompareTag("ComputerPuzzle"))
+            {
+                Time.timeScale = 0f;
+                ComputerPanel.SetActive(true);
+            }
+            else
+            {
+                message = "단서를 획득했다!";
             }
         }
     }
