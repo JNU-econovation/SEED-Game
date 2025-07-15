@@ -191,6 +191,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 346724f8cd3754e6ca957d74b1c54b53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6326995758900189818}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 346724f8cd3754e6ca957d74b1c54b53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4119031588380586621}
     - targetCorrespondingSourceObject: {fileID: -4032131439784264535, guid: 346724f8cd3754e6ca957d74b1c54b53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1474872945300660038}
@@ -425,8 +428,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5b92a659ce8c2498900573bcf0b90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8398973358755698274}
   weapon: {fileID: 5131647279808159307}
+  attackSoundIndex: 0
+--- !u!114 &4119031588380586621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4213789106141552683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714bf5d9829a4417eaf6f70141a5d918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clue:
+  - {fileID: 11400000, guid: cb33856e0f60c4b4996ca6032b2a4c29, type: 2}
+  - {fileID: 11400000, guid: e2459084ea84f4bcc8e39f5faf0453d7, type: 2}
+  - {fileID: 11400000, guid: 28a7044e7ffb440b8a909be6bb527b39, type: 2}
+  - {fileID: 11400000, guid: a9074d9cc711549a6b2c52b935038bb0, type: 2}
+  dropChance: 0.3
 --- !u!1 &9129349351826399699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4032131439784264535, guid: 346724f8cd3754e6ca957d74b1c54b53, type: 3}
