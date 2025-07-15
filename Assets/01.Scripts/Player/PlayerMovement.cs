@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("이동 설정")]
@@ -26,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 rollDirection;
     private Vector3 cachedInputDir = Vector3.zero;
 
-    // 콜라이더 설정
     private CapsuleCollider capsule;
     private float originalHeight;
     private Vector3 originalCenter;
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = Vector3.zero;
             animator.SetFloat("Speed", 0f);
+            AudioManager.Instance.StopStep();
             return;
         }
 
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = Vector3.zero;
             animator.SetFloat("Speed", 0f);
+            AudioManager.Instance.StopStep();
             return;
         }
 
@@ -69,12 +71,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // 입력 처리
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 input = new Vector3(h, 0f, v).normalized;
 
-        // 카메라 기준 방향 변환
         Transform cam = cameraTransform;
         Vector3 camForward = cam.forward;
         Vector3 camRight = cam.right;
@@ -85,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = (camForward * input.z + camRight * input.x).normalized;
 
-        // 회전 처리
         if (moveDir.magnitude >= 0.1f)
         {
             float targetYRotation = cameraTransform.eulerAngles.y;
@@ -93,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
-        // 애니메이션 파라미터 전달
         float inputX = Vector3.Dot(moveDir, transform.right);
         float inputZ = Vector3.Dot(moveDir, transform.forward);
 
@@ -106,6 +104,15 @@ public class PlayerMovement : MonoBehaviour
         if (isRunning)
         {
             currentSpeed *= runMultiplier;
+            AudioManager.Instance.PlayPlayerRunLoop();
+        }
+        else if (moveDir.magnitude > 0.1f)
+        {
+            AudioManager.Instance.PlayPlayerWalkLoop();
+        }
+        else
+        {
+            AudioManager.Instance.StopStep();
         }
 
         animator.SetBool("IsRunning", isRunning);
@@ -114,13 +121,15 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", moveDirection.magnitude);
 
-        // Ground 체크 제거: 언제든 점프 가능 (쿨타임만 고려)
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping && !attackScript.isAttacking)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetTrigger("Jump");
             isJumping = true;
             jumpTimer = jumpCooldown;
+
+            AudioManager.Instance.PlayPlayerJump();
+            AudioManager.Instance.StopStep();
         }
 
         cachedInputDir = Vector3.zero;
@@ -130,13 +139,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) cachedInputDir += transform.right;
         cachedInputDir.Normalize();
 
-        // 구르기
         if (!isRolling && Input.GetKeyDown(KeyCode.LeftControl) && !isJumping && !attackScript.isAttacking)
         {
             if (cachedInputDir == Vector3.zero)
                 cachedInputDir = transform.forward;
 
             StartRoll(cachedInputDir);
+
+            AudioManager.Instance.PlayPlayerRoll();
+            AudioManager.Instance.StopStep();
         }
     }
 
@@ -146,11 +157,9 @@ public class PlayerMovement : MonoBehaviour
         isRolling = true;
         rollTimer = rollDuration;
 
-        // 콜라이더 작게 만들기
         capsule.height = rollHeight;
         capsule.center = rollCenter;
 
-        // 애니메이션 트리거
         float leftDot = Vector3.Dot(inputDir, -transform.right);
         float rightDot = Vector3.Dot(inputDir, transform.right);
         float backDot = Vector3.Dot(inputDir, -transform.forward);
@@ -167,11 +176,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 velocity;
-
         if (attackScript != null && attackScript.isAttacking)
         {
-            velocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
         else if (isRolling)
         {
@@ -180,10 +187,8 @@ public class PlayerMovement : MonoBehaviour
             if (rollTimer <= 0f)
             {
                 isRolling = false;
-
                 capsule.height = originalHeight;
                 capsule.center = originalCenter;
-
                 rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 return;
             }
@@ -199,5 +204,4 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
         }
     }
-
 }

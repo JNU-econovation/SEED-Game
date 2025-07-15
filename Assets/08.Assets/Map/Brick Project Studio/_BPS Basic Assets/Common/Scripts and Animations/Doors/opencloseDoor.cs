@@ -55,6 +55,7 @@ namespace SojaExiles
 		{
 			print("you are opening the door");
 			openandclose.Play("Opening");
+			AudioManager.Instance.PlayDoorOpen();
 			open = true;
 			yield return new WaitForSeconds(.5f);
 		}
@@ -63,6 +64,7 @@ namespace SojaExiles
 		{
 			print("you are closing the door");
 			openandclose.Play("Closing");
+			AudioManager.Instance.PlayDoorClose();
 			open = false;
 			yield return new WaitForSeconds(.5f);
 		}

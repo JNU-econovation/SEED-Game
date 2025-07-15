@@ -19,12 +19,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip clueCombineSound;
 
     [Header("Player SFX")]
-    public AudioClip[] playerAttackSounds; // 무기별
+    public AudioClip[] playerAttackSounds;
     public AudioClip playerHitSound;
     public AudioClip playerDieSound;
+    public AudioClip playerWalkSound;   // 걷기
+    public AudioClip playerRunSound;    // 달리기
+    public AudioClip playerRollSound;   // 구르기
+    public AudioClip playerJumpSound;   // 점프
+
+    [Header("Door SFX")]
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
 
     [Header("Monster SFX")]
-    public AudioClip[] monsterAttackSounds; // 몬스터/스킬별
+    public AudioClip[] monsterAttackSounds;
     public AudioClip monsterHitSound;
 
     [Header("Boss Skills SFX")]
@@ -33,6 +41,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource bgmSource;
     private AudioSource sfxSource;
+    private AudioSource stepSource; // 걷기/달리기 전용
 
     [Range(0f, 1f)] public float bgmVolume = 0.5f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
@@ -44,15 +53,17 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // BGM AudioSource
             bgmSource = gameObject.AddComponent<AudioSource>();
             bgmSource.loop = true;
             bgmSource.volume = bgmVolume;
 
-            // SFX AudioSource
             sfxSource = gameObject.AddComponent<AudioSource>();
             sfxSource.loop = false;
             sfxSource.volume = sfxVolume;
+
+            stepSource = gameObject.AddComponent<AudioSource>();
+            stepSource.loop = true;
+            stepSource.volume = sfxVolume;
         }
         else
         {
@@ -60,7 +71,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // 🎵 BGM 관련
+    // BGM
     public void PlayBGM(AudioClip clip = null)
     {
         if (clip == null)
@@ -81,14 +92,14 @@ public class AudioManager : MonoBehaviour
         PlayBGM(bossBGM);
     }
 
-    // 🔊 공통 SFX
+    // SFX
     public void PlaySFX(AudioClip clip)
     {
         if (clip != null)
             sfxSource.PlayOneShot(clip, sfxVolume);
     }
 
-    // 🗡️ 플레이어 관련
+    // Player
     public void PlayPlayerAttack(int weaponIndex)
     {
         if (weaponIndex >= 0 && weaponIndex < playerAttackSounds.Length)
@@ -105,7 +116,56 @@ public class AudioManager : MonoBehaviour
         PlaySFX(playerDieSound);
     }
 
-    // 👾 몬스터 관련
+    public void PlayPlayerRoll()
+    {
+        PlaySFX(playerRollSound);
+    }
+
+    public void PlayPlayerJump()
+    {
+        PlaySFX(playerJumpSound);
+    }
+
+    public void PlayPlayerWalkLoop()
+    {
+        if (playerWalkSound == null) return;
+
+        if (!stepSource.isPlaying || stepSource.clip != playerWalkSound)
+        {
+            stepSource.clip = playerWalkSound;
+            stepSource.Play();
+        }
+    }
+
+    public void PlayPlayerRunLoop()
+    {
+        if (playerRunSound == null) return;
+
+        if (!stepSource.isPlaying || stepSource.clip != playerRunSound)
+        {
+            stepSource.clip = playerRunSound;
+            stepSource.Play();
+        }
+    }
+
+    public void StopStep()
+    {
+        if (stepSource.isPlaying)
+            stepSource.Stop();
+    }
+
+    // Door
+    public void PlayDoorOpen()
+    {
+        PlaySFX(doorOpenSound);
+    }
+
+    public void PlayDoorClose()
+    {
+        PlaySFX(doorCloseSound);
+    }
+
+    // Monster
     public void PlayMonsterAttack(int attackIndex)
     {
         if (attackIndex >= 0 && attackIndex < monsterAttackSounds.Length)
@@ -117,13 +177,13 @@ public class AudioManager : MonoBehaviour
         PlaySFX(monsterHitSound);
     }
 
-    // 🧩 UI
+    // UI
     public void PlayUIOpen()
     {
         PlaySFX(uiOpenSound);
     }
 
-    // 💡 아이템 & 단서
+    // Item & Clue
     public void PlayClueGet()
     {
         PlaySFX(clueGetSound);
@@ -149,7 +209,7 @@ public class AudioManager : MonoBehaviour
         PlaySFX(clueCombineSound);
     }
 
-    // 👑 보스 스킬
+    // Boss Skills
     public void PlayBossSkill1()
     {
         PlaySFX(bossSkill1Sound);
