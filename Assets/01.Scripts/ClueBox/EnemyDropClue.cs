@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDropClue : MonoBehaviour
 {
-    [SerializeField] GameObject clue;
+    [SerializeField] List<GameObject> clue;
     [SerializeField] private float dropChance = 0.3f;
     
     private EnemyHealth enemyHealth;
@@ -14,11 +15,7 @@ public class EnemyDropClue : MonoBehaviour
 
     private void OnEnable()
     {
-        if (clue)
-        {
-            enemyHealth.onDeath += Drop;    
-        }
-        
+        enemyHealth.onDeath += Drop;    
     }
 
     private void OnDisable()
@@ -30,7 +27,8 @@ public class EnemyDropClue : MonoBehaviour
     {
         if (Random.value < dropChance)
         {
-            Instantiate(clue, transform.position, Quaternion.identity);
+            int randomIndex = Random.Range(0, clue.Count);
+            Instantiate(clue[randomIndex], transform.position, Quaternion.identity);
         }
     }
 }
