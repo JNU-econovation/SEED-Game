@@ -2031,6 +2031,7 @@ GameObject:
   - component: {fileID: 7980219079777510240}
   - component: {fileID: 1157041576798542331}
   - component: {fileID: 1418091147754284070}
+  - component: {fileID: 8956413157775331463}
   m_Layer: 0
   m_Name: Rackboss
   m_TagString: Enemy
@@ -2331,6 +2332,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashPuzzle: {fileID: 8301008187846573937}
   sequencePuzzle: {fileID: 8126029288475853229}
+--- !u!114 &8956413157775331463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126220601799746879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5b92a659ce8c2498900573bcf0b90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 8941332355723304042}
+  attackSoundIndex: 0
 --- !u!1 &7254403910582026125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,10 +3503,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1786684245828727744, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8383869286158024138}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
 --- !u!4 &3922905148261678341 stripped
 Transform:
@@ -3503,20 +3515,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1786684245828727744, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
   m_PrefabInstance: {fileID: 7268367509151051690}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8383869286158024138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8941332355723304042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5b92a659ce8c2498900573bcf0b90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 8941332355723304042}
-  attackSoundIndex: 0
 --- !u!1001 &7378902741163319243
 PrefabInstance:
   m_ObjectHideFlags: 0
