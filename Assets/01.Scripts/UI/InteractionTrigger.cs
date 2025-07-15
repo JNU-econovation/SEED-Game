@@ -1,5 +1,8 @@
+using SojaExiles;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class InteractionTrigger : MonoBehaviour
 {
@@ -7,7 +10,11 @@ public class InteractionTrigger : MonoBehaviour
     
     public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
     public GameObject ComputerPanel;
+    public GameObject ClubDoor;
+    public Transform Player2;
+    public CloseComputer closeComputer;
     public TextManager TextManager;
+
     public KeyCode interactionKey = KeyCode.F;
 
     private WeaponTrigger weaponTrigger;
@@ -29,6 +36,7 @@ public class InteractionTrigger : MonoBehaviour
             interactionUI.SetActive(false);
             TextManager.ShowClueMessage(message);
 
+
             if (gameObject.CompareTag("ComputerPuzzle"))
             {
                 interactionUI.SetActive(true);
@@ -42,6 +50,14 @@ public class InteractionTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
             interactionUI.SetActive(true);
+        }
+        
+        if (tag == "ClubDoor")
+        {
+            if (closeComputer.AlreadySignIn)
+            {
+                interactionUI.SetActive(false);
+            }
         }
     }
 
@@ -61,18 +77,28 @@ public class InteractionTrigger : MonoBehaviour
             {
                 weaponTrigger.ChangeWeapon();
             }
-        }
 
-        if (Input.GetKeyDown(interactionKey))
-        {
-            if (gameObject.CompareTag("Weapon"))
+            if (tag == "Weapon")
             {
                 message = "무기를 획득했다!";
             }
-            else if (gameObject.CompareTag("ComputerPuzzle"))
+            else if (tag == "ComputerPuzzle")
             {
                 Time.timeScale = 0f;
                 ComputerPanel.SetActive(true);
+            }
+            else if (tag == "ClubDoor")
+            {
+                if (closeComputer.AlreadySignIn)
+                {
+                    message = "";
+                    opencloseDoor opencloseDoor = ClubDoor.GetComponent<opencloseDoor>();
+                    opencloseDoor.Player = Player2;
+                }
+                else
+                {
+                    message = "열리지 않는다.";
+                }
             }
             else
             {
@@ -113,4 +139,3 @@ public class InteractionTrigger : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Stop();
     }
 }
-

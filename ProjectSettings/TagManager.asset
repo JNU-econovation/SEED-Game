@@ -10,6 +10,7 @@ TagManager:
   - Clue
   - Weapon
   - ComputerPuzzle
+  - ClubDoor
   layers:
   - Default
   - TransparentFX
