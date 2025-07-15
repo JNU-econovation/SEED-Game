@@ -104,15 +104,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7307434
-      objectReference: {fileID: 0}
-    - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.5599773
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -517,11 +517,6 @@ MonoBehaviour:
   walkSpeed: 3
   runMultiplier: 2
   jumpForce: 5
-  groundCheck: {fileID: 0}
-  groundDistance: 0.3
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
   rollDistance: 5
   rollDuration: 0.8
   rollSpeed: 8

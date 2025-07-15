@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CloseComputer : MonoBehaviour
@@ -16,6 +17,7 @@ public class CloseComputer : MonoBehaviour
         {
             if (Computer != null && Computer.activeSelf && AlreadySignIn)
             {
+                Time.timeScale = 1f;
                 Computer.SetActive(false);
                 SigninPanel.SetActive(false);
                 ComputerBGPanel.SetActive(true);
@@ -23,6 +25,7 @@ public class CloseComputer : MonoBehaviour
             }
             else if (Computer != null && Computer.activeSelf && !AlreadySignIn)
             {
+                Time.timeScale = 1f;
                 Computer.SetActive(false);
                 SigninPanel.SetActive(true);
                 ComputerBGPanel.SetActive(false);
@@ -35,6 +38,7 @@ public class CloseComputer : MonoBehaviour
     {
         if (Computer != null && Computer.activeSelf && AlreadySignIn)
         {
+            Time.timeScale = 1f;
             Computer.SetActive(false);
             SigninPanel.SetActive(false);
             ComputerBGPanel.SetActive(true);
@@ -42,6 +46,7 @@ public class CloseComputer : MonoBehaviour
         }
         else if (Computer != null && Computer.activeSelf && !AlreadySignIn)
         {
+            Time.timeScale = 1f;
             Computer.SetActive(false);
             SigninPanel.SetActive(true);
             ComputerBGPanel.SetActive(false);
