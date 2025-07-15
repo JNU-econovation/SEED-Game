@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 1786684245828727744, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
+      propertyPath: m_TagString
+      value: PlayerWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -539,6 +543,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   playerHealthUI: {fileID: 8317994119868770131, guid: 3c557a9837de242aa80f3efe35fd9167, type: 3}
+  enableStun: 1
 --- !u!114 &2750309460781800869
 MonoBehaviour:
   m_ObjectHideFlags: 0
