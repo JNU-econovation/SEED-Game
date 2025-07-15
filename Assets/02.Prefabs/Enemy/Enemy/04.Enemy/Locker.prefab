@@ -443,10 +443,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clue:
-  - {fileID: 11400000, guid: cb33856e0f60c4b4996ca6032b2a4c29, type: 2}
-  - {fileID: 11400000, guid: e2459084ea84f4bcc8e39f5faf0453d7, type: 2}
-  - {fileID: 11400000, guid: 28a7044e7ffb440b8a909be6bb527b39, type: 2}
-  - {fileID: 11400000, guid: a9074d9cc711549a6b2c52b935038bb0, type: 2}
+  - {fileID: 1529920494292448214, guid: 7b9abed59277d48adacc1964ec137fbc, type: 3}
+  - {fileID: 1529920494292448214, guid: 2774ffaf2411a494f99369a2d87e7a50, type: 3}
+  - {fileID: 1529920494292448214, guid: 1d593155b98644a28997b0f6002cac88, type: 3}
+  - {fileID: 1529920494292448214, guid: 04ae9a6124c584aee8ba2b81c93279b2, type: 3}
   dropChance: 0.3
 --- !u!1 &9129349351826399699 stripped
 GameObject:

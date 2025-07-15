@@ -450,10 +450,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clue:
-  - {fileID: 11400000, guid: caa7597f776c24627ae90fbaab39ab7e, type: 2}
-  - {fileID: 11400000, guid: 2ee0776ec0cc64415a52b466acd2e766, type: 2}
-  - {fileID: 11400000, guid: 01513e563d1dd478387b16bbcc378e71, type: 2}
-  - {fileID: 11400000, guid: 0503ae4d385b3444aa3013df129e1388, type: 2}
+  - {fileID: 1529920494292448214, guid: fbfe576f992ec44c88c9b18c7954dc01, type: 3}
+  - {fileID: 1529920494292448214, guid: b6f636787c0e644e8a875749693f61a9, type: 3}
+  - {fileID: 1529920494292448214, guid: 272f40c97b6a6481b8890178efa709f3, type: 3}
+  - {fileID: 1529920494292448214, guid: 68795b419b61447da8f1789cb050bbc3, type: 3}
   dropChance: 0.3
 --- !u!1 &8531338878298490848 stripped
 GameObject:

@@ -344,10 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clue:
-  - {fileID: 11400000, guid: 43ea637dcdc7446d48d9ad1c62b2e423, type: 2}
-  - {fileID: 11400000, guid: 39be4f61ab38e46d28a17030b12605d1, type: 2}
-  - {fileID: 11400000, guid: 9ace8766a57b940088bdb1b86629de66, type: 2}
-  - {fileID: 11400000, guid: c146eb9cfa9de47fb9d1c367fd4feab0, type: 2}
+  - {fileID: 1529920494292448214, guid: 9cb33b19b24324a2b995f5add935c721, type: 3}
+  - {fileID: 1529920494292448214, guid: 31716a37eb2ae4297984de110e034412, type: 3}
+  - {fileID: 1529920494292448214, guid: dfe0cadff43c8439c94edf3a38ea590b, type: 3}
+  - {fileID: 1529920494292448214, guid: fa9ea0008b2444755991618f213079a7, type: 3}
   dropChance: 0.3
 --- !u!1 &6561383254248882993 stripped
 GameObject:

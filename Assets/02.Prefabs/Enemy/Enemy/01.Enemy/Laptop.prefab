@@ -749,10 +749,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clue:
-  - {fileID: 11400000, guid: 464efe1347a114c80aceb2536347a8bc, type: 2}
-  - {fileID: 11400000, guid: 2cf9ac0bace8d43738549787e566da8d, type: 2}
-  - {fileID: 11400000, guid: 0db8856ee251447e0b5ccf14c8384bb2, type: 2}
-  - {fileID: 11400000, guid: 29b0efda4baf448cf8262b3549c9650d, type: 2}
+  - {fileID: 1529920494292448214, guid: 33ecb2e062fad4c9aa047af6a0c042eb, type: 3}
+  - {fileID: 1529920494292448214, guid: 2b2f852ed104d4b4a9182ccfa6db5e5e, type: 3}
+  - {fileID: 1529920494292448214, guid: 4d9aa8fc108b9445a9fc06ab0865f587, type: 3}
+  - {fileID: 1529920494292448214, guid: 7b651a286afb048f8ae04cee776b4b55, type: 3}
   dropChance: 0.3
 --- !u!1001 &125714250173858782
 PrefabInstance:
