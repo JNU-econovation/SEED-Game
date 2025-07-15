@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private HealthBar_ES playerHealthUI;
 
     private PlayerStun stun;
+    public bool enableStun = true;
 
     private void Awake()
     {
@@ -30,7 +31,8 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("플레이어 피격 데미지: " + damage);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-        stun.ApplyStun(.5f);
+        if(enableStun)
+            stun.ApplyStun(.5f);
         AudioManager.Instance.PlayPlayerHit();
 
         playerHealthUI.SetHealth(currentHealth);
