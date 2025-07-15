@@ -24583,8 +24583,10 @@ GameObject:
   - component: {fileID: 867187771962955680}
   - component: {fileID: 2119421580536028794}
   - component: {fileID: 1086174376753634434}
+  - component: {fileID: 438247134020452962}
+  - component: {fileID: 8649800355933258081}
   m_Layer: 0
-  m_Name: SingleLine-LightSaber
+  m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24677,6 +24679,39 @@ MonoBehaviour:
   m_lineColor: {r: 0, g: 1, b: 1, a: 1}
   m_lineWidth: 20
   m_lightSaberFactor: 0.8
+--- !u!65 &438247134020452962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3990787785923363749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7520418, y: 116.5427, z: 16.542648}
+  m_Center: {x: -0.045156863, y: 50.000008, z: 0.0000014740164}
+--- !u!114 &8649800355933258081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3990787785923363749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbeb824f5094df47b097bb5f5bb505e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &281538384087744695
 PrefabInstance:
   m_ObjectHideFlags: 0
