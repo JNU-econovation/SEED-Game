@@ -57528,6 +57528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecruityGate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_TagString
+      value: CardKeyUse
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57535,6 +57539,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 557741826}
+    - targetCorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 557741829}
+    - targetCorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 557741828}
     - targetCorrespondingSourceObject: {fileID: 3478805936769509018, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1668974399}
@@ -57571,6 +57581,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3730307354819242988, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
   m_PrefabInstance: {fileID: 557741824}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &557741828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557741825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41788e0c5b722644a872b675e8360727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueBox: {fileID: 0}
+  interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
+  ClubDoor: {fileID: 0}
+  Player2: {fileID: 0}
+  closeComputer: {fileID: 0}
+  TextManager: {fileID: 1546900104}
+  interactionKey: 102
+--- !u!65 &557741829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557741825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1801538, y: 1.9773989, z: 1.4174669}
+  m_Center: {x: 0.07688497, y: -0.06784201, z: 0.20873344}
 --- !u!4 &557877577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4814192360174942, guid: aa8c32ebce8c36744ba55c97b8513148, type: 3}
@@ -94595,10 +94646,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecruityGate
       objectReference: {fileID: 0}
+    - target: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_TagString
+      value: CardKeyUse
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672345832}
+    - targetCorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672345833}
     - targetCorrespondingSourceObject: {fileID: 3478805936769509018, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 352582717}
@@ -168226,6 +168287,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b07283592fc8e45a857de30c6fac3f, type: 3}
+--- !u!1 &1672345831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+  m_PrefabInstance: {fileID: 903497196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1672345832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672345831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41788e0c5b722644a872b675e8360727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueBox: {fileID: 0}
+  interactionUI: {fileID: 6507921}
+  ComputerPanel: {fileID: 0}
+  ClubDoor: {fileID: 0}
+  Player2: {fileID: 0}
+  closeComputer: {fileID: 0}
+  TextManager: {fileID: 1546900104}
+  interactionKey: 102
+--- !u!65 &1672345833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672345831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7196391, y: 1.5670414, z: 1.4815241}
+  m_Center: {x: 0.3598196, y: 0.2835207, z: 0.24076208}
 --- !u!4 &1672458579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4151396573587824825, guid: e957031badb353f44884ce0bb321c2a2, type: 3}

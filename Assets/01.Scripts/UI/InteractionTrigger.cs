@@ -100,6 +100,12 @@ public class InteractionTrigger : MonoBehaviour
                     message = "열리지 않는다.";
                 }
             }
+            else if (tag == "CardKeyUse")
+            {
+                // if (카드키 있으면) message = "키카드 사용에 성공하였습니다"
+                // else message = "카드키가 없습니다"
+                message = "카드키가 없습니다.";
+            }
             else
             {
                 message = "단서를 획득했다!";
