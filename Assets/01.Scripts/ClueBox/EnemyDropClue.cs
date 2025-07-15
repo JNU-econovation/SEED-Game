@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyDropClue : MonoBehaviour
 {
-    [SerializeField] List<ClueInfos> clue;
+    [SerializeField] List<GameObject> clue;
     [SerializeField] private float dropChance = 0.3f;
     
     private EnemyHealth enemyHealth;
