@@ -57,7 +57,21 @@ public class BossSkill2 : MonoBehaviour
     {
         if (player != null)
         {
-            player.TakeDamage(damagePerSecond * Time.deltaTime);
+            float damageThisFrame = damagePerSecond * Time.deltaTime;
+
+            player.enableStun = false;
+            player.TakeDamage(damageThisFrame);
+
+            // 한 프레임 뒤에 다시 true로 돌림
+            StartCoroutine(ResetStun(player));
         }
     }
+
+    private IEnumerator ResetStun(PlayerHealth player)
+    {
+        yield return null; // 한 프레임 기다림
+        player.enableStun = true;
+    }
+
+
 }
