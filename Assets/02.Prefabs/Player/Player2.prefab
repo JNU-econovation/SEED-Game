@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &248470547037048885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7288983338383052575}
+    m_Modifications:
+    - target: {fileID: 1189782351792700, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_Name
+      value: Laptop_Closed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189782351792700, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.543744
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5826463
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.42510357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.42913026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -164.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 87.597
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -87.18799
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20661e78605491946911818aa730569b, type: 3}
+--- !u!4 &244196088246958331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4839676560386254, guid: 20661e78605491946911818aa730569b, type: 3}
+  m_PrefabInstance: {fileID: 248470547037048885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &515392964820468301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,11 +178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8
+      value: 0.672
       objectReference: {fileID: 0}
     - target: {fileID: 5957867375612154543, guid: 243ad92c8a7f74eeeb5d8e22bb6b6a41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -187,15 +253,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.96
+      value: 15.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09
+      value: -6.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.14
+      value: -1.8599997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -426,6 +492,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5377495532952960017}
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 244196088246958331}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
       insertIndex: -1
@@ -449,6 +518,11 @@ PrefabInstance:
 --- !u!95 &3312558990675365190 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
+  m_PrefabInstance: {fileID: 8976245185113223383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7288983338383052575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 1720aff2f610b4cdb9443dff5352f7e3, type: 3}
   m_PrefabInstance: {fileID: 8976245185113223383}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8093934597101243782 stripped
@@ -518,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d433fe4ccfe8cb041bd83cb0699d036a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
+  walkSpeed: 10
   runMultiplier: 2
   jumpForce: 5
   rollDistance: 5
@@ -528,6 +602,7 @@ MonoBehaviour:
   isRolling: 0
   rollHeight: 0.5
   rollCenter: {x: 0, y: 0.25, z: 0}
+  isDead: 0
 --- !u!114 &3771130367521632905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  playerHealthUI: {fileID: 8317994119868770131, guid: 3c557a9837de242aa80f3efe35fd9167, type: 3}
+  playerHealthUI: {fileID: 0}
+  animator: {fileID: 3312558990675365190}
   enableStun: 1
 --- !u!114 &2750309460781800869
 MonoBehaviour:
