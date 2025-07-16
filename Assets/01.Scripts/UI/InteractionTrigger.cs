@@ -1,19 +1,19 @@
 using SojaExiles;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class InteractionTrigger : MonoBehaviour
 {
-    public GameObject ClubDoor;
-
+    [SerializeField] private GameObject clueBox;
+    
+    public GameObject interactionUI; // "F키를 눌러 상호작용" 텍스트
     public GameObject ComputerPanel;
+    public GameObject ClubDoor;
     public Transform Player2;
     public CloseComputer closeComputer;
-
-    private GameObject clueBox;
-    private GameObject interactionUI;
-    private GameObject interactionUIText;
-    private TextManager TextManager;
+    public TextManager TextManager;
 
     public KeyCode interactionKey = KeyCode.F;
 
@@ -26,14 +26,6 @@ public class InteractionTrigger : MonoBehaviour
     private void Awake()
     {
         weaponTrigger = GetComponent<WeaponTrigger>();
-        if (tag == "Clue")
-        {
-            clueBox = GameObject.Find("ClueBox");
-        }
-
-        interactionUI = GameObject.Find("InteractionUiCanvas");
-        interactionUIText = interactionUI.transform.GetChild(0).gameObject;
-        TextManager = interactionUI.GetComponent<TextManager>();
     }
 
     void Update()
@@ -41,13 +33,13 @@ public class InteractionTrigger : MonoBehaviour
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
         {
             isClicked = true;
-            interactionUIText.SetActive(false);
+            interactionUI.SetActive(false);
             TextManager.ShowClueMessage(message);
 
 
             if (gameObject.CompareTag("ComputerPuzzle"))
             {
-                interactionUIText.SetActive(true);
+                interactionUI.SetActive(true);
             }
         }
     }
@@ -57,14 +49,14 @@ public class InteractionTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            interactionUIText.SetActive(true);
+            interactionUI.SetActive(true);
         }
         
         if (tag == "ClubDoor")
         {
             if (closeComputer.AlreadySignIn)
             {
-                interactionUIText.SetActive(false);
+                interactionUI.SetActive(false);
             }
         }
     }
@@ -116,7 +108,7 @@ public class InteractionTrigger : MonoBehaviour
             }
             else
             {
-                message = "아이템를 획득했다.";
+                message = "메시지를 획득했다!";
             }
         }
     }
@@ -126,7 +118,7 @@ public class InteractionTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            interactionUIText.SetActive(false);
+            interactionUI.SetActive(false);
         }
     }
 
