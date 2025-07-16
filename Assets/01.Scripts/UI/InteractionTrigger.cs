@@ -116,7 +116,7 @@ public class InteractionTrigger : MonoBehaviour
             }
             else
             {
-                message = "단서를 획득했다!";
+                message = "아이템를 획득했다.";
             }
         }
     }
