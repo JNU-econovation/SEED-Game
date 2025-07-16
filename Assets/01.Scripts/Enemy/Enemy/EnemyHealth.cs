@@ -42,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
+        if (isDead) return;
         currentHealth -= damage;
         stun.ApplyStun(1f);
 
