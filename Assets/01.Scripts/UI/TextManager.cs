@@ -17,21 +17,23 @@ public class TextManager : MonoBehaviour
 
     IEnumerator FadeClueMessage(string message)
     {
-        messageObject.SetActive(true);        // 🔸 메시지 전체 켜기
+        messageObject.SetActive(true);
         messageText.text = message;
         messageText.alpha = 1f;
 
-        yield return new WaitForSeconds(displayTime);
+        // ✅ 실제 시간 기준으로 대기
+        yield return new WaitForSecondsRealtime(displayTime);
 
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime; // ✅ timeScale 무시하고 시간 증가
             messageText.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
             yield return null;
         }
 
         messageText.alpha = 0f;
-        messageObject.SetActive(false);       // 🔸 메시지 전체 끄기
+        messageObject.SetActive(false);
     }
+
 }
