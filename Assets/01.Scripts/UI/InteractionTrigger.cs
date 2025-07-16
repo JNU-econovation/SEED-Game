@@ -81,11 +81,6 @@ public class InteractionTrigger : MonoBehaviour
                 StartCoroutine(GetClue());
             }
 
-            if (tag == "CardKey" && !isClicked)
-            {
-                StartCoroutine(GetClue());
-            }
-
             if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
@@ -113,10 +108,6 @@ public class InteractionTrigger : MonoBehaviour
                     message = "열리지 않는다.";
                 }
             }
-            else if (tag == "CardKey")
-            {
-                message = "카드키를 획득했다.";
-            }
             else if (tag == "CardKeyUse")
             {
                 // if (카드키 있으면) message = "키카드 사용에 성공하였습니다"
@@ -125,7 +116,7 @@ public class InteractionTrigger : MonoBehaviour
             }
             else
             {
-                message = "단서를 획득했다!";
+                message = "아이템를 획득했다.";
             }
         }
     }
@@ -150,8 +141,11 @@ public class InteractionTrigger : MonoBehaviour
 
     private void MoveToClueBox()
     {
-        Clue clue = GetComponent<Clue>();
-        clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
+        if(tag == "Clue")
+        {
+            Clue clue = GetComponent<Clue>();
+            clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
+        }
     }
     
     private void DisableInteraction()

@@ -15,4 +15,5 @@ MonoBehaviour:
   name: "\uB2E8\uC11C3"
   description: "\uB2E8\uC11C3 \uC124\uBA85\uC785\uB2C8\uB2E4"
   clueImage: {fileID: -3017979480325208809, guid: 4373b5a1916f3a8468bc2b0fdefa655e, type: 3}
-  clueIndex: 0
+  clueIndex: 5
+  completeClue: {fileID: 0}
