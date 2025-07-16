@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 originalCenter;
     [SerializeField] float rollHeight = 0.5f;
     [SerializeField] Vector3 rollCenter = new Vector3(0f, 0.25f, 0f);
+    public bool isDead = false;
 
     void Start()
     {
@@ -46,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+         if (isDead)
+        {
+            AudioManager.Instance.StopStep();
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+        
         if (attackScript != null && attackScript.isAttacking)
         {
             moveDirection = Vector3.zero;
