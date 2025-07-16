@@ -1812,11 +1812,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemToggleBar2: {fileID: 3312136531226295559}
   ItemToggleBar1: {fileID: 3586449860837542478}
-  fistSprite: {fileID: 21300000, guid: 6b894f60abdce0440a5f508633d2c17f, type: 3}
-  pencilcaseSprite: {fileID: 21300000, guid: af16a2fefcedb6445a1904c75599f943, type: 3}
-  laptopweaponSprite: {fileID: 21300000, guid: 1aa2b07eefba65445bba9713d239ce44, type: 3}
-  mouseSprite: {fileID: 21300000, guid: 1e004040abedff24a9545c87cf49bdf4, type: 3}
-  beamprojectorSprite: {fileID: 21300000, guid: ec5341e1c26ed5643a5307b960f8ddec, type: 3}
+  fistSprite: {fileID: 21300000, guid: e7afb416c2d0d45b9beac7fc8db5f598, type: 3}
+  pencilcaseSprite: {fileID: 21300000, guid: 907e125baad6c49b7a8c5eb29120f116, type: 3}
+  laptopweaponSprite: {fileID: 21300000, guid: b479625f3582a421e933fbe6e2df2407, type: 3}
+  mouseSprite: {fileID: 21300000, guid: 2a4d293dc40e241f3a9e987724c8b0f1, type: 3}
+  beamprojectorSprite: {fileID: 21300000, guid: 88a941bb505414d418404402944b108b, type: 3}
   weapon: {fileID: 0}
   currentState: fist
 --- !u!1 &7314964353907984609
