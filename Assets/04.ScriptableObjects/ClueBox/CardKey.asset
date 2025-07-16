@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ea76cdbcf094825a8beb2084934697, type: 3}
+  m_Name: CardKey
+  m_EditorClassIdentifier: 
+  name: "\uCE74\uB4DC\uD0A4"
+  description: "2\uCE35\uC5D0\uC11C \uC4F8 \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  clueImage: {fileID: 21300000, guid: 8614dbd72bce8f14484c65ae8c2b336e, type: 3}
+  clueIndex: 0
+  completeClue: {fileID: 0}

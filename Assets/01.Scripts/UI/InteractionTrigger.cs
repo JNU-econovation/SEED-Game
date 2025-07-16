@@ -81,6 +81,11 @@ public class InteractionTrigger : MonoBehaviour
                 StartCoroutine(GetClue());
             }
 
+            if (tag == "CardKey" && !isClicked)
+            {
+                StartCoroutine(GetClue());
+            }
+
             if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
@@ -107,6 +112,10 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     message = "열리지 않는다.";
                 }
+            }
+            else if (tag == "CardKey")
+            {
+                message = "카드키를 획득했다.";
             }
             else if (tag == "CardKeyUse")
             {
