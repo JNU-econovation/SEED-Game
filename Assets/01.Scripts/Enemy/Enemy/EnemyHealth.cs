@@ -49,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
         AudioManager.Instance.PlayMonsterHit();
 
         // 퍼즐 조건
-        if (!puzzleTriggered && currentHealth <= maxHealth * 0.2f)
+        if (puzzleManager != null && !puzzleTriggered && currentHealth <= maxHealth * 0.2f)
         {
             puzzleTriggered = true;
             puzzleManager.StartPuzzle();
