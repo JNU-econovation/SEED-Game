@@ -141,11 +141,8 @@ public class InteractionTrigger : MonoBehaviour
 
     private void MoveToClueBox()
     {
-        if(tag == "Clue")
-        {
-            Clue clue = GetComponent<Clue>();
-            clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
-        }
+        Clue clue = GetComponent<Clue>();
+        clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
     }
     
     private void DisableInteraction()
