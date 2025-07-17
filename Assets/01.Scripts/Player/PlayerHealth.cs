@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private ClueBox clueBox;
     private PlayerStun stun;
     public bool enableStun = true;
     private bool isDead = false;
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     {
         stun = GetComponent<PlayerStun>();
         currentHealth = maxHealth;
+        clueBox = GetComponentInChildren<ClueBox>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,6 +63,8 @@ public class PlayerHealth : MonoBehaviour
 
         animator.SetTrigger("IsDead");
 
+        clueBox.LoseClue();
+        
         var moveScript = GetComponent<PlayerMovement>();
         moveScript.isDead = true;
 
