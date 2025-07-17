@@ -19,6 +19,7 @@ public class ClueBox : MonoBehaviour
                 return;
         }
         clueInfosSet.Add(clue);
+
     }
 
     public void RemoveClue(ClueInfos clue)
