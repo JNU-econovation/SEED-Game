@@ -12,6 +12,7 @@ TagManager:
   - ComputerPuzzle
   - ClubDoor
   - CardKeyUse
+  - CardKey
   layers:
   - Default
   - TransparentFX

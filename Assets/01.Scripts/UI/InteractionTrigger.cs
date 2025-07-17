@@ -1,5 +1,6 @@
 using SojaExiles;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionTrigger : MonoBehaviour
@@ -9,6 +10,7 @@ public class InteractionTrigger : MonoBehaviour
     public GameObject ComputerPanel;
     public Transform Player2;
     public CloseComputer closeComputer;
+    public List<GameObject> SecurityGateBeams;
 
     private GameObject clueBox;
     private GameObject interactionUI;
@@ -26,7 +28,7 @@ public class InteractionTrigger : MonoBehaviour
     private void Awake()
     {
         weaponTrigger = GetComponent<WeaponTrigger>();
-        if (tag == "Clue")
+        if (tag == "Clue" || tag == "CardKey")
         {
             clueBox = GameObject.Find("ClueBox");
         }
@@ -81,6 +83,11 @@ public class InteractionTrigger : MonoBehaviour
                 StartCoroutine(GetClue());
             }
 
+            if (tag == "CardKey" && !isClicked)
+            {
+                StartCoroutine(GetCardKey());
+            }
+
             if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
@@ -88,7 +95,7 @@ public class InteractionTrigger : MonoBehaviour
 
             if (tag == "Weapon")
             {
-                message = "무기를 획득했다!";
+                message = "무기를 획득했다.";
             }
             else if (tag == "ComputerPuzzle")
             {
@@ -108,15 +115,43 @@ public class InteractionTrigger : MonoBehaviour
                     message = "열리지 않는다.";
                 }
             }
+            else if (tag == "CardKey")
+            {
+                message = "카드키를 획득했다.";
+                CardKeyManager.Instance.hasCardKey = true;
+            }
             else if (tag == "CardKeyUse")
             {
-                // if (카드키 있으면) message = "키카드 사용에 성공하였습니다"
-                // else message = "카드키가 없습니다"
-                message = "카드키가 없습니다.";
+                if (CardKeyManager.Instance.hasCardKey)
+                {
+                    message = "카드키를 사용하였습니다.";
+                    if (SecurityGateBeams != null)
+                    {
+                        foreach (GameObject obj in SecurityGateBeams)
+                        {
+                            Transform parent = obj.transform.parent;
+
+                            if (parent != null)
+                            {
+                                Collider parentCollider = parent.GetComponent<Collider>();
+                                if (parentCollider != null)
+                                {
+                                    parentCollider.enabled = false;
+                                }
+                            }
+                                if (obj != null)
+                                obj.SetActive(false);
+                        }
+                    }
+                }
+                else
+                {
+                    message = "카드키가 없습니다.";
+                }
             }
             else
             {
-                message = "아이템를 획득했다.";
+                message = "단서를 획득했다.";
             }
         }
     }
@@ -134,15 +169,31 @@ public class InteractionTrigger : MonoBehaviour
     {
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
-        MoveToClueBox();
+        ClueMoveToClueBox();
         yield return new WaitForSeconds(totalDisplayTime);
         Destroy(gameObject);
     }
 
-    private void MoveToClueBox()
+    private IEnumerator GetCardKey()
+    {
+        DisableInteraction();
+        float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
+        CardKeyMoveToClueBox();
+        yield return new WaitForSeconds(totalDisplayTime);
+        Destroy(gameObject);
+    }
+
+    private void ClueMoveToClueBox()
     {
         Clue clue = GetComponent<Clue>();
         clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
+        
+    }
+
+    private void CardKeyMoveToClueBox()
+    {
+        CardKey cardKey = GetComponent<CardKey>();
+        clueBox.GetComponent<ClueBox>().AddClue(cardKey.clueInfos);
     }
     
     private void DisableInteraction()
