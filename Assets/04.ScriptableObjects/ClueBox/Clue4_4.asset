@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ea76cdbcf094825a8beb2084934697, type: 3}
   m_Name: Clue4_4
   m_EditorClassIdentifier: 
-  name: "\uB2E8\uC11C4"
-  description: "\uB2E8\uC11C4 \uC124\uBA85\uC785\uB2C8\uB2E4"
-  clueImage: {fileID: -6009198046271197863, guid: 416d7ad4879a2ec4c99603e9260521e1, type: 3}
+  name: "\uB2E8\uC11C4 \uB124 \uBC88\uC9F8 \uC870\uAC01"
+  description: "\uB2E8\uC11C4 \uB124 \uBC88\uC9F8 \uC870\uAC01\uC785\uB2C8\uB2E4"
+  clueImage: {fileID: 21300000, guid: b74706c398aadfc4382252f01a9397c0, type: 3}
   clueIndex: 4
   completeClue: {fileID: 11400000, guid: 4c4f55793302048a2b311cb4dffaace2, type: 2}

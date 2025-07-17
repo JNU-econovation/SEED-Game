@@ -29,17 +29,7 @@ public class ClueBox : MonoBehaviour
     
     public void MergeClue()
     {
-        Dictionary<ClueInfos, List<ClueInfos>> clueDict = new();
-        foreach (ClueInfos clue in clueInfosSet)
-        {
-            // 완성 단서면 합칠 필요 없음
-            if (clue.clueIndex == 0) continue;
-            if (!clueDict.ContainsKey(clue.completeClue))
-            {
-                clueDict.Add(clue.completeClue, new List<ClueInfos>());
-            }
-            clueDict[clue.completeClue].Add(clue);
-        }
+        var clueDict = CheckClue();
 
         bool isMerged = false; 
 
@@ -64,4 +54,37 @@ public class ClueBox : MonoBehaviour
         }
     }
 
+    public void LoseClue()
+    {
+        var clueDict = CheckClue();
+        if (clueDict.Count == 0) return;
+
+        // 완성단서인 key 한 개 랜덤 추출
+        List<ClueInfos> keys = new(clueDict.Keys);
+        ClueInfos randomKey = keys[Random.Range(0, keys.Count)];
+
+        // 조각 단서 하나 추출
+        List<ClueInfos> pieces = clueDict[randomKey];
+        if (pieces.Count == 0) return;
+
+        // 조각 단서 삭제
+        ClueInfos randomPiece = pieces[Random.Range(0, pieces.Count)];
+        RemoveClue(randomPiece);
+    }
+    private Dictionary<ClueInfos, List<ClueInfos>> CheckClue()
+    {
+        Dictionary<ClueInfos, List<ClueInfos>> clueDict = new();
+        foreach (ClueInfos clue in clueInfosSet)
+        {
+            // 완성 단서면 합칠 필요 없음
+            if (clue.clueIndex == 0) continue;
+            if (!clueDict.ContainsKey(clue.completeClue))
+            {
+                clueDict.Add(clue.completeClue, new List<ClueInfos>());
+            }
+            clueDict[clue.completeClue].Add(clue);
+        }
+
+        return clueDict;
+    }
 }
