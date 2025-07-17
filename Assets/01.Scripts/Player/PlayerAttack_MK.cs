@@ -5,18 +5,22 @@ public class PlayerAttack_MK : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject weapon;
+    [SerializeField] private Transform weaponResetPoint;
+
 
     private Weapon weaponComponent;
-    public bool isAttacking = false;
+
     private float attackCooldown;
 
     private PlayerMovement movement;
 
     private GameObject spawnedModel;
 
+
     // pencilcase 관련
     public float speed = 10f;
     public float lifeTime = 1f;
+    public bool isAttacking = false;
     private bool isThrown = false;
     private float throwTimer = 0f;
 
@@ -29,6 +33,7 @@ public class PlayerAttack_MK : MonoBehaviour
     // beamProjector 관련
     public bool isCoding = false;
 
+
     private void Awake()
     {
         weaponComponent = weapon.GetComponent<Weapon>();
@@ -38,6 +43,7 @@ public class PlayerAttack_MK : MonoBehaviour
     void Start()
     {
         movement = GetComponent<PlayerMovement>();
+        ResetWeapon();
     }
 
     void Update()
@@ -59,6 +65,7 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isThrown && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[1])
         {
             ThrowWeapon();
+            animator.SetTrigger("Throw");
             AudioManager.Instance.PlayPlayerAttack(1);
             StartCoroutine(ThrowAttack(5f, 1f));
         }
@@ -67,6 +74,7 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isSmashing && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[2])
         {
             SmashWeapon();
+            animator.SetTrigger("Smash");
 
             AudioManager.Instance.PlayPlayerAttack(2);
 
@@ -77,6 +85,7 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isThrusting && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[3])
         {
             ThrustWeapon();
+            animator.SetTrigger("Thrust");
 
             AudioManager.Instance.PlayPlayerAttack(3);
 
@@ -87,6 +96,7 @@ public class PlayerAttack_MK : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isCoding && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[4])
         {
             CodingWeapon();
+            animator.SetTrigger("Whip");
 
             AudioManager.Instance.PlayPlayerAttack(4);
 
@@ -149,33 +159,14 @@ public class PlayerAttack_MK : MonoBehaviour
 
     IEnumerator SmashAttack()
     {
-        Vector3 originalPos = weapon.transform.position + weapon.transform.forward * 1f;
+        EnableAttackHitbox();                          // 히트박스 켜고
+        yield return new WaitForSeconds(0.1f);         // 잠깐 유지
+        DisableAttackHitbox();                         // 끄고
 
-        weapon.transform.position += weapon.transform.up * 1.3f + weapon.transform.forward * 1f;
-        yield return new WaitForSeconds(0.2f);
-
-        float duration = 0.1f;
-        float elapsed = 0f;
-        Vector3 startPos = weapon.transform.position;
-        Vector3 targetPos = originalPos;
-
-        while (elapsed < duration)
-        {
-            weapon.transform.position = Vector3.Lerp(startPos, targetPos, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        weapon.transform.position = targetPos;
-
-        EnableAttackHitbox();
-        yield return new WaitForSeconds(0.1f);
-        DisableAttackHitbox();
-
-        yield return new WaitForSeconds(0.3f);
-
-        ResetWeapon();
+        yield return new WaitForSeconds(attackCooldown - 0.1f); // 쿨타임 대기
         isSmashing = false;
     }
+
 
     private void SmashWeapon()
     {
@@ -290,7 +281,7 @@ public class PlayerAttack_MK : MonoBehaviour
 
     private void ResetWeapon()
     {
-        weapon.transform.SetParent(transform);
+        weapon.transform.SetParent(weaponResetPoint);
         weapon.transform.localPosition = Vector3.zero;
         weapon.transform.localRotation = Quaternion.identity;
 
@@ -304,4 +295,11 @@ public class PlayerAttack_MK : MonoBehaviour
 
         weapon.SetActive(true);
     }
+    
+    public bool IsAttackingOrBusy()
+    {
+        return isAttacking || isThrown || isSmashing || isThrusting || isCoding;
+    }
+
+
 }
