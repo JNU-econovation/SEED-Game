@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemToggle_ES: MonoBehaviour
+public class ItemToggle_ES : MonoBehaviour
 {
     [SerializeField] Image ItemToggleBar2;
     [SerializeField] Image ItemToggleBar1;
@@ -14,6 +14,11 @@ public class ItemToggle_ES: MonoBehaviour
     [SerializeField] private Sprite beamprojectorSprite;
 
     [SerializeField] private Weapon weapon;
+    [SerializeField] private GameObject laptopModel;
+    [SerializeField] private GameObject projectorModel;
+    [SerializeField] private PlayerAttack_MK playerAttack;
+
+
 
     //무기
     public string currentState = "fist";
@@ -22,13 +27,19 @@ public class ItemToggle_ES: MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            // 공격 중이면 무기 변경 안 함
+            if (playerAttack != null && playerAttack.IsAttackingOrBusy())
+                return;
+
             // 스프라이트 전환
             Sprite temp = ItemToggleBar1.sprite;
             ItemToggleBar1.sprite = ItemToggleBar2.sprite;
             ItemToggleBar2.sprite = temp;
+
             ChangeWeapon();
         }
     }
+
 
     public void ChangeWeapon()
     {
@@ -38,35 +49,41 @@ public class ItemToggle_ES: MonoBehaviour
 
     void UpdateState()
     {
+        DeactivateAllWeaponModels();
+
         if (ItemToggleBar1.sprite == fistSprite)
         {
-            AttackInfos chosenAttack = weapon.GetAttackInfo(0);
-            weapon.SetAttackInfo(chosenAttack);
+            weapon.SetAttackInfo(weapon.GetAttackInfo(0));
         }
         else if (ItemToggleBar1.sprite == pencilcaseSprite)
         {
-            AttackInfos chosenAttack = weapon.GetAttackInfo(1);
-            weapon.SetAttackInfo(chosenAttack);
+            weapon.SetAttackInfo(weapon.GetAttackInfo(1));
         }
         else if (ItemToggleBar1.sprite == laptopweaponSprite)
         {
-            AttackInfos chosenAttack = weapon.GetAttackInfo(2);
-            weapon.SetAttackInfo(chosenAttack);
+            weapon.SetAttackInfo(weapon.GetAttackInfo(2));
+            laptopModel.SetActive(true);
         }
         else if (ItemToggleBar1.sprite == mouseSprite)
         {
-            AttackInfos chosenAttack = weapon.GetAttackInfo(3);
-            weapon.SetAttackInfo(chosenAttack);
+            weapon.SetAttackInfo(weapon.GetAttackInfo(3));
         }
         else if (ItemToggleBar1.sprite == beamprojectorSprite)
         {
-            AttackInfos chosenAttack = weapon.GetAttackInfo(4);
-            weapon.SetAttackInfo(chosenAttack);
+            weapon.SetAttackInfo(weapon.GetAttackInfo(4));
+            projectorModel.SetActive(true);
         }
         else
         {
             currentState = "unknown";
         }
     }
+    void DeactivateAllWeaponModels()
+    {
+        laptopModel.SetActive(false);
+        projectorModel.SetActive(false);
+    }
+
+
 
 }
