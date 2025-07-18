@@ -19,12 +19,13 @@ public class InGameMenuController : MonoBehaviour
     public void Toggle()
     {
         gameMenu.SetActive(!gameMenu.activeSelf);
+        Time.timeScale = gameMenu.activeSelf ? 0f : 1f;
     }
 
     public void Continue()
     {
         gameMenu.SetActive(!gameMenu.activeSelf);
-        Time.timeScale = gameMenu.activeSelf ? 0f : 1f;
+        Time.timeScale = 1f;
     }
 
     public void Restart()
