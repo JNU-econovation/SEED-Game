@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         stun.ApplyStun(1f);
 
-        // ✅ AudioManager로 피격 사운드 재생
+        // AudioManager로 피격 사운드 재생
         AudioManager.Instance.PlayMonsterHit();
 
         // 퍼즐 조건

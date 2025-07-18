@@ -31,7 +31,7 @@ public class BossSkill : MonoBehaviour
         isUsingSkill = true;
         lastSkillTime = Time.time;
 
-        // 🔥 Skill1 오브젝트 생성
+        // Skill1 오브젝트 생성
         Vector3 spawnPos = transform.position + transform.forward * 5f;
         spawnPos.y = -7.7f;
 
@@ -40,7 +40,7 @@ public class BossSkill : MonoBehaviour
         if (skill != null)
             skill.StartSkill();
 
-        // ✅ AudioManager 통해 사운드 재생
+        // AudioManager 통해 사운드 재생
         AudioManager.Instance.PlayBossSkill1();
 
         Invoke(nameof(EndSkill), 2f);
@@ -60,7 +60,7 @@ public class BossSkill : MonoBehaviour
             skill.StartSkill();
         }
 
-        // ✅ AudioManager 통해 사운드 재생
+        // AudioManager 통해 사운드 재생
         AudioManager.Instance.PlayBossSkill2();
 
         Invoke(nameof(EndSkill), 2f);
@@ -79,6 +79,6 @@ public class BossSkill : MonoBehaviour
     public void PuzzleFailed()
     {
         Debug.Log("퍼즐 실패 → 플레이어 즉사!");
-        //FindObjectOfType<PlayerMovement>().Die();
+        FindObjectOfType<PlayerHealth>().TakeDamage(100f);
     }
 }
