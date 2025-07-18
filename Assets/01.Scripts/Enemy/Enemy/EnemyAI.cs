@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
             animator.SetTrigger("Dead");
             return;
         }
-        
+
         EnemyState newState = DetermineState(distance);
 
         if (currentState == EnemyState.SkillAttack1 || currentState == EnemyState.SkillAttack2)
@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        
+
         if (player == null) return;
 
         if (stun != null && stun.isStunned)
