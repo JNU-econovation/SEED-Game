@@ -73,10 +73,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    private void Heal(float amount)
+    public void Heal(float amount)
     {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+        playerHealthUI.SetHealth(currentHealth);
     }
 
     void Start()
