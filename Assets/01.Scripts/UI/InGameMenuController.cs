@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenuController : MonoBehaviour
 {
-    public KeyCode inGameMenuKey = KeyCode.Escape;
-
     private GameObject gameMenu;
     
     private void Awake()
@@ -13,14 +11,14 @@ public class InGameMenuController : MonoBehaviour
         gameMenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    private void Update()
+    public bool IsActive()
     {
-        if (Input.GetKeyDown(inGameMenuKey))
-        {
-            gameMenu.SetActive(!gameMenu.activeSelf);
-            Time.timeScale = gameMenu.activeSelf ? 0f : 1f;
-        }
+        return gameMenu.activeSelf;
+    }
+    
+    public void Toggle()
+    {
+        gameMenu.SetActive(!gameMenu.activeSelf);
     }
 
     public void Continue()
