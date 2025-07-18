@@ -10,27 +10,28 @@ public class CloseComputer : MonoBehaviour
 
     public bool AlreadySignIn = false;
 
-    // Update is called once per frame
-    void Update()
+    public bool IsActive()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        return Computer.activeSelf;
+    }
+    
+    public void Toggle()
+    {
+        if (Computer != null && Computer.activeSelf && AlreadySignIn)
         {
-            if (Computer != null && Computer.activeSelf && AlreadySignIn)
-            {
-                Time.timeScale = 1f;
-                Computer.SetActive(false);
-                SigninPanel.SetActive(false);
-                ComputerBGPanel.SetActive(true);
-                TextFileContent.SetActive(false);
-            }
-            else if (Computer != null && Computer.activeSelf && !AlreadySignIn)
-            {
-                Time.timeScale = 1f;
-                Computer.SetActive(false);
-                SigninPanel.SetActive(true);
-                ComputerBGPanel.SetActive(false);
-                TextFileContent.SetActive(false);
-            }
+            Time.timeScale = 1f;
+            Computer.SetActive(false);
+            SigninPanel.SetActive(false);
+            ComputerBGPanel.SetActive(true);
+            TextFileContent.SetActive(false);
+        }
+        else if (Computer != null && Computer.activeSelf && !AlreadySignIn)
+        {
+            Time.timeScale = 1f;
+            Computer.SetActive(false);
+            SigninPanel.SetActive(true);
+            ComputerBGPanel.SetActive(false);
+            TextFileContent.SetActive(false);
         }
     }
 

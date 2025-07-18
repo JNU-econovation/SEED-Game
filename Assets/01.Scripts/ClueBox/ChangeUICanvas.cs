@@ -7,15 +7,12 @@ public class ChangeUICanvas : MonoBehaviour
 
     private bool isJournalOpen = false;
 
-    void Update()
+    public bool IsActive()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ToggleUI();
-        }
+        return isJournalOpen;
     }
-
-    private void ToggleUI()
+    
+    public void Toggle()
     {
         isJournalOpen = !isJournalOpen;
 
