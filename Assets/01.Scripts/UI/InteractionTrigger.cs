@@ -91,10 +91,6 @@ public class InteractionTrigger : MonoBehaviour
             if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
-            }
-
-            if (tag == "Weapon")
-            {
                 message = "무기를 획득했다.";
                 AudioManager.Instance.PlayWeaponGet();
             }
