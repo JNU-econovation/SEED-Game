@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
     private EnemyInfos infos;
     private float maxHealth => infos.maxHealth;
     private float currentHealth { get; set; }
-    private bool isDead { get; set; } = false;
+    public bool isDead { get; set; } = false;
     private EnemyStun stun;
     private EnemyAI enemyAI;
     public event Action onDeath;
@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         stun.ApplyStun(1f);
 
-        // ✅ AudioManager로 피격 사운드 재생
+        // AudioManager로 피격 사운드 재생
         AudioManager.Instance.PlayMonsterHit();
 
         // 퍼즐 조건
@@ -55,7 +55,7 @@ public class EnemyHealth : MonoBehaviour
             puzzleTriggered = true;
             puzzleManager.StartPuzzle();
         }
-        
+
         if (currentHealth <= 0 && !isDead)
         {
             Die();
@@ -78,4 +78,10 @@ public class EnemyHealth : MonoBehaviour
     {
         return currentHealth;
     }
+    
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
 }

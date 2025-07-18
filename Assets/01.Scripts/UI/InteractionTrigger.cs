@@ -96,6 +96,7 @@ public class InteractionTrigger : MonoBehaviour
             if (tag == "Weapon")
             {
                 message = "무기를 획득했다.";
+                AudioManager.Instance.PlayWeaponGet();
             }
             else if (tag == "ComputerPuzzle")
             {
@@ -139,7 +140,7 @@ public class InteractionTrigger : MonoBehaviour
                                     parentCollider.enabled = false;
                                 }
                             }
-                                if (obj != null)
+                            if (obj != null)
                                 obj.SetActive(false);
                         }
                     }
@@ -167,6 +168,7 @@ public class InteractionTrigger : MonoBehaviour
 
     private IEnumerator GetClue()
     {
+        AudioManager.Instance.PlayClueGet();
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
         ClueMoveToClueBox();
@@ -176,6 +178,7 @@ public class InteractionTrigger : MonoBehaviour
 
     private IEnumerator GetCardKey()
     {
+        AudioManager.Instance.PlayClueGet();
         DisableInteraction();
         float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
         CardKeyMoveToClueBox();
