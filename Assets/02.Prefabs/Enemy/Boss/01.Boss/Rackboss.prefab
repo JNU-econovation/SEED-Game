@@ -2362,10 +2362,10 @@ MonoBehaviour:
   enemyHealth: {fileID: 5529589929972839478}
   timeline: {fileID: 0}
   player: {fileID: 0}
-  playerControl: {fileID: 0}
   hudUI: {fileID: 0}
+  bossHealthUI: {fileID: 1584792322335644746}
   clearUI: {fileID: 0}
-  delayAfterDeath: 2
+  delay: 2
 --- !u!1 &7254403910582026125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,7 +2679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7916450542481598202}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.013279748, y: 0.0012373966, z: 0.008327656, w: 0.9998764}
+  m_LocalRotation: {x: -0.013279751, y: 0.0012373966, z: 0.008327658, w: 0.9998764}
   m_LocalPosition: {x: 0.010392296, y: 0.8979498, z: 0.048299965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3632,6 +3632,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a37c0199dd3464ca588dcb439dd1f3, type: 3}
+--- !u!1 &1584792322335644746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8329813002318971777, guid: 81a37c0199dd3464ca588dcb439dd1f3, type: 3}
+  m_PrefabInstance: {fileID: 7378902741163319243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3980824363710582548 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5861886094072778975, guid: 81a37c0199dd3464ca588dcb439dd1f3, type: 3}
