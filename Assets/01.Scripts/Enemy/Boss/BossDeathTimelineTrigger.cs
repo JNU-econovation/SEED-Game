@@ -8,7 +8,8 @@ public class BossDeathTimelineTrigger : MonoBehaviour
     public PlayableDirector timeline;
 
     public GameObject player;     
-    public GameObject hudUI;      
+    public GameObject hudUI;    
+    public GameObject bossHealthUI;  
     public GameObject clearUI;    
 
     public float delay = 2f;
@@ -27,6 +28,7 @@ public class BossDeathTimelineTrigger : MonoBehaviour
     {
         if (player != null) player.SetActive(false);
         if (hudUI != null) hudUI.SetActive(false);
+        if (bossHealthUI != null) bossHealthUI.SetActive(false);
 
         yield return new WaitForSeconds(delay);
 
