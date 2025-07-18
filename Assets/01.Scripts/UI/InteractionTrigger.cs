@@ -45,7 +45,7 @@ public class InteractionTrigger : MonoBehaviour
             isClicked = true;
             interactionUIText.SetActive(false);
             TextManager.ShowClueMessage(message);
-
+            message = "";
 
             if (gameObject.CompareTag("ComputerPuzzle"))
             {
@@ -81,14 +81,17 @@ public class InteractionTrigger : MonoBehaviour
             if (tag == "Clue" && !isClicked)
             {
                 StartCoroutine(GetClue());
+                message = "단서를 획득했다.";
             }
 
-            if (tag == "CardKey" && !isClicked)
+            else if (tag == "CardKey" && !isClicked)
             {
                 StartCoroutine(GetCardKey());
+                message = "카드키를 획득했다.";
+                CardKeyManager.Instance.hasCardKey = true;
             }
 
-            if (tag == "PlayerWeapon")
+            else if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
                 message = "무기를 획득했다.";
@@ -112,16 +115,12 @@ public class InteractionTrigger : MonoBehaviour
                     message = "열리지 않는다.";
                 }
             }
-            else if (tag == "CardKey")
-            {
-                message = "카드키를 획득했다.";
-                CardKeyManager.Instance.hasCardKey = true;
-            }
             else if (tag == "CardKeyUse")
             {
                 if (CardKeyManager.Instance.hasCardKey)
                 {
                     message = "카드키를 사용하였습니다.";
+                    CardKeyManager.Instance.hasCardKey = false;
                     if (SecurityGateBeams != null)
                     {
                         foreach (GameObject obj in SecurityGateBeams)
@@ -145,10 +144,6 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     message = "카드키가 없습니다.";
                 }
-            }
-            else
-            {
-                message = "단서를 획득했다.";
             }
         }
     }
