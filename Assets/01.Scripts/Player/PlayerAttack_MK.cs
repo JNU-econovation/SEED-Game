@@ -76,7 +76,7 @@ public class PlayerAttack_MK : MonoBehaviour
             SmashWeapon();
             animator.SetTrigger("Smash");
 
-            AudioManager.Instance.PlayPlayerAttack(2);
+            StartCoroutine(SmashAudio(0.8f));
 
             StartCoroutine(SmashAttack());
         }
@@ -167,7 +167,11 @@ public class PlayerAttack_MK : MonoBehaviour
         isSmashing = false;
     }
 
-
+    IEnumerator SmashAudio(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        AudioManager.Instance.PlayPlayerAttack(2);
+    }
     private void SmashWeapon()
     {
         isSmashing = true;
