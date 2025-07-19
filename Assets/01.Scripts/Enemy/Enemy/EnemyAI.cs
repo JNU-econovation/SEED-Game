@@ -161,6 +161,22 @@ public class EnemyAI : MonoBehaviour
         return EnemyState.Idle;
     }
 
+    public void ResetState()
+    {
+        currentState = EnemyState.Idle;
+
+        animator.ResetTrigger("Chase");
+        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("SkillAttack1");
+        animator.ResetTrigger("SkillAttack2");
+        animator.ResetTrigger("Hit");
+        animator.ResetTrigger("Dead");
+
+        animator.SetTrigger("Idle");
+
+        movement?.Stop();
+    }
+
     public void Die()
     {
         currentState = EnemyState.Dead;
