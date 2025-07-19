@@ -41,7 +41,9 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource bgmSource;
     private AudioSource sfxSource;
-    private AudioSource stepSource; // 걷기/달리기 전용
+    private AudioSource stepSource; 
+    [Header("Cutscene BGM")]
+    public AudioClip endingTimelineBGM;
 
     [Range(0f, 1f)] public float bgmVolume = 0.5f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
@@ -89,6 +91,8 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeToBossBGM()
     {
+        StopStep();
+        sfxSource.Stop();
         PlayBGM(bossBGM);
     }
 
@@ -219,6 +223,16 @@ public class AudioManager : MonoBehaviour
     {
         PlaySFX(bossSkill2Sound);
     }
+    public void PlayEndingOnly()
+    {
+        StopStep();
+        sfxSource.Stop(); 
+        sfxSource.volume = 0f;
+        stepSource.volume = 0f;
+
+        PlayBGM(endingTimelineBGM); 
+    }
+
 
     void Start()
     {
