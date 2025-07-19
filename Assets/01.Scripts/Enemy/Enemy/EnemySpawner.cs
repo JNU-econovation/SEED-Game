@@ -22,7 +22,6 @@ public class EnemySpawner : MonoBehaviour
             if (currentEnemies < maxEnemies)
             {
                 SpawnEnemy();
-                Debug.Log("몬스터 스폰 됨");
             }
             yield return new WaitForSeconds(spawnRate);
         }

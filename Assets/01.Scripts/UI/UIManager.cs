@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
             }
 
         }
-        if (!Menu.IsActive() && Input.GetKeyDown(KeyCode.Q))
+        if (!Menu.IsActive() && !Computer.IsActive() && Input.GetKeyDown(KeyCode.Q))
         {
             UICanvas.Toggle();
         }

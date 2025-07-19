@@ -21,8 +21,6 @@ public class InteractionTrigger : MonoBehaviour
 
     private WeaponTrigger weaponTrigger;
     private bool isPlayerInRange = false;
-    private bool isClicked = false;
-
     private string message;
 
     private void Awake()
@@ -42,10 +40,9 @@ public class InteractionTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
         {
-            isClicked = true;
             interactionUIText.SetActive(false);
             TextManager.ShowClueMessage(message);
-
+            message = "";
 
             if (gameObject.CompareTag("ComputerPuzzle"))
             {
@@ -78,23 +75,22 @@ public class InteractionTrigger : MonoBehaviour
         {
             // 주울 수 있는 단서만 해당
             // 다른 상호작용은 없어지면 안됨
-            if (tag == "Clue" && !isClicked)
+            if (tag == "Clue")
             {
                 StartCoroutine(GetClue());
+                message = "단서를 획득했다.";
             }
 
-            if (tag == "CardKey" && !isClicked)
+            else if (tag == "CardKey")
             {
                 StartCoroutine(GetCardKey());
+                message = "카드키를 획득했다.";
+                CardKeyManager.Instance.hasCardKey = true;
             }
 
-            if (tag == "PlayerWeapon")
+            else if (tag == "PlayerWeapon")
             {
                 weaponTrigger.ChangeWeapon();
-            }
-
-            if (tag == "Weapon")
-            {
                 message = "무기를 획득했다.";
                 AudioManager.Instance.PlayWeaponGet();
             }
@@ -116,16 +112,12 @@ public class InteractionTrigger : MonoBehaviour
                     message = "열리지 않는다.";
                 }
             }
-            else if (tag == "CardKey")
-            {
-                message = "카드키를 획득했다.";
-                CardKeyManager.Instance.hasCardKey = true;
-            }
             else if (tag == "CardKeyUse")
             {
                 if (CardKeyManager.Instance.hasCardKey)
                 {
                     message = "카드키를 사용하였습니다.";
+                    CardKeyManager.Instance.hasCardKey = false;
                     if (SecurityGateBeams != null)
                     {
                         foreach (GameObject obj in SecurityGateBeams)
@@ -149,10 +141,6 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     message = "카드키가 없습니다.";
                 }
-            }
-            else
-            {
-                message = "단서를 획득했다.";
             }
         }
     }
