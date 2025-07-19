@@ -4,7 +4,7 @@ public class BossEntranceTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject bossObject;
     [SerializeField] private Animator bossAnimator;
-    [SerializeField] private GameObject bossCam; 
+    [SerializeField] private GameObject bossCam;
     [SerializeField] private AudioSource entranceSound;
 
     [SerializeField] private GameObject playerUI;
@@ -25,26 +25,20 @@ public class BossEntranceTrigger : MonoBehaviour
         {
             hasTriggered = true;
 
-            // ✅ 보스 활성화 및 애니메이션
             bossObject.SetActive(true);
             bossAnimator.SetTrigger("Enter");
             entranceSound.Play();
 
-            // ✅ BGM 전환
             AudioManager.Instance.ChangeToBossBGM();
 
-            // ✅ UI 끄기
             if (playerUI != null)
                 playerUI.SetActive(false);
 
-            // ✅ 플레이어 움직임 끄기
             if (playerMovement != null)
                 playerMovement.enabled = false;
 
-            // ✅ 보스 연출용 카메라 활성화
             bossCam.SetActive(true);
 
-            // ✅ 일정 시간 후 컨트롤 복구
             StartCoroutine(ReturnControlAfterDelay(3.0f));
         }
     }
@@ -53,15 +47,30 @@ public class BossEntranceTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        // UI 켜기
         if (playerUI != null)
             playerUI.SetActive(true);
 
-        // 플레이어 움직임 켜기
         if (playerMovement != null)
             playerMovement.enabled = true;
 
-        // 카메라 복귀
         bossCam.SetActive(false);
     }
+    
+    public void ResetTrigger()
+    {
+        hasTriggered = false;
+
+        if (bossCam != null)
+            bossCam.SetActive(false);
+
+        if (bossAnimator != null)
+            bossAnimator.ResetTrigger("Enter");
+
+        if (playerUI != null)
+            playerUI.SetActive(true);
+
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+    }
+
 }

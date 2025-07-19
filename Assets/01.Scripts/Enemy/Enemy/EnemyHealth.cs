@@ -78,10 +78,20 @@ public class EnemyHealth : MonoBehaviour
     {
         return currentHealth;
     }
-    
+
     public bool IsDead()
     {
         return isDead;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+
+        EnemyHealthUI enemyHealthUI = GetComponentInChildren<EnemyHealthUI>();
+        if (enemyHealthUI != null)
+        enemyHealthUI.ResetUI();
     }
 
 }

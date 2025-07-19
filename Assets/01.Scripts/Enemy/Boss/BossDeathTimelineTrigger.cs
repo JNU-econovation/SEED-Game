@@ -30,6 +30,8 @@ public class BossDeathTimelineTrigger : MonoBehaviour
         if (hudUI != null) hudUI.SetActive(false);
         if (bossHealthUI != null) bossHealthUI.SetActive(false);
 
+        AudioManager.Instance.PlayEndingOnly();
+
         yield return new WaitForSeconds(delay);
 
         timeline.stopped += OnTimelineFinished;

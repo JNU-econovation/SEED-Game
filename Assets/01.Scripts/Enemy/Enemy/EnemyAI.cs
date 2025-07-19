@@ -60,9 +60,11 @@ public class EnemyAI : MonoBehaviour
 
         if (currentState == EnemyState.SkillAttack1 || currentState == EnemyState.SkillAttack2)
         {
+            if (currentState == EnemyState.Dead || (enemyInfos != null && GetComponent<EnemyHealth>().IsDead()))
+                return;
             if (bossSkill != null && bossSkill.IsSkillInProgress())
                 return;
-
+                
             // 스킬 끝난 뒤 새 상태 재결정
             EnemyState postSkillState = DetermineState(distance);
 
@@ -161,8 +163,35 @@ public class EnemyAI : MonoBehaviour
         return EnemyState.Idle;
     }
 
+    public void ResetState()
+    {
+        currentState = EnemyState.Idle;
+
+        animator.ResetTrigger("Chase");
+        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("SkillAttack1");
+        animator.ResetTrigger("SkillAttack2");
+        animator.ResetTrigger("Hit");
+        animator.ResetTrigger("Dead");
+
+        animator.SetTrigger("Idle");
+
+        movement?.Stop();
+    }
+
     public void Die()
     {
         currentState = EnemyState.Dead;
+
+        animator.ResetTrigger("Chase");
+        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("SkillAttack1");
+        animator.ResetTrigger("SkillAttack2");
+        animator.ResetTrigger("Hit");
+
+        animator.SetTrigger("Dead");
+
+        movement?.Stop();
     }
+
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerStun stun;
     public bool enableStun = true;
     private bool isDead = false;
+    private float GotoClubTime = 3f;
 
 
     private void Awake()
@@ -64,12 +66,31 @@ public class PlayerHealth : MonoBehaviour
         animator.SetTrigger("IsDead");
 
         clueBox.LoseClue();
-        
+
         var moveScript = GetComponent<PlayerMovement>();
         moveScript.isDead = true;
 
         moveScript.enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        StartCoroutine(gotoClub(GotoClubTime));
+
+    }
+    IEnumerator gotoClub(float GotoClubTime)
+    {
+        yield return new WaitForSeconds(GotoClubTime);
+        currentHealth = 100f;
+        playerHealthUI.SetHealth(currentHealth);
+        transform.position = new Vector3(6f, 0f, 12f);
+        isDead = false;
+        animator.SetTrigger("Idle");
+
+        var moveScript = GetComponent<PlayerMovement>();
+        moveScript.isDead = false;
+        moveScript.enabled = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+        AudioManager.Instance.PlayBGM();
+        BossManager.Instance.ResetBoss();
     }
 
 

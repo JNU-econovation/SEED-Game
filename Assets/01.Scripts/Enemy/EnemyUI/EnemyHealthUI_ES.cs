@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealthUI: MonoBehaviour
+public class EnemyHealthUI : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private RectTransform healthBarFill; // Fill 이미지의 RectTransform
@@ -19,7 +19,7 @@ public class EnemyHealthUI: MonoBehaviour
         enemyHealth = GetComponentInParent<EnemyHealth>();
         maxHealth = enemyHealth.getMaxHealth();
         currentHealth = maxHealth;
-        
+
         if (healthBarFill != null)
             originalWidth = healthBarFill.sizeDelta.x;
 
@@ -37,7 +37,7 @@ public class EnemyHealthUI: MonoBehaviour
         currentHealth = enemyHealth.getCurrentHealth();
         UpdateHealthBar();
     }
-    
+
 
     void UpdateHealthBar()
     {
@@ -46,4 +46,11 @@ public class EnemyHealthUI: MonoBehaviour
         newSize.x = originalWidth * ratio;
         healthBarFill.sizeDelta = newSize;
     }
+    public void ResetUI()
+    {
+        maxHealth = enemyHealth.getMaxHealth();
+        currentHealth = maxHealth;
+        UpdateHealthBar();
+    }
+
 }
