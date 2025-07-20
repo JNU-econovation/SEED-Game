@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Clue2
   m_EditorClassIdentifier: 
   name: "\uC758\uC790 \uB2E8\uC11C"
-  description: "\uB2E8\uC11C2 \uC124\uBA85\uC785\uB2C8\uB2E4"
+  description: "\uBE44\uBC00\uBC88\uD638 X\\n\\n 305\uD638 \uAD50\uD0C1 \uC55E\uC5D0
+    \uB9C8\uC6B0\uC2A4 \uBB34\uAE30\uAC00 \uC788\uB2E4."
   clueImage: {fileID: 21300000, guid: 5594571383bd07b4e8aa3c79a9918b23, type: 3}
   clueIndex: 0
   completeClue: {fileID: 0}
