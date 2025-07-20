@@ -88,6 +88,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         isDead = false;
+        puzzleTriggered = false;
 
         EnemyHealthUI enemyHealthUI = GetComponentInChildren<EnemyHealthUI>();
         if (enemyHealthUI != null)
