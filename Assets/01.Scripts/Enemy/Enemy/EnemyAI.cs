@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
     private EnemyStun stun;
     private BossSkill bossSkill;
-    private float skillRetryDelay = 2f;  // 실패 후 재시도 지연 시간
+    private float skillRetryDelay = 2f;  
     private float nextSkillTryTime = 0f;
 
 
@@ -151,12 +151,15 @@ public class EnemyAI : MonoBehaviour
         }
         else if (distance < detectionRange)
         {
-            if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
+            if (distance < 10f)
             {
-                if (bossSkill.CheckSkillChance(0.5f))
-                    return EnemyState.SkillAttack2;
-                else
-                    nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
+               if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
+                {
+                    if (bossSkill.CheckSkillChance(0.5f))
+                        return EnemyState.SkillAttack2;
+                    else
+                        nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
+                }
             }
             return EnemyState.Chase;
         }
