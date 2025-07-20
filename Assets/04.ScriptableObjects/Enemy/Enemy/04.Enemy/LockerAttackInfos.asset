@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff882bc3f72e54c7b90ce9d3c82f9456, type: 3}
   m_Name: LockerAttackInfos
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 15
   attackSpeed: 1
   attackRange: 2
-  attackEffect: {fileID: 0}
   attackSound: {fileID: 0}
+  attackModel: {fileID: 0}
