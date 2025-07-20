@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector3 rollCenter = new Vector3(0f, 0.25f, 0f);
     public bool isDead = false;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,14 +54,15 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Speed", 0f);
             return;
         }
-        
-        if (attackScript != null && attackScript.isAttacking)
+
+        if (attackScript != null && attackScript.IsAttackingOrBusy())
         {
             moveDirection = Vector3.zero;
             animator.SetFloat("Speed", 0f);
             AudioManager.Instance.StopStep();
             return;
         }
+
 
         if (isRolling)
         {
@@ -184,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (attackScript != null && attackScript.isAttacking)
+        if (attackScript != null && attackScript.IsAttackingOrBusy())
         {
             rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
