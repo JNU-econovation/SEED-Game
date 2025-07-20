@@ -178179,6 +178179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas_ES
       objectReference: {fileID: 0}
+    - target: {fileID: 912378429595647100, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1178966669028559397, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -9
