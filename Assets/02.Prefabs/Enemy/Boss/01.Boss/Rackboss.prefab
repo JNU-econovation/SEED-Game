@@ -3305,7 +3305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5551171408567613847, guid: 36df19f60cf0b854c8f73b50bb3d3b2f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6375712226505836623, guid: 36df19f60cf0b854c8f73b50bb3d3b2f, type: 3}
       propertyPath: gaugeSlider
