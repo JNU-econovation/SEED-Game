@@ -22,6 +22,7 @@ public class InteractionTrigger : MonoBehaviour
     private WeaponTrigger weaponTrigger;
     private bool isPlayerInRange = false;
     private string message;
+    private GameObject interactionObject;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class InteractionTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
         {
+            if (interactionObject) HandleInteraction(interactionObject);
             interactionUIText.SetActive(false);
             TextManager.ShowClueMessage(message);
             message = "";
@@ -71,80 +73,85 @@ public class InteractionTrigger : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.tag != "Player") return;
-        if (Input.GetKeyDown(interactionKey))
+        interactionObject = gameObject;
+    }
+
+    private void HandleInteraction(GameObject gameObject)
+    {
+        // 주울 수 있는 단서만 해당
+        // 다른 상호작용은 없어지면 안됨
+        if (gameObject.tag == "Clue")
         {
-            // 주울 수 있는 단서만 해당
-            // 다른 상호작용은 없어지면 안됨
-            if (tag == "Clue")
-            {
-                StartCoroutine(GetClue());
-                message = "단서를 획득했다.";
-            }
+            StartCoroutine(GetClue());
+            message = "단서를 획득했다.";
+        }
 
-            else if (tag == "CardKey")
-            {
-                StartCoroutine(GetCardKey());
-                message = "카드키를 획득했다.";
-                CardKeyManager.Instance.hasCardKey = true;
-            }
+        else if (gameObject.tag == "CardKey")
+        {
+            StartCoroutine(GetCardKey());
+            message = "카드키를 획득했다.";
+            CardKeyManager.Instance.hasCardKey = true;
+        }
 
-            else if (tag == "PlayerWeapon")
+        else if (gameObject.tag == "PlayerWeapon")
+        {
+            weaponTrigger.ChangeWeapon();
+            message = "무기를 획득했다.";
+            AudioManager.Instance.PlayWeaponGet();
+        }
+        else if (gameObject.tag == "ComputerPuzzle")
+        {
+            Time.timeScale = 0f;
+            ComputerPanel.SetActive(true);
+        }
+        else if (gameObject.tag == "ClubDoor")
+        {
+            if (closeComputer.AlreadySignIn)
             {
-                weaponTrigger.ChangeWeapon();
-                message = "무기를 획득했다.";
-                AudioManager.Instance.PlayWeaponGet();
+                message = "";
+                opencloseDoor opencloseDoor = ClubDoor.GetComponent<opencloseDoor>();
+                opencloseDoor.Player = Player2;
             }
-            else if (tag == "ComputerPuzzle")
+            else
             {
-                Time.timeScale = 0f;
-                ComputerPanel.SetActive(true);
-            }
-            else if (tag == "ClubDoor")
-            {
-                if (closeComputer.AlreadySignIn)
-                {
-                    message = "";
-                    opencloseDoor opencloseDoor = ClubDoor.GetComponent<opencloseDoor>();
-                    opencloseDoor.Player = Player2;
-                }
-                else
-                {
-                    message = "열리지 않는다.";
-                }
-            }
-            else if (tag == "CardKeyUse")
-            {
-                if (CardKeyManager.Instance.hasCardKey)
-                {
-                    message = "카드키를 사용하였습니다.";
-                    CardKeyManager.Instance.hasCardKey = false;
-                    if (SecurityGateBeams != null)
-                    {
-                        foreach (GameObject obj in SecurityGateBeams)
-                        {
-                            Transform parent = obj.transform.parent;
-
-                            if (parent != null)
-                            {
-                                Collider parentCollider = parent.GetComponent<Collider>();
-                                if (parentCollider != null)
-                                {
-                                    parentCollider.enabled = false;
-                                }
-                            }
-                            if (obj != null)
-                                obj.SetActive(false);
-                        }
-                    }
-                }
-                else
-                {
-                    message = "카드키가 없습니다.";
-                }
+                message = "열리지 않는다.";
             }
         }
+        else if (gameObject.tag == "CardKeyUse")
+        {
+            if (CardKeyManager.Instance.hasCardKey)
+            {
+                message = "카드키를 사용하였습니다.";
+                CardKeyManager.Instance.hasCardKey = false;
+                if (SecurityGateBeams != null)
+                {
+                    foreach (GameObject obj in SecurityGateBeams)
+                    {
+                        Transform parent = obj.transform.parent;
+
+                        if (parent != null)
+                        {
+                            Collider parentCollider = parent.GetComponent<Collider>();
+                            if (parentCollider != null)
+                            {
+                                parentCollider.enabled = false;
+                            }
+                        }
+                        if (obj != null)
+                            obj.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                message = "카드키가 없습니다.";
+            }
+        }
+
+        interactionObject = null;
+
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
