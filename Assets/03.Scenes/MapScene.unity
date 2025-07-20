@@ -81379,6 +81379,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1535921801}
@@ -200293,7 +200297,7 @@ Transform:
   m_GameObject: {fileID: 1934558045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.33, y: 0.24, z: 16}
+  m_LocalPosition: {x: -2.32, y: 0.24, z: 18.21}
   m_LocalScale: {x: 0.22817011, y: 0.22817011, z: 0.22817011}
   m_ConstrainProportionsScale: 0
   m_Children:
