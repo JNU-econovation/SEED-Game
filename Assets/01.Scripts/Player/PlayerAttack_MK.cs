@@ -32,12 +32,14 @@ public class PlayerAttack_MK : MonoBehaviour
 
     // beamProjector 관련
     public bool isCoding = false;
+    private PlayerHealth health;
 
 
     private void Awake()
     {
         weaponComponent = weapon.GetComponent<Weapon>();
         attackCooldown = weaponComponent.AttackSpeed;
+        health = GetComponent<PlayerHealth>();
     }
 
     void Start()
@@ -48,6 +50,7 @@ public class PlayerAttack_MK : MonoBehaviour
 
     void Update()
     {
+        if (health.IsDead) return;
         if (movement != null && movement.isRolling) return;
 
         // 맨손 공격
