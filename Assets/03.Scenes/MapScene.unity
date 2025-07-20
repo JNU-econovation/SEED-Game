@@ -179098,6 +179098,10 @@ PrefabInstance:
       propertyPath: clueBox
       value: 
       objectReference: {fileID: 1845032084}
+    - target: {fileID: 3312136531226295559, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7afb416c2d0d45b9beac7fc8db5f598, type: 3}
     - target: {fileID: 6197714142601498273, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 7.499756
