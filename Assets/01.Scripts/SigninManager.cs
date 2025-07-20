@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using static UnityEngine.Rendering.BoolParameter;
 
 public class SigninManager : MonoBehaviour
@@ -14,12 +15,23 @@ public class SigninManager : MonoBehaviour
     public float displayTime = 2f;
     public float fadeDuration = 1f;
     private string correctPassword = "ecnv";
+    private bool sovlePassword = false;
 
     [SerializeField] private CloseComputer CloseComputer;
 
     void Start()
     {
         OpenClubDoorMessage.text = "동아리 방의 문에서 찰칵하는 소리가 들렸다.";
+    }
+
+    private void Update()
+    {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+
+        if ((Input.GetKeyDown(KeyCode.Return) && selected == passwordInput.gameObject) && !sovlePassword)
+        {
+            TrySignIn();
+        }
     }
 
     public void TrySignIn()
@@ -31,6 +43,7 @@ public class SigninManager : MonoBehaviour
             SigninPanel.SetActive(false);
             ComputerBGPanel.SetActive(true);
             CloseComputer.AlreadySignIn = true;
+            sovlePassword = true;
             StartCoroutine(FadeOpenClubDoorMessage(OpenClubDoorMessage.text));
         }
         else
