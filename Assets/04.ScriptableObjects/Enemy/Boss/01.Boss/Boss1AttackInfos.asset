@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   attackSpeed: 1
-  attackRange: 1
-  attackEffect: {fileID: 0}
+  attackRange: 2
   attackSound: {fileID: 0}
   attackModel: {fileID: 0}

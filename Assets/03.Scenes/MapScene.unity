@@ -20757,6 +20757,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8241ffa2db322f148a140189e8ca4afd, type: 3}
+--- !u!1 &234658021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234658023}
+  - component: {fileID: 234658022}
+  m_Layer: 0
+  m_Name: BossDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &234658022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234658021}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3932595, y: 1.6386046, z: 1}
+  m_Center: {x: -0.080638714, y: 0.31930077, z: 0}
+--- !u!4 &234658023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234658021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17, y: -6.42, z: -56.58}
+  m_LocalScale: {x: 4.3136, y: 2.6759174, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &234767014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4732176876777362, guid: c1e5af2ff42787c4da9691a81d25269e, type: 3}
@@ -44836,7 +44889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458478210381461421, guid: c4769332a3574e543a8455feae3cc05d, type: 3}
       propertyPath: m_TagString
-      value: Weapon
+      value: PlayerWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80443,6 +80496,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
+      propertyPath: walkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1535921801}
@@ -95492,6 +95549,26 @@ PrefabInstance:
     - target: {fileID: 3730307354819242988, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941307877181286277, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2737362e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941307877181286277, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_Size.z
+      value: 4.6777463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941307877181286277, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_Center.x
+      value: -0.000001057573
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941307877181286277, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_Center.y
+      value: -0.00000078916577
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941307877181286277, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
+      propertyPath: m_Center.z
+      value: 2.6663768
       objectReference: {fileID: 0}
     - target: {fileID: 8618807576216733383, guid: f810e62df191bd3409d47dc6b8d95ac7, type: 3}
       propertyPath: m_Name
@@ -119720,6 +119797,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3209220616244464610, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
+      propertyPath: infos
+      value: 
+      objectReference: {fileID: 11400000, guid: 12a352b9d0b5b1147a0d96733ce0177a, type: 2}
     - target: {fileID: 4069396578705235267, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
       propertyPath: door1
       value: 
@@ -168733,6 +168814,10 @@ PrefabInstance:
       propertyPath: bossCam
       value: 
       objectReference: {fileID: 905018518}
+    - target: {fileID: 5016790428117187514, guid: 7943e6b5171538a4da493bf59ae54c07, type: 3}
+      propertyPath: bossDoor
+      value: 
+      objectReference: {fileID: 234658021}
     - target: {fileID: 5016790428117187514, guid: 7943e6b5171538a4da493bf59ae54c07, type: 3}
       propertyPath: playerUI
       value: 
@@ -220814,3 +220899,4 @@ SceneRoots:
   - {fileID: 1508772281}
   - {fileID: 1378170562}
   - {fileID: 1922421613}
+  - {fileID: 234658023}
