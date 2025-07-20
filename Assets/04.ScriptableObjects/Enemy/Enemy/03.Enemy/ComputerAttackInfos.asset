@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff882bc3f72e54c7b90ce9d3c82f9456, type: 3}
   m_Name: ComputerAttackInfos
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 20
   attackSpeed: 1
   attackRange: 2
   attackSound: {fileID: 8300000, guid: 76078b388cf8f4e8b928625017b3f25e, type: 3}

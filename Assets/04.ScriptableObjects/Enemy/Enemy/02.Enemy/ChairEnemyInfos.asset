@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chair
   maxHealth: 75
-  detectionRange: 5
-  isBoss: 0
+  detectionRange: 10
+  isBoss: 1
   attackInfo: {fileID: 11400000, guid: d1a031b11a6c741bab3578f93c110848, type: 2}
   hitEffect: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 887a18c64eb994cbb96d62ef3f229597, type: 3}

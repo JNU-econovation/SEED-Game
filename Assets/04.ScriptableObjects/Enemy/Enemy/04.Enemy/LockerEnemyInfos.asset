@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LockerEnemyInfos
   m_EditorClassIdentifier: 
   name: Locker
-  maxHealth: 100
+  maxHealth: 170
   detectionRange: 10
   isBoss: 0
   attackInfo: {fileID: 11400000, guid: 22547647f9b22492e8cfad843eeedc7b, type: 2}
