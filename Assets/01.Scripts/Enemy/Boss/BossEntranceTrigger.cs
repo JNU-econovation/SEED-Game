@@ -6,12 +6,15 @@ public class BossEntranceTrigger : MonoBehaviour
     [SerializeField] private Animator bossAnimator;
     [SerializeField] private GameObject bossCam;
     [SerializeField] private AudioSource entranceSound;
+    [SerializeField] private GameObject bossDoor;
 
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject playerObject;
     private PlayerMovement playerMovement;
 
     private bool hasTriggered = false;
+    
+
 
     private void Start()
     {
@@ -39,6 +42,9 @@ public class BossEntranceTrigger : MonoBehaviour
 
             bossCam.SetActive(true);
 
+            if (bossDoor != null)
+                bossDoor.SetActive(true); 
+
             StartCoroutine(ReturnControlAfterDelay(3.0f));
         }
     }
@@ -55,7 +61,7 @@ public class BossEntranceTrigger : MonoBehaviour
 
         bossCam.SetActive(false);
     }
-    
+
     public void ResetTrigger()
     {
         hasTriggered = false;
@@ -71,6 +77,8 @@ public class BossEntranceTrigger : MonoBehaviour
 
         if (playerMovement != null)
             playerMovement.enabled = true;
+        if (bossDoor != null)
+            bossDoor.SetActive(false);
     }
 
 }
