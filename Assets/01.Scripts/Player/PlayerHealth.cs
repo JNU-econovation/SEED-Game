@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerStun stun;
     public bool enableStun = true;
     private bool isDead = false;
+    public bool IsDead => isDead;
     private float GotoClubTime = 3f;
 
 

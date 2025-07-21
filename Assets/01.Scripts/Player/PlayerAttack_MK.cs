@@ -32,12 +32,14 @@ public class PlayerAttack_MK : MonoBehaviour
 
     // beamProjector 관련
     public bool isCoding = false;
+    private PlayerHealth health;
 
 
     private void Awake()
     {
         weaponComponent = weapon.GetComponent<Weapon>();
         attackCooldown = weaponComponent.AttackSpeed;
+        health = GetComponent<PlayerHealth>();
     }
 
     void Start()
@@ -48,6 +50,7 @@ public class PlayerAttack_MK : MonoBehaviour
 
     void Update()
     {
+        if (health.IsDead) return;
         if (movement != null && movement.isRolling) return;
 
         // 맨손 공격
@@ -67,7 +70,7 @@ public class PlayerAttack_MK : MonoBehaviour
             ThrowWeapon();
             animator.SetTrigger("Throw");
             AudioManager.Instance.PlayPlayerAttack(1);
-            StartCoroutine(ThrowAttack(5f, 1f));
+            StartCoroutine(ThrowAttack(3f, 1f));
         }
 
         // 노트북 공격
@@ -89,7 +92,7 @@ public class PlayerAttack_MK : MonoBehaviour
 
             AudioManager.Instance.PlayPlayerAttack(3);
 
-            StartCoroutine(ThrustAttack(2f, 0.5f));
+            StartCoroutine(ThrustAttack(1f, 0.5f));
         }
 
         // 빔프로젝터 공격
@@ -100,7 +103,7 @@ public class PlayerAttack_MK : MonoBehaviour
 
             AudioManager.Instance.PlayPlayerAttack(4);
 
-            StartCoroutine(iscodingAttack(5f, 1f));
+            StartCoroutine(iscodingAttack(3f, 1f));
         }
     }
 

@@ -9,13 +9,12 @@ public class EnemyAttack : MonoBehaviour
     private Animator animator;
     private Weapon weaponComponent;
 
-    [SerializeField] private int attackSoundIndex = 0; // AudioManager에서 몬스터/보스 공격 사운드 index 지정
+    [SerializeField] private int attackSoundIndex = 0; 
 
     private void Awake()
     {
         weaponComponent = weapon.GetComponent<Weapon>();
 
-        // ✅ Enemy 본체에서 Animator 가져오기
         animator = GetComponent<Animator>();
         if (animator == null)
         {
@@ -27,7 +26,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        // ✅ Animator가 없으면 검사하지 않도록 방어
         if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             EnableAttackHitbox();
@@ -56,7 +54,6 @@ public class EnemyAttack : MonoBehaviour
 
     public void AttackSound()
     {
-        // ✅ AudioManager로 공격 사운드 재생
         AudioManager.Instance.PlayMonsterAttack(attackSoundIndex);
     }
 }
