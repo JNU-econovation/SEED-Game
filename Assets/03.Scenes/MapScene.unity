@@ -201097,6 +201097,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3335453254439308827, guid: da18206fcda9c154eac489eadbf99224, type: 3}
+      propertyPath: correctPassword
+      value: 85759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335453254439308827, guid: da18206fcda9c154eac489eadbf99224, type: 3}
       propertyPath: passwordTrigger
       value: 
       objectReference: {fileID: 109821956}
