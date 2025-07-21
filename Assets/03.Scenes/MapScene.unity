@@ -114315,6 +114315,10 @@ MonoBehaviour:
   clueBoxOpenSound: {fileID: 8300000, guid: b1f77354db659d5488aa17f9d6101f1c, type: 3}
   clueBoxCloseSound: {fileID: 8300000, guid: 59e59a855174970428b2fc3f1fa2eba8, type: 3}
   clueCombineSound: {fileID: 8300000, guid: a3ace92d23e4d8f4abc0fdc7677e8dd6, type: 3}
+  keypadFailSound: {fileID: 8300000, guid: 1a37e610f2712294d981b5b66c22a2e2, type: 3}
+  keypadSuccessSound: {fileID: 8300000, guid: bd282623a2579774ba582aec989e70f8, type: 3}
+  eastRoomOpenSound: {fileID: 8300000, guid: 67f7431cc90f1134dba3a5ad677a39f3, type: 3}
+  gateCardSuccessSound: {fileID: 8300000, guid: ea98d1771d444a14ea4100b62105f9fe, type: 3}
   playerAttackSounds:
   - {fileID: 8300000, guid: b6116220254db5d4fa4d65b7d3936100, type: 3}
   - {fileID: 8300000, guid: 56243cc52abfb9f4f9661df7904ece8a, type: 3}
@@ -114325,7 +114329,7 @@ MonoBehaviour:
   playerDieSound: {fileID: 8300000, guid: 70666504b750da747bc065a8747e5953, type: 3}
   playerWalkSound: {fileID: 8300000, guid: 370b9212720c71a4c9d239b4812fb38a, type: 3}
   playerRunSound: {fileID: 8300000, guid: 30458df9c6488e94e8b52a2be9ba77f4, type: 3}
-  playerRollSound: {fileID: 8300000, guid: 924cb9d335d15ee4ba8c89e96ea26665, type: 3}
+  playerRollSound: {fileID: 8300000, guid: c26f3510c68f0174e981086dafbc5941, type: 3}
   playerJumpSound: {fileID: 8300000, guid: 2eade88dfd35483459480ce8558236e7, type: 3}
   doorOpenSound: {fileID: 8300000, guid: 5e100b6de5ecbad47bfcfd775820233d, type: 3}
   doorCloseSound: {fileID: 8300000, guid: 78e6a78c931cca0448fae26688ca53f8, type: 3}
@@ -119848,6 +119852,10 @@ PrefabInstance:
     - target: {fileID: 7368371084320624297, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494354898718517514, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

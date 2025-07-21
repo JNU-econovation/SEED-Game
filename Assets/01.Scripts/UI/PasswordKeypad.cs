@@ -38,7 +38,8 @@ public class PasswordKeypad : MonoBehaviour
         {
             statusText.text = "<color=green>비밀번호 일치!</color>";
             StartCoroutine(HideStatusTextAfterDelay());
-
+            AudioManager.Instance.PlayGateCardSuccess();
+            
             keypadPanel.SetActive(false);
             Time.timeScale = 1f;
 
@@ -49,6 +50,7 @@ public class PasswordKeypad : MonoBehaviour
         {
             statusText.text = "<color=red>틀렸습니다!</color>";
             StartCoroutine(HideStatusTextAfterDelay());
+            AudioManager.Instance.PlayKeypadFail();
 
             currentInput = "";
             inputDisplay.text = "";

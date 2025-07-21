@@ -123,6 +123,7 @@ public class InteractionTrigger : MonoBehaviour
             {
                 message = "카드키를 사용하였습니다.";
                 CardKeyManager.Instance.hasCardKey = false;
+                AudioManager.Instance.PlayGateCardSuccess();
                 if (SecurityGateBeams != null)
                 {
                     foreach (GameObject obj in SecurityGateBeams)
@@ -145,6 +146,7 @@ public class InteractionTrigger : MonoBehaviour
             else
             {
                 message = "카드키가 없습니다.";
+                AudioManager.Instance.PlayKeypadFail();
             }
         }
 
