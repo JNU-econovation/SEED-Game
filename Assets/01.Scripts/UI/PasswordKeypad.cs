@@ -17,7 +17,7 @@ public class PasswordKeypad : MonoBehaviour
 
     public void AppendNumber(string number)
     {
-        if (currentInput.Length < 4) // 최대 4자리 제한 (원하면 조절)
+        if (currentInput.Length < 5) // 최대 4자리 제한 (원하면 조절)
         {
             currentInput += number;
             inputDisplay.text = currentInput;
