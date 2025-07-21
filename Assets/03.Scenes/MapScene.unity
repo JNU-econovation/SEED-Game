@@ -114329,7 +114329,7 @@ MonoBehaviour:
   playerDieSound: {fileID: 8300000, guid: 70666504b750da747bc065a8747e5953, type: 3}
   playerWalkSound: {fileID: 8300000, guid: 370b9212720c71a4c9d239b4812fb38a, type: 3}
   playerRunSound: {fileID: 8300000, guid: 30458df9c6488e94e8b52a2be9ba77f4, type: 3}
-  playerRollSound: {fileID: 8300000, guid: c26f3510c68f0174e981086dafbc5941, type: 3}
+  playerRollSound: {fileID: 8300000, guid: ac782a6928f984bcf9917f40f871b428, type: 3}
   playerJumpSound: {fileID: 8300000, guid: 2eade88dfd35483459480ce8558236e7, type: 3}
   doorOpenSound: {fileID: 8300000, guid: 5e100b6de5ecbad47bfcfd775820233d, type: 3}
   doorCloseSound: {fileID: 8300000, guid: 78e6a78c931cca0448fae26688ca53f8, type: 3}
@@ -119801,10 +119801,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3209220616244464610, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: infos
-      value: 
-      objectReference: {fileID: 11400000, guid: 12a352b9d0b5b1147a0d96733ce0177a, type: 2}
     - target: {fileID: 4069396578705235267, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
       propertyPath: door1
       value: 
@@ -119817,18 +119813,6 @@ PrefabInstance:
       propertyPath: entranceTrigger
       value: 
       objectReference: {fileID: 1652435082}
-    - target: {fileID: 4249776671370773570, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.013279748
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249776671370773570, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.008327656
-      objectReference: {fileID: 0}
-    - target: {fileID: 4947995351445955070, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7017279536069773687, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
       propertyPath: hudUI
       value: 
@@ -119848,14 +119832,6 @@ PrefabInstance:
     - target: {fileID: 7126220601799746879, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
       propertyPath: m_Name
       value: Rackboss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7368371084320624297, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494354898718517514, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
