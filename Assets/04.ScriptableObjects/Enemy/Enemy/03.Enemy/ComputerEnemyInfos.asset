@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ComputerEnemyInfos
   m_EditorClassIdentifier: 
   name: Computer
-  maxHealth: 200
+  maxHealth: 150
   detectionRange: 10
   isBoss: 0
   attackInfo: {fileID: 11400000, guid: 1d4ef9ffc80d549e0a2ffd939097a4f5, type: 2}
