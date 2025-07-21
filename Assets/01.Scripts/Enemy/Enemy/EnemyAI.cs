@@ -90,7 +90,7 @@ public class EnemyAI : MonoBehaviour
 
         if (stun != null && stun.isStunned)
         {
-            if (currentState != EnemyState.Hit && currentState != EnemyState.Dead)
+            if (!enemyInfos.isBoss && currentState != EnemyState.Hit && currentState != EnemyState.Dead)
             {
                 animator.ResetTrigger(currentState.ToString());
                 animator.SetTrigger(EnemyState.Hit.ToString());
