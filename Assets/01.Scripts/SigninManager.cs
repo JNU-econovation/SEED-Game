@@ -45,6 +45,7 @@ public class SigninManager : MonoBehaviour
             CloseComputer.AlreadySignIn = true;
             sovlePassword = true;
             StartCoroutine(FadeOpenClubDoorMessage(OpenClubDoorMessage.text));
+            AudioManager.Instance.PlayEastRoomOpen();
         }
         else
         {

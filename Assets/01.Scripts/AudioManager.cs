@@ -17,6 +17,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip clueBoxOpenSound;
     public AudioClip clueBoxCloseSound;
     public AudioClip clueCombineSound;
+    [Header("Keypad & Gate SFX")]
+    public AudioClip keypadFailSound;
+    public AudioClip keypadSuccessSound;
+    public AudioClip eastRoomOpenSound;
+    public AudioClip gateCardSuccessSound;
+
 
     [Header("Player SFX")]
     public AudioClip[] playerAttackSounds;
@@ -102,6 +108,27 @@ public class AudioManager : MonoBehaviour
         if (clip != null)
             sfxSource.PlayOneShot(clip, sfxVolume);
     }
+    // Keypad & Gate
+    public void PlayKeypadFail()
+    {
+        PlaySFX(keypadFailSound);
+    }
+
+    public void PlayKeypadSuccess()
+    {
+        PlaySFX(keypadSuccessSound);
+    }
+
+    public void PlayEastRoomOpen()
+    {
+        PlaySFX(eastRoomOpenSound);
+    }
+
+    public void PlayGateCardSuccess()
+    {
+        PlaySFX(gateCardSuccessSound);
+    }
+
 
     // Player
     public void PlayPlayerAttack(int weaponIndex)

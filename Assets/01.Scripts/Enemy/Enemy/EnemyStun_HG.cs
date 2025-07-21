@@ -10,12 +10,21 @@ public class EnemyStun : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private NavMeshAgent agent;
+    private EnemyInfos enemyInfos;
+
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
+
+    void Awake()
+    {
+        var enemy = GetComponent<Enemy>();
+        if (enemy != null)
+            enemyInfos = enemy.enemyInfos;
+    }
     void Update()
     {
         if (isStunned)
@@ -31,6 +40,7 @@ public class EnemyStun : MonoBehaviour
 
     public void ApplyStun(float duration)
     {
+        if (enemyInfos.isBoss) return;
         Debug.Log($"ApplyStun 호출됨 - duration: {duration}, 현재 isStunned: {isStunned}, 현재 stunTimer: {stunTimer}");
     
         // 이미 스턴 중이고, 지금 들어온 duration이 더 짧으면 무시
