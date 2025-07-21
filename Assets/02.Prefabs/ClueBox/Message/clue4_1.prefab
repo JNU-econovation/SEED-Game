@@ -5025,7 +5025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca9aad7827b504a258fe1c375252f9a1, type: 3}
       propertyPath: m_Name
-      value: clue3_4
+      value: clue4_1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca9aad7827b504a258fe1c375252f9a1, type: 3}
       propertyPath: m_TagString
@@ -5068,9 +5068,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41788e0c5b722644a872b675e8360727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueBox: {fileID: 0}
-  interactionUI: {fileID: 0}
-  TextManager: {fileID: 0}
+  ClubDoor: {fileID: 0}
+  ComputerPanel: {fileID: 0}
+  Player2: {fileID: 0}
+  closeComputer: {fileID: 0}
+  SecurityGateBeams: []
   interactionKey: 102
 --- !u!114 &6405659282649602285
 MonoBehaviour:
@@ -5087,7 +5089,7 @@ MonoBehaviour:
   rotateSpeed: 20
   bounceSpeed: 5
   bounceHeight: 0.05
-  clueInfos: {fileID: 11400000, guid: c146eb9cfa9de47fb9d1c367fd4feab0, type: 2}
+  clueInfos: {fileID: 11400000, guid: cb33856e0f60c4b4996ca6032b2a4c29, type: 2}
 --- !u!65 &1923695365518945313
 BoxCollider:
   m_ObjectHideFlags: 0
