@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff882bc3f72e54c7b90ce9d3c82f9456, type: 3}
   m_Name: LaptopAttackInfo
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   attackSpeed: 5
   attackRange: 2
   attackSound: {fileID: 0}

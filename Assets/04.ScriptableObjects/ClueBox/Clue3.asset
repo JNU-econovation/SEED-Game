@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clue3
   m_EditorClassIdentifier: 
   name: "\uCEF4\uD4E8\uD130 \uB2E8\uC11C"
-  description: "\uBE44\uBC00\uBC88\uD638 X\\n\\n 109\uD638 \uBE54\uD504\uB85C\uC81D\uD130\uC5D0
+  description: "\uBE44\uBC00\uBC88\uD638 9\\n\\n 109\uD638 \uBE54\uD504\uB85C\uC81D\uD130\uC5D0
     \uBB34\uAE30\uAC00 \uC788\uB2E4."
   clueImage: {fileID: 21300000, guid: 5594571383bd07b4e8aa3c79a9918b23, type: 3}
   clueIndex: 0
