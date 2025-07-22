@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
     private EnemyStun stun;
     private BossSkill bossSkill;
-    private float skillRetryDelay = 2f;  
+    private float skillRetryDelay = 2f;
     private float nextSkillTryTime = 0f;
 
 
@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
                 return;
             if (bossSkill != null && bossSkill.IsSkillInProgress())
                 return;
-                
+
             // 스킬 끝난 뒤 새 상태 재결정
             EnemyState postSkillState = DetermineState(distance);
 
@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
             {
-                if (bossSkill.CheckSkillChance(0.3f))
+                if (bossSkill.CheckSkillChance(0.4f))
                     return EnemyState.SkillAttack1;
                 else
                     nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (distance < 10f)
             {
-               if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
+                if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
                 {
                     if (bossSkill.CheckSkillChance(0.5f))
                         return EnemyState.SkillAttack2;
@@ -196,5 +196,16 @@ public class EnemyAI : MonoBehaviour
 
         movement?.Stop();
     }
+    public void OnAttackEnd()
+    {
+        if (currentState == EnemyState.Attack)
+        {
+            float distance = Vector3.Distance(transform.position, player.position);
+            EnemyState postAttackState = DetermineState(distance);
 
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger(postAttackState.ToString());
+            currentState = postAttackState;
+        }
+    }
 }
