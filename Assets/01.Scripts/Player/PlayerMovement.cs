@@ -48,7 +48,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-         if (isDead)
+        if (Time.timeScale == 0f) return;
+        
+        if (isDead)
         {
             AudioManager.Instance.StopStep();
             animator.SetFloat("Speed", 0f);
@@ -210,7 +212,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            moveDirection = cachedInputDir * walkSpeed;
             rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
         }
     }
