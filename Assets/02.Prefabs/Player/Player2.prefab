@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runMultiplier: 2
+  runMultiplier: 1.4
   jumpForce: 5
   rollDistance: 5
   rollDuration: 0.8

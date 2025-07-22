@@ -80480,6 +80480,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
+      propertyPath: runMultiplier
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075841130079469650, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1535921801}
@@ -178188,6 +178192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas_ES
       objectReference: {fileID: 0}
+    - target: {fileID: 2210572335040361152, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6977844
+      objectReference: {fileID: 0}
     - target: {fileID: 2259899071919105100, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: weapon
       value: 
@@ -200969,26 +200977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1940644751706609918, guid: da18206fcda9c154eac489eadbf99224, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
-    - target: {fileID: 1940644751706609918, guid: da18206fcda9c154eac489eadbf99224, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3335453254439308827, guid: da18206fcda9c154eac489eadbf99224, type: 3}
       propertyPath: passwordTrigger
       value: 
       objectReference: {fileID: 109821956}
-    - target: {fileID: 6544272324246784885, guid: da18206fcda9c154eac489eadbf99224, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
-    - target: {fileID: 6544272324246784885, guid: da18206fcda9c154eac489eadbf99224, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8372680306279744801, guid: da18206fcda9c154eac489eadbf99224, type: 3}
       propertyPath: m_Name
       value: PasswordCanvas
