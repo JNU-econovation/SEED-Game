@@ -8,7 +8,7 @@ public class BossSkill2 : MonoBehaviour
     public GameObject laserPrefab;
     public float laserDuration = 3f;
     public float laserLength = 20f;
-    public float damagePerSecond = 50f;
+    public float damagePerSecond = 20f;
     public LayerMask hitLayerMask;
 
     private GameObject laser;

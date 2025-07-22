@@ -62,6 +62,7 @@ public class BossSkill1 : MonoBehaviour
         }
 
         Destroy(lightning, 2f); // 2초 후 자동 삭제 (VFX 이펙트의 재생 시간과 맞춰야 합니다)
+        yield return new WaitForSeconds(1.2f);
 
         // 딜 적용
         // Physics.OverlapSphere는 현재 'transform.position' (보스의 현재 위치)를 기준으로 합니다.
