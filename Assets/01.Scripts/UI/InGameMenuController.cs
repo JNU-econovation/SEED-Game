@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class InGameMenuController : MonoBehaviour
 {
     private GameObject gameMenu;
-    
+
     private void Awake()
     {
         gameMenu = gameObject.transform.GetChild(0).gameObject;
@@ -31,6 +32,7 @@ public class InGameMenuController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("MapScene");
+        AudioManager.Instance.PlayBGM();
         Time.timeScale = 1f;
     }
 
