@@ -10,16 +10,17 @@ public class BossEntranceTrigger : MonoBehaviour
 
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject playerObject;
+    private BossSkill bossSkill;
     private PlayerMovement playerMovement;
 
     private bool hasTriggered = false;
-    
 
 
     private void Start()
     {
         if (playerObject != null)
             playerMovement = playerObject.GetComponent<PlayerMovement>();
+        bossSkill = bossObject.GetComponent<BossSkill>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,6 +61,9 @@ public class BossEntranceTrigger : MonoBehaviour
             playerMovement.enabled = true;
 
         bossCam.SetActive(false);
+        
+        if (bossSkill != null)
+            bossSkill.bossTriggered = true;
     }
 
     public void ResetTrigger()
