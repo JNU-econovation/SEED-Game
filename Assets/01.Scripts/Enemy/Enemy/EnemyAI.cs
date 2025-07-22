@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
             {
-                if (bossSkill.CheckSkillChance(0f))
+                if (bossSkill.CheckSkillChance(0.4f))
                     return EnemyState.SkillAttack1;
                 else
                     nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
@@ -155,7 +155,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
                 {
-                    if (bossSkill.CheckSkillChance(0f))
+                    if (bossSkill.CheckSkillChance(0.5f))
                         return EnemyState.SkillAttack2;
                     else
                         nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
