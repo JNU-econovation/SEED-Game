@@ -167,6 +167,7 @@ public class PlayerAttack_MK : MonoBehaviour
         yield return new WaitForSeconds(0.1f);         // 잠깐 유지
         DisableAttackHitbox();                         // 끄고
 
+        ResetWeapon();
         yield return new WaitForSeconds(attackCooldown - 0.1f); // 쿨타임 대기
         isSmashing = false;
     }
