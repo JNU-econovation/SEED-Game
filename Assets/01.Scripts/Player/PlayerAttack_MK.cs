@@ -52,6 +52,7 @@ public class PlayerAttack_MK : MonoBehaviour
     {
         if (health.IsDead) return;
         if (movement != null && movement.isRolling) return;
+        if (Time.timeScale == 0f) return;
 
         // 맨손 공격
         if (Input.GetMouseButtonDown(0) && !isAttacking && weaponComponent.currentAttackInfo == weaponComponent.attackInfosList[0])
