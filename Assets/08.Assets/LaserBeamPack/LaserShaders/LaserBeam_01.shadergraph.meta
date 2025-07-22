@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 99e6b39b11498c74f9de2edbfd283e94
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/LaserShaders/LaserBeam_01.shadergraph
+  uploadId: 676849

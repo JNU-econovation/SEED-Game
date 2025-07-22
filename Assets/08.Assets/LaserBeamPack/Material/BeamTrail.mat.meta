@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 315ac53630446454c9d62c10c55209ed
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Material/BeamTrail.mat
+  uploadId: 676849

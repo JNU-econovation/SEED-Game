@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9dcddd968b859704ca00801132425a6b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Material/hit02_mt.mat
+  uploadId: 676849

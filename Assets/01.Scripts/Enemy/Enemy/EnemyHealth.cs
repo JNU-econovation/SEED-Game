@@ -1,0 +1,97 @@
+using System;
+using UnityEngine;
+
+public class EnemyHealth : MonoBehaviour
+{
+    [SerializeField] private HealthBar_ES enemyHealthUI;
+    
+    private EnemyInfos infos;
+    private float maxHealth => infos.maxHealth;
+    private float currentHealth { get; set; }
+    public bool isDead { get; set; } = false;
+    private EnemyStun stun;
+    private EnemyAI enemyAI;
+    public event Action onDeath;
+    private bool puzzleTriggered = false;
+    private BossPuzzleManager puzzleManager;
+
+    private void Awake()
+    {
+        infos = GetComponent<Enemy>().enemyInfos;
+        stun = GetComponent<EnemyStun>();
+        enemyAI = GetComponent<EnemyAI>();
+        puzzleManager = GetComponent<BossPuzzleManager>();
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        enemyHealthUI.Init(maxHealth);
+    }
+
+    public void OnHitboxTriggerEnter(Collider other)
+    {
+        Weapon weapon = other.GetComponent<Weapon>();
+        if (weapon == null) return;
+        if (weapon.tag != "PlayerWeapon") return;
+
+        float attackDamage = weapon.Damage;
+        Debug.Log("attackDamage: " + attackDamage);
+        TakeDamage(attackDamage);
+    }
+
+    private void TakeDamage(float damage)
+    {
+        if (isDead) return;
+        currentHealth -= damage;
+        stun.ApplyStun(1f);
+        enemyHealthUI.SetHealth(currentHealth);
+        
+        // AudioManager로 피격 사운드 재생
+        AudioManager.Instance.PlayMonsterHit();
+
+        // 퍼즐 조건
+        if (puzzleManager != null && !puzzleTriggered && currentHealth <= maxHealth * 0.2f)
+        {
+            puzzleTriggered = true;
+            puzzleManager.StartPuzzle();
+        }
+
+        if (currentHealth <= 0 && !isDead)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        onDeath?.Invoke();
+        isDead = true;
+        enemyAI.Die();
+    }
+
+    public float getMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+        puzzleTriggered = false;
+
+        currentHealth = maxHealth;
+    }
+
+}

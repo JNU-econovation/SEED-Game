@@ -1,0 +1,206 @@
+using SojaExiles;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InteractionTrigger : MonoBehaviour
+{
+    public GameObject ClubDoor;
+
+    public GameObject ComputerPanel;
+    public Transform Player2;
+    public CloseComputer closeComputer;
+    public List<GameObject> SecurityGateBeams;
+
+    private GameObject clueBox;
+    private GameObject interactionUI;
+    private GameObject interactionUIText;
+    private TextManager TextManager;
+
+    public KeyCode interactionKey = KeyCode.F;
+
+    private WeaponTrigger weaponTrigger;
+    private bool isPlayerInRange = false;
+    private string message;
+    private GameObject interactionObject;
+
+    private void Awake()
+    {
+        weaponTrigger = GetComponent<WeaponTrigger>();
+        if (tag == "Clue" || tag == "CardKey")
+        {
+            clueBox = GameObject.Find("ClueBox");
+        }
+
+        interactionUI = GameObject.Find("InteractionUiCanvas");
+        interactionUIText = interactionUI.transform.GetChild(0).gameObject;
+        TextManager = interactionUI.GetComponent<TextManager>();
+    }
+
+    void Update()
+    {
+        if (isPlayerInRange && Input.GetKeyDown(interactionKey))
+        {
+            if (interactionObject) HandleInteraction(interactionObject);
+            interactionUIText.SetActive(false);
+            TextManager.ShowClueMessage(message);
+            message = "";
+
+            if (gameObject.CompareTag("ComputerPuzzle"))
+            {
+                interactionUIText.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+            interactionUIText.SetActive(true);
+        }
+        
+        if (tag == "ClubDoor")
+        {
+            if (closeComputer.AlreadySignIn)
+            {
+                interactionUIText.SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag != "Player") return;
+        interactionObject = gameObject;
+    }
+
+    private void HandleInteraction(GameObject gameObject)
+    {
+        // 주울 수 있는 단서만 해당
+        // 다른 상호작용은 없어지면 안됨
+        if (gameObject.tag == "Clue")
+        {
+            StartCoroutine(GetClue());
+            message = "단서를 획득했다.";
+        }
+
+        else if (gameObject.tag == "CardKey")
+        {
+            StartCoroutine(GetCardKey());
+            message = "카드키를 획득했다.";
+            CardKeyManager.Instance.hasCardKey = true;
+        }
+
+        else if (gameObject.tag == "PlayerWeapon")
+        {
+            weaponTrigger.ChangeWeapon();
+            message = "무기를 획득했다.";
+            AudioManager.Instance.PlayWeaponGet();
+        }
+        else if (gameObject.tag == "ComputerPuzzle")
+        {
+            Time.timeScale = 0f;
+            ComputerPanel.SetActive(true);
+        }
+        else if (gameObject.tag == "ClubDoor")
+        {
+            if (closeComputer.AlreadySignIn)
+            {
+                message = "";
+                opencloseDoor opencloseDoor = ClubDoor.GetComponent<opencloseDoor>();
+                opencloseDoor.Player = Player2;
+            }
+            else
+            {
+                message = "열리지 않는다.";
+            }
+        }
+        else if (gameObject.tag == "CardKeyUse")
+        {
+            if (CardKeyManager.Instance.hasCardKey)
+            {
+                message = "카드키를 사용하였습니다.";
+                CardKeyManager.Instance.hasCardKey = false;
+                AudioManager.Instance.PlayGateCardSuccess();
+                if (SecurityGateBeams != null)
+                {
+                    foreach (GameObject obj in SecurityGateBeams)
+                    {
+                        Transform parent = obj.transform.parent;
+
+                        if (parent != null)
+                        {
+                            Collider parentCollider = parent.GetComponent<Collider>();
+                            if (parentCollider != null)
+                            {
+                                parentCollider.enabled = false;
+                            }
+                        }
+                        if (obj != null)
+                            obj.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                message = "카드키가 없습니다.";
+                AudioManager.Instance.PlayKeypadFail();
+            }
+        }
+
+        interactionObject = null;
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            interactionUIText.SetActive(false);
+        }
+    }
+
+    private IEnumerator GetClue()
+    {
+        AudioManager.Instance.PlayClueGet();
+        DisableInteraction();
+        float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
+        ClueMoveToClueBox();
+        yield return new WaitForSeconds(totalDisplayTime);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator GetCardKey()
+    {
+        AudioManager.Instance.PlayClueGet();
+        DisableInteraction();
+        float totalDisplayTime = TextManager.displayTime + TextManager.fadeDuration;
+        CardKeyMoveToClueBox();
+        yield return new WaitForSeconds(totalDisplayTime);
+        Destroy(gameObject);
+    }
+
+    private void ClueMoveToClueBox()
+    {
+        Clue clue = GetComponent<Clue>();
+        clueBox.GetComponent<ClueBox>().AddClue(clue.clueInfos);
+        
+    }
+
+    private void CardKeyMoveToClueBox()
+    {
+        CardKey cardKey = GetComponent<CardKey>();
+        clueBox.GetComponent<ClueBox>().AddClue(cardKey.clueInfos);
+    }
+    
+    private void DisableInteraction()
+    {
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        GetComponentInChildren<Light>().enabled = false;
+        GetComponentInChildren<ParticleSystem>().Stop();
+    }
+}

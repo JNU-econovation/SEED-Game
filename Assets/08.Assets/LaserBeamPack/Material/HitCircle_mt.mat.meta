@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4dce45b3466785242b24c589180a6d18
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Material/HitCircle_mt.mat
+  uploadId: 676849

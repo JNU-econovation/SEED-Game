@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4bd86a2ead2b6cd44b9d9745c1474acf
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Prefabs/BeamEffect/Style_02/LaserBeamStyle_15.prefab
+  uploadId: 676849

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 44bf5c4b080d15a4e923b41e1267c85d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Castle Pack/Materials/Castle_Pack_mt.mat
+  uploadId: 676849

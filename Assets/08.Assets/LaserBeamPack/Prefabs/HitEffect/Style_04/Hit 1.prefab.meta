@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 00e42af1e4e1688498ce7af80d900d02
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Prefabs/HitEffect/Style_04/Hit 1.prefab
+  uploadId: 676849

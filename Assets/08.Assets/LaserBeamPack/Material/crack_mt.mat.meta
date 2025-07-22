@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d22b151a7c61a464bb0aa17e47bfc5b4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274990
+  packageName: 3D Laser Beam VFX Effect
+  packageVersion: 1.1
+  assetPath: Assets/LaserBeamPack/Material/crack_mt.mat
+  uploadId: 676849
