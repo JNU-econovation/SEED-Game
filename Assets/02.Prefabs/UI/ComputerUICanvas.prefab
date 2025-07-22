@@ -942,7 +942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25300002, y: 0.34969047}
   m_AnchorMax: {x: 0.7445421, y: 0.43021482}
-  m_AnchoredPosition: {x: 1.3249817, y: -1.8339996}
+  m_AnchoredPosition: {x: 1.3249512, y: -1.8339844}
   m_SizeDelta: {x: -0.22302246, y: -8.431999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &129738867755858303
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_text: "\uC0AC\uBB3C\uD568\uC5D0\uC11C \uB178\uD2B8\uBD81\uC744 \uAEBC\uB0B4 \uC758\uC790\uC5D0
     \uC549\uC544\uC11C \uB178\uD2B8\uBD81\uC73C\uB85C \uCEF4\uD4E8\uD130\uB97C \uAC80\uC0C9\uD558\uC600\uB2E4."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 918deea79a5d60240a87dbf660783afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
   m_sharedMaterial: {fileID: 7738568248787624899, guid: 918deea79a5d60240a87dbf660783afb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6185785664245420765
@@ -1412,7 +1412,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2ed0a94ae831a01449eff8c0d48483b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
   m_sharedMaterial: {fileID: 4989529637910540564, guid: 2ed0a94ae831a01449eff8c0d48483b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6996687492403477313
@@ -1516,7 +1516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36952084, y: 0.17561908}
   m_AnchorMax: {x: 0.6282709, y: 0.2413336}
-  m_AnchoredPosition: {x: 2, y: 1.3139038}
+  m_AnchoredPosition: {x: 2, y: 1.3139648}
   m_SizeDelta: {x: 4, y: 3.024994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4268178908308426895
@@ -2009,7 +2009,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC81C\uBAA9\uC5C6\uC74C.txt"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f4df11b092de4174c8681bb94218cd7c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
   m_sharedMaterial: {fileID: -6849524683313828846, guid: f4df11b092de4174c8681bb94218cd7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2075,6 +2075,6 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
