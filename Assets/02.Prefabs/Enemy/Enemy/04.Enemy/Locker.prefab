@@ -447,7 +447,7 @@ MonoBehaviour:
   - {fileID: 1529920494292448214, guid: 2774ffaf2411a494f99369a2d87e7a50, type: 3}
   - {fileID: 1529920494292448214, guid: 1d593155b98644a28997b0f6002cac88, type: 3}
   - {fileID: 1529920494292448214, guid: 04ae9a6124c584aee8ba2b81c93279b2, type: 3}
-  dropChance: 0.3
+  dropChance: 0.4
 --- !u!1 &9129349351826399699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4032131439784264535, guid: 346724f8cd3754e6ca957d74b1c54b53, type: 3}

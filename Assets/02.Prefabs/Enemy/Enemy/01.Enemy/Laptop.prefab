@@ -753,7 +753,7 @@ MonoBehaviour:
   - {fileID: 1529920494292448214, guid: 2b2f852ed104d4b4a9182ccfa6db5e5e, type: 3}
   - {fileID: 1529920494292448214, guid: 4d9aa8fc108b9445a9fc06ab0865f587, type: 3}
   - {fileID: 1529920494292448214, guid: 7b651a286afb048f8ae04cee776b4b55, type: 3}
-  dropChance: 0.3
+  dropChance: 0.4
 --- !u!1001 &125714250173858782
 PrefabInstance:
   m_ObjectHideFlags: 0
