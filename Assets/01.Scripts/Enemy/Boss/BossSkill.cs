@@ -10,6 +10,7 @@ public class BossSkill : MonoBehaviour
     private float lastSkillTime = -Mathf.Infinity;
 
     private bool isUsingSkill = false;
+    public bool bossTriggered = false;
 
     public bool IsSkillInProgress()
     {
@@ -28,6 +29,8 @@ public class BossSkill : MonoBehaviour
 
     public void TryCastSkill1()
     {
+        if (!bossTriggered) return;
+
         isUsingSkill = true;
         lastSkillTime = Time.time;
 
@@ -48,6 +51,8 @@ public class BossSkill : MonoBehaviour
 
     public void TryCastSkill2()
     {
+        if (!bossTriggered) return;
+        
         isUsingSkill = true;
         lastSkillTime = Time.time;
 
