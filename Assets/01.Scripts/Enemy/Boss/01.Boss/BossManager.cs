@@ -44,6 +44,29 @@ public class BossManager : MonoBehaviour
         entranceTrigger.ResetTrigger();
     }
 
+    public void ResetAllEnemies()
+    {
+        EnemyHealth[] allEnemies = FindObjectsOfType<EnemyHealth>();
+
+        foreach (var enemy in allEnemies)
+        {
+            if (enemy.gameObject == boss.gameObject)
+                continue;
+
+            enemy.ResetHealth();
+
+            EnemyAI ai = enemy.GetComponent<EnemyAI>();
+            if (ai != null)
+                ai.ResetState();
+        }
+    }
+
+    public void ResetEverything()
+    {
+        ResetBoss();
+        ResetAllEnemies();
+    }
+    
     public void CloseDoor()
     {
         door1.GetComponent<opencloseDoor1>()?.ForceClose();
