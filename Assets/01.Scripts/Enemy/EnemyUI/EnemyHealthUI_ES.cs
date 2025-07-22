@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
+[Obsolete]
 public class EnemyHealthUI : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private RectTransform healthBarFill; // Fill 이미지의 RectTransform
-    [SerializeField] private GameObject healthBarUI;
 
     private float originalWidth; // 시작 너비 기억
     private float recoverySpeed = 10f;
@@ -22,14 +22,6 @@ public class EnemyHealthUI : MonoBehaviour
 
         if (healthBarFill != null)
             originalWidth = healthBarFill.sizeDelta.x;
-
-        // 체력 안 보이게 하게 하는 코드
-        // healthBarUI.SetActive(false);
-    }
-
-    void Update()
-    {
-        currentHealth = enemyHealth.getCurrentHealth();
     }
 
     public void TakeDamage(float damage)

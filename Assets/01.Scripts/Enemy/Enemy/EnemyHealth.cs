@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] private HealthBar_ES enemyHealthUI;
+    
     private EnemyInfos infos;
     private float maxHealth => infos.maxHealth;
     private float currentHealth { get; set; }
@@ -24,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        enemyHealthUI.Init(maxHealth);
     }
 
     public void OnHitboxTriggerEnter(Collider other)
@@ -35,9 +38,6 @@ public class EnemyHealth : MonoBehaviour
         float attackDamage = weapon.Damage;
         Debug.Log("attackDamage: " + attackDamage);
         TakeDamage(attackDamage);
-
-        EnemyHealthUI enemyHealthUI = GetComponentInChildren<EnemyHealthUI>();
-        enemyHealthUI.TakeDamage(attackDamage);
     }
 
     private void TakeDamage(float damage)
@@ -45,7 +45,8 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
         currentHealth -= damage;
         stun.ApplyStun(1f);
-
+        enemyHealthUI.SetHealth(currentHealth);
+        
         // AudioManager로 피격 사운드 재생
         AudioManager.Instance.PlayMonsterHit();
 
@@ -90,9 +91,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = false;
         puzzleTriggered = false;
 
-        EnemyHealthUI enemyHealthUI = GetComponentInChildren<EnemyHealthUI>();
-        if (enemyHealthUI != null)
-        enemyHealthUI.ResetUI();
+        currentHealth = maxHealth;
     }
 
 }

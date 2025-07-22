@@ -65,14 +65,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -6550432720726904964, guid: 1e8ffb2f21a909b46bb2883ddb8a7b21, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2147864951421566297
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2121816244574983907}
   - component: {fileID: 4286732409604202752}
   - component: {fileID: 1569233639052913019}
-  - component: {fileID: 7943866934944346309}
+  - component: {fileID: 4145720077962985355}
   m_Layer: 0
   m_Name: EnemyHealthBarCanvas_ES
   m_TagString: Untagged
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7943866934944346309
+--- !u!114 &4145720077962985355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,11 +187,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2147864951421566297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec2643774d4a9440987af0dd80e824e, type: 3}
+  m_Script: {fileID: 11500000, guid: 19a0966d937414042b13f3f56874ee6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarFill: {fileID: 7511902932923041451}
-  healthBarUI: {fileID: 4428112762763983804}
+  healthBarFillImage: {fileID: 4807409404898700545}
 --- !u!1 &4428112762763983804
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5230db458234820a5efb0d34787985c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealthUI: {fileID: 4145720077962985355}
 --- !u!114 &4204506434826510638
 MonoBehaviour:
   m_ObjectHideFlags: 0
