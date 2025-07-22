@@ -13,7 +13,6 @@ public class HealthBar_ES : MonoBehaviour
     {
         if (maxHealth != null)
         {
-            currentHealth = maxHealth;
             UpdateHealthBar();
         }
     }
