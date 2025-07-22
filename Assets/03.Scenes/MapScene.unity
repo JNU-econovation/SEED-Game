@@ -13247,6 +13247,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (3)
@@ -99298,6 +99302,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (2)
@@ -104417,6 +104425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (1)
@@ -115314,6 +115326,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner
@@ -133890,6 +133906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (1)
@@ -166714,6 +166734,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (2)
@@ -183330,6 +183354,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner
@@ -187652,6 +187680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (3)
