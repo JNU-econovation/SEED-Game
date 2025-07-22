@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,15 @@ public class HealthBar_ES : MonoBehaviour
     
     private float maxHealth;
     private float currentHealth;
+
+    private void OnEnable()
+    {
+        if (maxHealth != null)
+        {
+            currentHealth = maxHealth;
+            UpdateHealthBar();
+        }
+    }
 
     public void Init(float maxHealth)
     {
