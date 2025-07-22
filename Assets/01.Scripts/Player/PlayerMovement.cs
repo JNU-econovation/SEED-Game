@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isJumping)
         {
+            AudioManager.Instance.StopStep();
             jumpTimer -= Time.deltaTime;
             if (jumpTimer <= 0f)
             {
