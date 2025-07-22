@@ -200969,10 +200969,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940644751706609918, guid: da18206fcda9c154eac489eadbf99224, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
+    - target: {fileID: 1940644751706609918, guid: da18206fcda9c154eac489eadbf99224, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3335453254439308827, guid: da18206fcda9c154eac489eadbf99224, type: 3}
       propertyPath: passwordTrigger
       value: 
       objectReference: {fileID: 109821956}
+    - target: {fileID: 6544272324246784885, guid: da18206fcda9c154eac489eadbf99224, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
+    - target: {fileID: 6544272324246784885, guid: da18206fcda9c154eac489eadbf99224, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8372680306279744801, guid: da18206fcda9c154eac489eadbf99224, type: 3}
       propertyPath: m_Name
       value: PasswordCanvas
