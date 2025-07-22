@@ -10,6 +10,8 @@ public class BossEntranceTrigger : MonoBehaviour
 
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject playerObject;
+    
+    [SerializeField] private GameObject bossHealthUI;
     private BossSkill bossSkill;
     private PlayerMovement playerMovement;
 
@@ -60,6 +62,9 @@ public class BossEntranceTrigger : MonoBehaviour
         if (playerMovement != null)
             playerMovement.enabled = true;
 
+        if (bossHealthUI != null)
+            bossHealthUI.SetActive(true);
+        
         bossCam.SetActive(false);
         
         if (bossSkill != null)
@@ -83,6 +88,9 @@ public class BossEntranceTrigger : MonoBehaviour
             playerMovement.enabled = true;
         if (bossDoor != null)
             bossDoor.SetActive(false);
+        
+        if (bossHealthUI != null)
+            bossHealthUI.SetActive(false);
     }
 
 }
