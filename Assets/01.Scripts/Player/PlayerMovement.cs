@@ -48,7 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0f) return;
+        if (Time.timeScale == 0f)
+        {
+            AudioManager.Instance.StopStep(); 
+            return;
+        }
         
         if (isDead)
         {
@@ -76,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isJumping)
         {
+            AudioManager.Instance.StopStep();
             jumpTimer -= Time.deltaTime;
             if (jumpTimer <= 0f)
             {

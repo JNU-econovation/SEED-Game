@@ -91,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
         moveScript.enabled = true;
         GetComponent<Rigidbody>().isKinematic = false;
         AudioManager.Instance.PlayBGM();
-        BossManager.Instance.ResetBoss();
+        BossManager.Instance.ResetEverything();
     }
 
 

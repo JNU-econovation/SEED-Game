@@ -108,6 +108,13 @@ public class EnemyAI : MonoBehaviour
 
         animator.ResetTrigger(currentState.ToString());
         animator.SetTrigger(newState.ToString());
+        if ((newState == EnemyState.Attack || newState == EnemyState.SkillAttack1 || newState == EnemyState.SkillAttack2) && player != null)
+        {
+            Vector3 dir = (player.position - transform.position).normalized;
+            dir.y = 0;
+            if (dir != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(dir);
+        }
         currentState = newState;
 
         switch (currentState)
@@ -137,19 +144,29 @@ public class EnemyAI : MonoBehaviour
 
         float attackRange = enemyInfos.attackInfo.attackRange;
         float detectionRange = enemyInfos.detectionRange;
-
+        
         if (distance < attackRange)
         {
+            Vector3 toPlayer = (player.position - transform.position).normalized;
+            toPlayer.y = 0;
+            float dot = Vector3.Dot(transform.forward, toPlayer);
+            bool isPlayerInFront = dot > 0.5f;
+
+            if (!isPlayerInFront)
+            {
+                return EnemyState.Chase;
+            }
+            
             if (bossSkill != null && bossSkill.IsCooldownOver() && Time.time >= nextSkillTryTime)
             {
                 if (bossSkill.CheckSkillChance(0.4f))
                     return EnemyState.SkillAttack1;
                 else
-                    nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
+                    nextSkillTryTime = Time.time + skillRetryDelay;
             }
             return EnemyState.Attack;
         }
-        else if (distance < detectionRange)
+        else if (distance > attackRange && distance < detectionRange)
         {
             if (distance < 10f)
             {
@@ -158,7 +175,7 @@ public class EnemyAI : MonoBehaviour
                     if (bossSkill.CheckSkillChance(0.5f))
                         return EnemyState.SkillAttack2;
                     else
-                        nextSkillTryTime = Time.time + skillRetryDelay; // 실패 시 재시도 지연
+                        nextSkillTryTime = Time.time + skillRetryDelay; 
                 }
             }
             return EnemyState.Chase;
