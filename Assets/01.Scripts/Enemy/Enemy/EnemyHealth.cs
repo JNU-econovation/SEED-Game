@@ -92,6 +92,7 @@ public class EnemyHealth : MonoBehaviour
         puzzleTriggered = false;
 
         currentHealth = maxHealth;
+        enemyHealthUI.Init(maxHealth);
     }
 
 }

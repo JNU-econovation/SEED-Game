@@ -4403,7 +4403,21 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.3333334
+    functionName: EnableAttackHitbox
+    data: 
+    objectReferenceParameter: {fileID: 3393934118347210352, guid: 198b6fbcc3d72458cadb9cf31175f47c, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
     functionName: AttackSound
+    data: 
+    objectReferenceParameter: {fileID: 3393934118347210352, guid: 198b6fbcc3d72458cadb9cf31175f47c, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.375
+    functionName: DisableAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 3393934118347210352, guid: 198b6fbcc3d72458cadb9cf31175f47c, type: 3}
     floatParameter: 0

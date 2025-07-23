@@ -9,14 +9,6 @@ public class HealthBar_ES : MonoBehaviour
     private float maxHealth;
     private float currentHealth;
 
-    private void OnEnable()
-    {
-        if (maxHealth != null)
-        {
-            UpdateHealthBar();
-        }
-    }
-
     public void Init(float maxHealth)
     {
         this.maxHealth = maxHealth;

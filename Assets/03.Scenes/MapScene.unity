@@ -13247,6 +13247,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (3)
@@ -16520,7 +16524,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17200,7 +17204,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29263,7 +29267,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56381,7 +56385,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58109,7 +58113,7 @@ PrefabInstance:
     - target: {fileID: 1595579064080634933, guid: f0043371e2fd88747891ddb3064283ab, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 782261173}
+      objectReference: {fileID: 0}
     - target: {fileID: 6246961000813136800, guid: f0043371e2fd88747891ddb3064283ab, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0826166
@@ -61724,7 +61728,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75969,7 +75973,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80490,7 +80494,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8093934597101243782, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 855857622}
   m_SourcePrefab: {fileID: 100100000, guid: bb26e348ce57646879c2c14ac5a1dd5c, type: 3}
 --- !u!4 &782261173 stripped
 Transform:
@@ -88740,7 +88747,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91010,6 +91017,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 242e1395bd3c4fd1bea002ab98c4b929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &855857622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855857611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bc143e4e65b4ca09a2dcc4cc2c0d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &856077986 stripped
@@ -99298,6 +99317,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (2)
@@ -104071,7 +104094,7 @@ PrefabInstance:
     - target: {fileID: 1295105221917445327, guid: 229639aed4129534fa69a11f5305b94e, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 782261173}
+      objectReference: {fileID: 0}
     - target: {fileID: 2530248384463198189, guid: 229639aed4129534fa69a11f5305b94e, type: 3}
       propertyPath: m_Name
       value: Int_RR_DoorFrame_01_Man (1)
@@ -104417,6 +104440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (1)
@@ -108895,7 +108922,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -115314,6 +115341,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner
@@ -133890,6 +133921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 571343106}
     m_Modifications:
+    - target: {fileID: 456222761504119829, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4708748931249826012, guid: b9b5020c8b7be4cc0b451f8f367fc734, type: 3}
       propertyPath: m_Name
       value: LockerSpawner (1)
@@ -137324,7 +137359,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -142802,7 +142837,7 @@ PrefabInstance:
     - target: {fileID: 1769733901, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 782261173}
+      objectReference: {fileID: 0}
     - target: {fileID: 7036766287611309663, guid: 6723febf70d07b7469fbcddd65e8660b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -149581,7 +149616,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -166714,6 +166749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (2)
@@ -168025,7 +168064,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -168798,6 +168837,10 @@ PrefabInstance:
       propertyPath: bossAnimator
       value: 
       objectReference: {fileID: 1156238853}
+    - target: {fileID: 5016790428117187514, guid: 7943e6b5171538a4da493bf59ae54c07, type: 3}
+      propertyPath: bossHealthUI
+      value: 
+      objectReference: {fileID: 2082739648}
     - target: {fileID: 5016790428117187514, guid: 7943e6b5171538a4da493bf59ae54c07, type: 3}
       propertyPath: playerObject
       value: 
@@ -175346,7 +175389,7 @@ PrefabInstance:
     - target: {fileID: 8412839811700327940, guid: d94ca8c0c973920499d3cb52238af9b8, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 782261173}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -178194,7 +178237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210572335040361152, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.6977844
+      value: -2.697754
       objectReference: {fileID: 0}
     - target: {fileID: 2259899071919105100, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: weapon
@@ -178216,6 +178259,10 @@ PrefabInstance:
       propertyPath: clueBox
       value: 
       objectReference: {fileID: 1845032084}
+    - target: {fileID: 3586449860837542478, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7afb416c2d0d45b9beac7fc8db5f598, type: 3}
     - target: {fileID: 6208044456885006454, guid: 9e385b67f5c43442992c635dd5d57cc1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -183326,6 +183373,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner
@@ -187648,6 +187699,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011864024}
     m_Modifications:
+    - target: {fileID: 898803546671088942, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
+      propertyPath: maxEnemies
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5437308247599149543, guid: 9521012f378a84fcf8ff3a50a89b57de, type: 3}
       propertyPath: m_Name
       value: ComputerSpawner (3)
@@ -214816,6 +214871,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7996264972878318177, guid: 34d4d82c1bf25e642924b521b8a00cd3, type: 3}
   m_PrefabInstance: {fileID: 125651780}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2082739648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 995008752760326098, guid: 048f3c4a9e6451b498d20d6826119ace, type: 3}
+  m_PrefabInstance: {fileID: 1156238849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2082835721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4825763632709048, guid: edf16aa46c0e0f24f8df62f74474f268, type: 3}
@@ -220704,14 +220764,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1343135057}
     m_Modifications:
-    - target: {fileID: 502516733235648540, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
-    - target: {fileID: 502516733235648540, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 911925143838431540, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -220791,22 +220843,6 @@ PrefabInstance:
     - target: {fileID: 911925143838431540, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994458807318334995, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
-    - target: {fileID: 2994458807318334995, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812898892643687142, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cb8704e23d5b403aa67615fcc80dca3, type: 2}
-    - target: {fileID: 4812898892643687142, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6797328926381667956, guid: eabe8b4ce2c3448039fe9805afb23f90, type: 3}
       propertyPath: m_Name

@@ -54,6 +54,9 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float bgmVolume = 0.5f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
 
+    private float originalSfxVolume;
+    private float originalStepVolume;
+
     void Awake()
     {
         if (Instance == null)
@@ -72,6 +75,9 @@ public class AudioManager : MonoBehaviour
             stepSource = gameObject.AddComponent<AudioSource>();
             stepSource.loop = true;
             stepSource.volume = sfxVolume;
+
+            originalSfxVolume = sfxVolume;
+            originalStepVolume = sfxVolume;
         }
         else
         {
@@ -258,6 +264,12 @@ public class AudioManager : MonoBehaviour
         stepSource.volume = 0f;
 
         PlayBGM(endingTimelineBGM); 
+    }
+
+    public void RestoreSFXVolumes()
+    {
+        sfxSource.volume = originalSfxVolume;
+        stepSource.volume = originalStepVolume;
     }
 
 
