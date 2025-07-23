@@ -1954,7 +1954,7 @@ MonoBehaviour:
   timeline: {fileID: 0}
   player: {fileID: 0}
   hudUI: {fileID: 0}
-  bossHealthUI: {fileID: 0}
+  bossHealthUI: {fileID: 995008752760326098}
   clearUI: {fileID: 0}
   delay: 2
 --- !u!114 &4069396578705235267

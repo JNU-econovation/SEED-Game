@@ -32,6 +32,7 @@ public class InGameMenuController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("MapScene");
+        AudioManager.Instance.RestoreSFXVolumes();
         AudioManager.Instance.PlayBGM();
         Time.timeScale = 1f;
     }
