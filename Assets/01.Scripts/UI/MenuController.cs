@@ -5,7 +5,7 @@ public class StartMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("MapScene");
+        SceneManager.LoadScene("BossScene");
     }
 
     public void ExitGame()

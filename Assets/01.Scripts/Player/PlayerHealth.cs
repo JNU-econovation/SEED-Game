@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(GotoClubTime);
         currentHealth = 100f;
         playerHealthUI.SetHealth(currentHealth);
-        transform.position = new Vector3(6f, 0f, 12f);
+        transform.position = new Vector3(16f, -7f, -44f);
         isDead = false;
         animator.SetTrigger("Idle");
 
