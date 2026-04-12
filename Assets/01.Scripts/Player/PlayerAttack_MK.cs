@@ -7,15 +7,13 @@ public class PlayerAttack_MK : MonoBehaviour
     [SerializeField] private GameObject weapon;
     [SerializeField] private Transform weaponResetPoint;
 
-
     private Weapon weaponComponent;
-
     private float attackCooldown;
-
     private PlayerMovement movement;
+    private PlayerHealth health;
 
     private GameObject spawnedModel;
-
+    private GameObject spawnedModelPrefab; // 풀 반환 시 원본 프리팹 참조 보관
 
     // pencilcase 관련
     public float speed = 10f;
@@ -32,8 +30,6 @@ public class PlayerAttack_MK : MonoBehaviour
 
     // beamProjector 관련
     public bool isCoding = false;
-    private PlayerHealth health;
-
 
     private void Awake()
     {
@@ -59,9 +55,7 @@ public class PlayerAttack_MK : MonoBehaviour
         {
             isAttacking = true;
             animator.SetTrigger("Attack");
-
             AudioManager.Instance.PlayPlayerAttack(0);
-
             StartCoroutine(Attack());
         }
 
@@ -79,9 +73,7 @@ public class PlayerAttack_MK : MonoBehaviour
         {
             SmashWeapon();
             animator.SetTrigger("Smash");
-
             StartCoroutine(SmashAudio(0.8f));
-
             StartCoroutine(SmashAttack());
         }
 
@@ -90,9 +82,7 @@ public class PlayerAttack_MK : MonoBehaviour
         {
             ThrustWeapon();
             animator.SetTrigger("Thrust");
-
             AudioManager.Instance.PlayPlayerAttack(3);
-
             StartCoroutine(ThrustAttack(1f, 0.5f));
         }
 
@@ -101,9 +91,7 @@ public class PlayerAttack_MK : MonoBehaviour
         {
             CodingWeapon();
             animator.SetTrigger("Whip");
-
             AudioManager.Instance.PlayPlayerAttack(4);
-
             StartCoroutine(iscodingAttack(3f, 1f));
         }
     }
@@ -115,7 +103,6 @@ public class PlayerAttack_MK : MonoBehaviour
         EnableAttackHitbox();
         yield return new WaitForSeconds(0.1f);
         DisableAttackHitbox();
-        // 만약 애니메이션이 
         yield return new WaitForSeconds(attackCooldown - 0.1f);
         isAttacking = false;
     }
@@ -128,7 +115,7 @@ public class PlayerAttack_MK : MonoBehaviour
     {
         EnableAttackHitbox();
 
-        Vector3 startPos = weapon.transform.position;
+        Vector3 startPos  = weapon.transform.position;
         Vector3 targetPos = startPos + weapon.transform.forward * distance;
 
         float elapsed = 0f;
@@ -147,13 +134,7 @@ public class PlayerAttack_MK : MonoBehaviour
     {
         isThrown = true;
         throwTimer = 0f;
-
-        GameObject modelPrefab = weaponComponent.currentAttackInfo.attackModel;
-        if (modelPrefab != null)
-        {
-            spawnedModel = Instantiate(modelPrefab, weapon.transform);
-        }
-
+        SpawnWeaponModel();
         weapon.transform.SetParent(null);
     }
 
@@ -163,12 +144,11 @@ public class PlayerAttack_MK : MonoBehaviour
 
     IEnumerator SmashAttack()
     {
-        EnableAttackHitbox();                          // 히트박스 켜고
-        yield return new WaitForSeconds(0.1f);         // 잠깐 유지
-        DisableAttackHitbox();                         // 끄고
-
+        EnableAttackHitbox();
+        yield return new WaitForSeconds(0.1f);
+        DisableAttackHitbox();
         ResetWeapon();
-        yield return new WaitForSeconds(attackCooldown - 0.1f); // 쿨타임 대기
+        yield return new WaitForSeconds(attackCooldown - 0.1f);
         isSmashing = false;
     }
 
@@ -177,16 +157,11 @@ public class PlayerAttack_MK : MonoBehaviour
         yield return new WaitForSeconds(duration);
         AudioManager.Instance.PlayPlayerAttack(2);
     }
+
     private void SmashWeapon()
     {
         isSmashing = true;
-
-        GameObject modelPrefab = weaponComponent.currentAttackInfo.attackModel;
-        if (modelPrefab != null)
-        {
-            spawnedModel = Instantiate(modelPrefab, weapon.transform);
-        }
-
+        SpawnWeaponModel();
         weapon.transform.SetParent(null);
     }
 
@@ -199,22 +174,22 @@ public class PlayerAttack_MK : MonoBehaviour
         EnableAttackHitbox();
 
         Vector3 originalPos = weapon.transform.position;
-        Vector3 targetPos = originalPos + weapon.transform.forward * distance;
-
+        Vector3 targetPos   = originalPos + weapon.transform.forward * distance;
+        float halfDur = duration * 0.5f;
         float elapsed = 0f;
 
-        while (elapsed < duration / 2f)
+        while (elapsed < halfDur)
         {
-            weapon.transform.position = Vector3.Lerp(originalPos, targetPos, elapsed / (duration / 2f));
+            weapon.transform.position = Vector3.Lerp(originalPos, targetPos, elapsed / halfDur);
             elapsed += Time.deltaTime;
             yield return null;
         }
         weapon.transform.position = targetPos;
 
         elapsed = 0f;
-        while (elapsed < duration / 2f)
+        while (elapsed < halfDur)
         {
-            weapon.transform.position = Vector3.Lerp(targetPos, originalPos, elapsed / (duration / 2f));
+            weapon.transform.position = Vector3.Lerp(targetPos, originalPos, elapsed / halfDur);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -228,13 +203,7 @@ public class PlayerAttack_MK : MonoBehaviour
     private void ThrustWeapon()
     {
         isThrusting = true;
-
-        GameObject modelPrefab = weaponComponent.currentAttackInfo.attackModel;
-        if (modelPrefab != null)
-        {
-            spawnedModel = Instantiate(modelPrefab, weapon.transform);
-        }
-
+        SpawnWeaponModel();
         weapon.transform.SetParent(null);
     }
 
@@ -246,7 +215,7 @@ public class PlayerAttack_MK : MonoBehaviour
     {
         EnableAttackHitbox();
 
-        Vector3 startPos = weapon.transform.position;
+        Vector3 startPos  = weapon.transform.position;
         Vector3 targetPos = startPos + weapon.transform.forward * distance;
 
         float elapsed = 0f;
@@ -265,17 +234,31 @@ public class PlayerAttack_MK : MonoBehaviour
     private void CodingWeapon()
     {
         isCoding = true;
-
-        GameObject modelPrefab = weaponComponent.currentAttackInfo.attackModel;
-        if (modelPrefab != null)
-        {
-            spawnedModel = Instantiate(modelPrefab, weapon.transform);
-        }
-
+        SpawnWeaponModel();
         weapon.transform.SetParent(null);
     }
 
     #endregion
+
+    // ── 공용 헬퍼 ─────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// 현재 무기의 공격 모델을 풀에서 꺼냅니다.
+    /// Instantiate 대신 ObjectPoolManager를 사용해 GC 스파이크를 방지합니다.
+    /// </summary>
+    private void SpawnWeaponModel()
+    {
+        GameObject modelPrefab = weaponComponent.currentAttackInfo.attackModel;
+        if (modelPrefab == null) return;
+
+        spawnedModelPrefab = modelPrefab;
+        spawnedModel = ObjectPoolManager.Instance.Spawn(
+            modelPrefab,
+            weapon.transform.position,
+            weapon.transform.rotation,
+            weapon.transform   // weapon 하위로 배치
+        );
+    }
 
     private void EnableAttackHitbox()
     {
@@ -293,22 +276,21 @@ public class PlayerAttack_MK : MonoBehaviour
         weapon.transform.SetParent(weaponResetPoint);
         weapon.transform.localPosition = Vector3.zero;
         weapon.transform.localRotation = Quaternion.identity;
-
         throwTimer = 0f;
 
+        // Destroy 대신 풀로 반환
         if (spawnedModel != null)
         {
-            Destroy(spawnedModel);
-            spawnedModel = null;
+            ObjectPoolManager.Instance.ReturnToPool(spawnedModelPrefab, spawnedModel);
+            spawnedModel       = null;
+            spawnedModelPrefab = null;
         }
 
         weapon.SetActive(true);
     }
-    
+
     public bool IsAttackingOrBusy()
     {
         return isAttacking || isThrown || isSmashing || isThrusting || isCoding;
     }
-
-
 }
