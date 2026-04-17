@@ -213,7 +213,7 @@ void Update() {
 ## 🚀 실행 방법
 
 ### 필수 환경
-- **Unity**: 6000.1.3f1 (Unity Hub를 통해 정확한 버전 설치 필요)
+- **Unity**: 6000.1.3f1 
 - **Render Pipeline**: URP 17.1.0 (Package Manager에서 자동 복원)
 - **플랫폼**: Windows (빌드 타겟 `PC, Mac & Linux Standalone`)
 
@@ -234,13 +234,9 @@ void Update() {
 ### 인게임 실행
 - Unity Editor 상단 ▶ **Play** 버튼으로 즉시 플레이 테스트 가능
 
-### 빌드
+### 빌드 파일 링크
 ```
-File → Build Settings
-  Platform: Windows, Mac, Linux Standalone
-  Architecture: x86_64
-Player Settings → Product Name: SEED / Version: 0.1.0
-Build → 출력 폴더 지정
+https://kimpro4214.itch.io/seed
 ```
 
 ## 🎮 조작법
