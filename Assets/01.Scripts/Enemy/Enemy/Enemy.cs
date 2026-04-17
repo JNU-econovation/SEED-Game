@@ -32,12 +32,9 @@ public class Enemy : MonoBehaviour
     {
         EnemyHealth.onDeath += Die;
 
-        // 풀에서 재사용될 때(이전에 사망한 상태) 상태 초기화
-        if (EnemyHealth.isDead)
-        {
-            EnemyHealth.ResetHealth();
-            EnemyAi.ResetState();
-        }
+        // 풀에서 재사용될 때 항상 상태 초기화 (사망/스턴/공격 등 모든 상태 대응)
+        EnemyHealth.ResetHealth();
+        EnemyAi.ResetState();
     }
 
     void OnDisable()

@@ -197,6 +197,7 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("Idle");
 
         movement?.Stop();
+        nextSkillTryTime = 0f;
     }
 
     public void Die()

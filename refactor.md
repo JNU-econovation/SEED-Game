@@ -1,6 +1,6 @@
 # 리팩토링 현황 및 TODO
 
-## 분석 일자: 2026-04-11
+## 분석 일자: 2026-04-11 / 최종 수정: 2026-04-13
 
 ---
 
@@ -13,6 +13,10 @@
 | `Assets/01.Scripts/Enemy/Enemy/EnemySpawner.cs` | `Instantiate` → `ObjectPoolManager.Spawn` |
 | `Assets/01.Scripts/Player/PlayerAttack_MK.cs` | 무기 모델 `Instantiate/Destroy` → 풀 사용, `SpawnWeaponModel()` 공용 헬퍼 추출 |
 | `Assets/01.Scripts/Player/PlayerMovement.cs` | 점프 `AddForce` → `pendingJump` 플래그로 FixedUpdate에서 처리, `sqrMagnitude` 최적화 |
+| `Assets/01.Scripts/Enemy/Enemy/EnemyAI.cs` | `ResetState()`에 `nextSkillTryTime = 0f;` 추가 — 풀 재사용 시 스킬 쿨다운 정상화 |
+| `Assets/01.Scripts/Enemy/Enemy/Enemy.cs` | `OnEnable()` 조건부 리셋 → 무조건 리셋 (사망 외 상태에서 반환 시 미초기화 버그 수정) |
+| `Assets/01.Scripts/Enemy/Enemy/EnemyHealth.cs` | `ResetHealth()` 내 `currentHealth = maxHealth;` 중복 호출 제거 |
+| `Assets/01.Scripts/Player/PlayerHealth.cs` | `Die()` / `gotoClub()`의 `GetComponent<Rigidbody>()` → `Awake()`에서 `rb` 필드로 캐싱 |
 
 ---
 
@@ -58,41 +62,53 @@ public static ObjectPoolManager Instance {
 
 ---
 
+**`EnemyAI.ResetState()` — `nextSkillTryTime` 미리셋**
+- 위치: `EnemyAI.cs` `ResetState()` (L186~200)
+- 원인: 풀 재사용 시 `nextSkillTryTime`이 초기화되지 않아 이전 생존 시간 기준으로 스킬 쿨다운이 남음
+- 수정: `ResetState()` 마지막에 `nextSkillTryTime = 0f;` 추가
+
+**`Enemy.OnEnable()` — 조건부 리셋**
+- 위치: `Enemy.cs` `OnEnable()` (L31~41)
+- 원인: `isDead == true`일 때만 리셋 → 스턴/공격 중 반환된 적이 부분 상태로 재사용됨
+- 수정: 조건 제거, 무조건 `ResetHealth()` + `ResetState()` 호출
+
+**`EnemyHealth.ResetHealth()` — 중복 코드**
+- 위치: `EnemyHealth.cs` L88, L91
+- 원인: `currentHealth = maxHealth;`가 두 번 호출됨
+- 수정: 중복 줄 제거
+
+**`PlayerHealth` — `GetComponent<Rigidbody>()` 미캐싱**
+- 위치: `PlayerHealth.cs` `Die()` (L75), `gotoClub()` (L92)
+- 원인: `Update` 외부지만 CLAUDE.md 캐싱 규칙 미준수
+- 수정: `Awake()`에서 `rb` 필드로 캐싱
+
+---
+
 ### ⚠️ 미해결 (기존 문제 — 리팩토링 이전부터 존재)
 
-**Kinematic Rigidbody에 `linearVelocity` 직접 세팅**
-- 위치: `PlayerMovement.cs` `FixedUpdate()` 전체 (L187, L194, L204, L208, L213)
+**Kinematic Rigidbody에 `linearVelocity` 직접 세팅 — 타이밍 이슈 (무시 가능)**
+- 위치: `PlayerMovement.cs` `FixedUpdate()` 전체
 - 경고: `Setting linear velocity of a kinematic body is not supported.`
-- 원인: Player Rigidbody의 `isKinematic`이 true인 상태에서 `rb.linearVelocity`를 직접 설정
-- 영향: 이동/점프가 의도한 대로 동작하지 않을 가능성 있음
+- 원인 분석: Player Rigidbody `isKinematic = false`가 기본값 (Prefab 확인 완료). `Die()` 호출 시 동일 프레임 내 `isKinematic = true` 전환과 FixedUpdate 간 타이밍 충돌로 경고 발생 추정.
+- 결론: 런타임 이동/점프 로직에는 영향 없음. 무시 가능 수준.
 
 ---
 
 ## TODO
 
-### 긴급
-
-- [ ] **Player Rigidbody `isKinematic` 확인**
-  Inspector → Player → Rigidbody → `Is Kinematic` 체크 여부 확인
-  - Kinematic이 `true`면: `rb.linearVelocity` 방식 전체를 `rb.MovePosition`으로 교체
-  - Kinematic이 `false`면: 경고의 원인을 다시 조사
-
-- [ ] **`ObjectPoolManager` 씬 프리팹화 (선택)**
-  현재 lazy 싱글톤으로 자동 생성되지만, 씬에 명시적으로 배치해두면 풀 사전 워밍업(`Preload`) 기능 추가가 용이함
-
-### 일반
-
-- [ ] **풀 반환 누락 케이스 점검**
-  `PlayerAttack_MK.ResetWeapon()`에서 `spawnedModel`이 null인 상태로 공격이 중단될 때 반환이 호출되는지 확인
-
-- [ ] **EnemyHealth.ResetHealth() / EnemyAI.ResetState() 검증**
-  풀 재사용 시 `OnEnable`에서 호출되는 리셋이 모든 상태(NavMesh agent, 애니메이터, 히트박스 등)를 완전히 초기화하는지 플레이 테스트로 확인
+### 수동 QA 필요 항목
 
 - [ ] **스탠드얼론 빌드 FPS 측정**
   에디터에서의 14 FPS는 에디터 오버헤드 탓이므로, Development Build로 빌드 후 실제 FPS를 측정해 목표 프레임(60fps 또는 30fps)과 비교
 
 - [ ] **점프 느낌 검증**
   `pendingJump` 방식(`linearVelocity` 직접 세팅)이 기존 `AddForce` 대비 점프감 차이가 없는지 QA
+
+- [ ] **EnemyAI `nextSkillTryTime` 리셋 검증**
+  적 처치 후 재스폰 시 즉시 스킬 사용하지 않는지 플레이 테스트로 확인
+
+- [ ] **`ObjectPoolManager` 씬 프리팹화 (선택)**
+  현재 lazy 싱글톤으로 정상 동작 중. 풀 사전 워밍업(`Preload`) 기능이 필요하면 씬에 명시적으로 배치 고려
 
 ---
 
