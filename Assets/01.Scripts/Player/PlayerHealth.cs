@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private Rigidbody rb;
     private ClueBox clueBox;
     private PlayerStun stun;
     public bool enableStun = true;
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         stun = GetComponent<PlayerStun>();
         currentHealth = maxHealth;
         clueBox = GetComponentInChildren<ClueBox>();
@@ -72,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
         moveScript.isDead = true;
 
         moveScript.enabled = false;
-        GetComponent<Rigidbody>().isKinematic = true;
+        rb.isKinematic = true;
 
         StartCoroutine(gotoClub(GotoClubTime));
 
@@ -89,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
         var moveScript = GetComponent<PlayerMovement>();
         moveScript.isDead = false;
         moveScript.enabled = true;
-        GetComponent<Rigidbody>().isKinematic = false;
+        rb.isKinematic = false;
         AudioManager.Instance.PlayBGM();
         BossManager.Instance.ResetEverything();
     }
